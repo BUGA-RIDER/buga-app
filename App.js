@@ -4,6 +4,7 @@ import { createNativeStackNavigator  } from '@react-navigation/native-stack';
 import { NavigationContainer } from '@react-navigation/native';
 import Home from './screens/RiderScreens/Home';
 import { useFonts } from 'expo-font';
+import DriverHome from './screens/DriverScreens/DriverHome';
 
 
 const Stack = createNativeStackNavigator ();
@@ -25,6 +26,7 @@ const App = () => {
       <Stack.Navigator screenOptions = {{ headerShown: false }} 
         initialRouteName = "Home">
           <Stack.Screen name = "Home" component ={Home}/>
+          <Stack.Screen name = "DriverHome" component ={DriverHome}/>
           </Stack.Navigator>
     </NavigationContainer>
   );
