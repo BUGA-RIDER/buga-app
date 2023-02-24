@@ -1,23 +1,23 @@
 import { StyleSheet, Text, TouchableOpacity, View } from 'react-native'
 import React,{useState} from 'react'
 import { useNavigation } from '@react-navigation/core';
+import { useOnboardingStore } from '../stores/useOnboardingStore';
 
 const OnboardingHeader = () => {
     const navigation =useNavigation();
 
-    const [isRiderPressed, setIsRiderPressed] = useState(false);
-    const [isDriverPressed, setIsDriverPressed] = useState(false);
+    const selectedOption = useOnboardingStore((state) => state.selectedOption);
+    const setSelectedOption = useOnboardingStore((state) => state.setSelectedOption);
+  
 
     const handleRiderPress = () => {
-        setIsRiderPressed(true);
-        setIsDriverPressed(false);
-        navigation.navigate("Home");
+        setSelectedOption('Rider');
+        navigation.navigate('Home');
       };
     
       const handleDriverPress = () => {
-        setIsRiderPressed(false);
-        setIsDriverPressed(true);
-        navigation.navigate("DriverHome");
+        setSelectedOption('Driver');
+        navigation.navigate('DriverHome');
       };
 
     return (
@@ -27,9 +27,9 @@ const OnboardingHeader = () => {
             <TouchableOpacity 
             onPress={handleRiderPress} >
             <Text style={[
-                styles.buttonText,
-                isRiderPressed && styles.buttonPressed
-                ]}>
+                styles.buttonText, 
+                selectedOption === 'Rider' && 
+                styles.buttonPressed]}>
                 Rider
             </Text>
             </TouchableOpacity>
@@ -38,8 +38,8 @@ const OnboardingHeader = () => {
             onPress={handleDriverPress} >
             <Text style={[
                 styles.buttonText,
-                isDriverPressed && styles.buttonPressed
-                ]}>
+                 selectedOption === 'Driver' && 
+                 styles.buttonPressed]}>
                 Driver
             </Text>
             </TouchableOpacity>

@@ -3,8 +3,10 @@ import React,{useState} from 'react'
 import OnboardingSlide from '../../components/OnboardingSlide'
 import driveronboarding from '../../constants/driveronboarding'
 import OnboardingHeader from '../../components/OnboardingHeader';
+import { useOnboardingStore } from '../../stores/useOnboardingStore';
 
 const DriverHome = () => {
+    const selectedOption = useOnboardingStore((state) => state.selectedOption);
 
   return (
     <View style={styles.container}>

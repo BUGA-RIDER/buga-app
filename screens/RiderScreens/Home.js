@@ -5,8 +5,11 @@ import OnboardingSlide from '../../components/OnboardingSlide';
 import onboardingdata from '../../constants/onboardingdata';
 import Paginator from '../../components/Paginator';
 import OnboardingHeader from '../../components/OnboardingHeader';
+import { useOnboardingStore } from '../../stores/useOnboardingStore';
 
 const Home = ({item}) => {
+    const selectedOption = useOnboardingStore((state) => state.selectedOption);
+
     const [currentIndex, setCurrentIndex] = useState(0);
     const scrollX = useRef(new Animated.Value(0)).current;
 
