@@ -5,9 +5,14 @@ import driveronboarding from '../../constants/driveronboarding'
 import OnboardingHeader from '../../components/OnboardingHeader';
 import { useOnboardingStore } from '../../stores/useOnboardingStore';
 import { Button } from '../../components/Button';
+import { useNavigation } from '@react-navigation/core';
 
 const DriverHome = () => {
+    const navigation = useNavigation();
     const selectedOption = useOnboardingStore((state) => state.selectedOption);
+    const handleLogin = () => {
+        navigation.navigate('DriverLogin');
+      };
 
   return (
     <View style={styles.container}>
@@ -16,7 +21,7 @@ const DriverHome = () => {
         <OnboardingSlide key={item.id} item={item} />
                 ))}
             <View style={styles.button}>
-        <Button text={"Log In"}/>
+        <Button text={"Log In"} handlePress={handleLogin}/>
         <Text style={styles.signUp} >
             New To Buga? Sign Up!
         </Text>

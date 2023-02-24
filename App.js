@@ -4,6 +4,7 @@ import Home from './screens/RiderScreens/Home';
 import { useFonts } from 'expo-font';
 import DriverHome from './screens/DriverScreens/DriverHome';
 import Login from './screens/RiderScreens/LoginSignUp/Login';
+import DriverLogin from './screens/DriverScreens/LoginSignUp/DriverLogin';
 
 
 
@@ -27,7 +28,8 @@ const App = () => {
         initialRouteName = "Home">
           <Stack.Screen name = "Home" component ={Home}/>
           <Stack.Screen name = "DriverHome" component ={DriverHome}/>
-          <Stack.Screen name = "Login" component ={Login}/>
+          <Stack.Screen name = "RiderLogin" component ={Login}/>
+          <Stack.Screen name = "DriverLogin" component ={DriverLogin}/>
           </Stack.Navigator>
     </NavigationContainer>
   );

@@ -13,9 +13,6 @@ const OnboardingHeader = () => {
     const handleRiderPress = () => {
         setSelectedOption('Rider');
         navigation.navigate('Home');
-        if(selectedOption==='Rider'){
-         navigation.isFocused   
-        }
       };
     
       const handleDriverPress = () => {

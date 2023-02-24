@@ -7,14 +7,21 @@ import Paginator from '../../components/Paginator';
 import OnboardingHeader from '../../components/OnboardingHeader';
 import { useOnboardingStore } from '../../stores/useOnboardingStore';
 import { Button } from '../../components/Button';
+import { useNavigation } from '@react-navigation/core';
 
 const Home = ({item}) => {
+    const navigation =useNavigation();
+
+    const handleLogin = () => {
+        navigation.navigate('RiderLogin');
+      };
+
     const selectedOption = useOnboardingStore((state) => state.selectedOption);
 
     const [currentIndex, setCurrentIndex] = useState(0);
     const scrollX = useRef(new Animated.Value(0)).current;
 
-    const onboardingdataRef = useRef(null)
+    const onboardingdataRef = useRef(null);
 
     const viewConfig = useRef({ viewAreaCoveragePercentThreshold : 50 }).current;
 
@@ -46,7 +53,7 @@ const Home = ({item}) => {
        ref={onboardingdataRef}
        />
         <View style={styles.button}>
-        <Button text={"Log In"}/>
+        <Button text={"Log In"} handlePress={handleLogin}/>
         <Text style={styles.signUp} >
             New To Buga? Sign Up!
         </Text>
