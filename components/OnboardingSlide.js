@@ -1,35 +1,20 @@
 import { StyleSheet, Text, View, Image, useWindowDimensions, ImageBackground, TouchableOpacityComponent, TouchableOpacity } from 'react-native';
-import React from 'react';
+import React,{useState} from 'react';
 import { LinearGradient } from 'expo-linear-gradient';
 import { Button } from './Button';
-import { useNavigation } from '@react-navigation/core';
+
+
 
 const OnboardingSlide = ({ item } ) => {
 
-    const navigation = useNavigation();
     const {width} = useWindowDimensions();
-
   return (
     <View style={[styles.container, { width }]} >
     <ImageBackground source={item.imgUrl} style= {styles.background} >
         <LinearGradient 
         start={{x: 10, y: 0.5}} end={{x: 1, y: 1}} 
         colors={[ 'white' , 'black']} 
-        style={styles.overlay} />
-        <View style={styles.picker}>
-            
-            <TouchableOpacity onPress={()=>navigation.navigate("Home")} >
-            <Text style={styles.rider}>
-                Rider
-            </Text>
-            </TouchableOpacity>
-
-            <TouchableOpacity onPress={()=>navigation.navigate("DriverHome")} >
-            <Text style={styles.driver}>
-                Driver
-            </Text>
-            </TouchableOpacity>
-        </View>
+        style={styles.overlay} />        
         <View style= {styles.text}>
                 <Text style={styles.header}>
                 {item.title}
@@ -77,24 +62,17 @@ const styles = StyleSheet.create({
         paddingHorizontal:0,
         paddingVertical:5
     },
-    rider:{
+    buttonText:{
         fontSize:15,
         paddingHorizontal:55,
         paddingVertical:8,
-        backgroundColor:"black",
         borderRadius:7,
-        color:"white",
+        color:"black",
         fontFamily:"SatoshiMedium"
     },
-    driver:{
-        fontSize:15,
-        paddingHorizontal:45,
-        paddingVertical:8,
-        backgroundColor:"white",
-        borderRadius:7,
-        fontWeight:"300",     
-        fontFamily:"SatoshiMedium"
-    },
+    buttonPressed: {
+        backgroundColor: 'red',
+      },
     text:{
         position:'absolute',
         bottom:250,

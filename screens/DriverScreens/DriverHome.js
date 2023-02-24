@@ -1,16 +1,19 @@
-import { StyleSheet, Text, View } from 'react-native'
-import React from 'react'
+import { StyleSheet, View } from 'react-native'
+import React,{useState} from 'react'
 import OnboardingSlide from '../../components/OnboardingSlide'
 import driveronboarding from '../../constants/driveronboarding'
+import OnboardingHeader from '../../components/OnboardingHeader';
 
 const DriverHome = () => {
+
   return (
     <View style={styles.container}>
+        <OnboardingHeader/>
         {driveronboarding.map((item) => (
         <OnboardingSlide key={item.id} item={item} />
                 ))}
         </View>
-  );
+          );
 };
 
 export default DriverHome

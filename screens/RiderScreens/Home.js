@@ -4,6 +4,7 @@ import React, {useState, useRef} from 'react';
 import OnboardingSlide from '../../components/OnboardingSlide';
 import onboardingdata from '../../constants/onboardingdata';
 import Paginator from '../../components/Paginator';
+import OnboardingHeader from '../../components/OnboardingHeader';
 
 const Home = ({item}) => {
     const [currentIndex, setCurrentIndex] = useState(0);
@@ -21,6 +22,10 @@ const Home = ({item}) => {
         <View  style={{
             flex:3
         }}>
+            <OnboardingHeader style ={{
+                position:"absolute",
+                top:200
+              }}/>
       <FlatList 
       data={onboardingdata} renderItem={({item}) =>
        <OnboardingSlide  item={item}/>} 
