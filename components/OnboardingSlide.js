@@ -23,12 +23,7 @@ const OnboardingSlide = ({ item } ) => {
                 {item.subtitle}    
                 </Text>       
         </View>        
-        <View style={styles.button}>
-        <Button text={"Log In"}/>
-        <Text style={styles.signUp} >
-            New To Buga? Sign Up!
-        </Text>
-        </View>
+        
 
         </ImageBackground>
      </View>

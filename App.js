@@ -3,6 +3,7 @@ import { NavigationContainer } from '@react-navigation/native';
 import Home from './screens/RiderScreens/Home';
 import { useFonts } from 'expo-font';
 import DriverHome from './screens/DriverScreens/DriverHome';
+import Login from './screens/RiderScreens/LoginSignUp/Login';
 
 
 
@@ -26,6 +27,7 @@ const App = () => {
         initialRouteName = "Home">
           <Stack.Screen name = "Home" component ={Home}/>
           <Stack.Screen name = "DriverHome" component ={DriverHome}/>
+          <Stack.Screen name = "Login" component ={Login}/>
           </Stack.Navigator>
     </NavigationContainer>
   );

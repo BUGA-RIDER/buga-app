@@ -1,4 +1,4 @@
-import { FlatList, ImageBackground, StyleSheet, Animated, View } from 'react-native';
+import { FlatList, ImageBackground, StyleSheet, Animated, View, Text } from 'react-native';
 import React, {useState, useRef} from 'react';
 
 import OnboardingSlide from '../../components/OnboardingSlide';
@@ -6,6 +6,7 @@ import onboardingdata from '../../constants/onboardingdata';
 import Paginator from '../../components/Paginator';
 import OnboardingHeader from '../../components/OnboardingHeader';
 import { useOnboardingStore } from '../../stores/useOnboardingStore';
+import { Button } from '../../components/Button';
 
 const Home = ({item}) => {
     const selectedOption = useOnboardingStore((state) => state.selectedOption);
@@ -44,7 +45,13 @@ const Home = ({item}) => {
        viewabilityConfig={viewConfig}
        ref={onboardingdataRef}
        />
-              <Paginator data={onboardingdata} scrollX={scrollX}/>
+        <View style={styles.button}>
+        <Button text={"Log In"}/>
+        <Text style={styles.signUp} >
+            New To Buga? Sign Up!
+        </Text>
+        </View>
+        <Paginator data={onboardingdata} scrollX={scrollX}/>
        </View>
     </View>
   );
@@ -58,4 +65,17 @@ const styles = StyleSheet.create({
         justifyContent:'center',
         alignItems:'center'
     },
+    button:{
+        position:'absolute',
+        bottom:110,
+        alignSelf:'center',
+        },
+        signUp:{
+            textAlign:'center',
+            fontFamily:"SatoshiMedium",
+            fontSize:18,
+            color:"white",
+            textDecorationLine:'underline',
+            marginTop:16
+        }
 });
