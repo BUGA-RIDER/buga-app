@@ -1,24 +1,47 @@
 import React from 'react';
-import { View, TextInput } from 'react-native';
+import { View, TextInput, Text } from 'react-native';
 import Svg, { Image as SvgImage } from 'react-native-svg';
 
-const CustomTextInput = ({ iconLeft, iconRight, ...rest }) => {
+const CustomTextInput = ({ iconLeft, iconRight,label, required, width, height, ...rest }) => {
   return (
+    <View >
+      <View style={{
+        flexDirection:'row'
+      }}>
+      <Text style={{
+        marginLeft:43,
+        marginBottom:8,
+        fontFamily:"SatoshiMedium"
+      }}
+      >{label}</Text>
+
+    {required && (
+        <Svg width={16} height={12} 
+            style={{ 
+              alignSelf:'flex-end',
+              marginBottom:3,
+              marginLeft:4,
+             }}>
+          {required}
+        </Svg>
+      )}
+
+      </View>
     <View style={{ 
       borderWidth: 1, 
       borderColor: '#ccc', 
       borderRadius: 4, 
       flexDirection: 'row',
-      height:43,
       paddingHorizontal: 8,
+      paddingVertical:10,
       marginHorizontal:43,
       alignItems:'center',
     }}>
       {iconLeft && (
-        <Svg width={16} height={12} style={{ 
+        <Svg width={20} height={20} style={{ 
             marginRight: 12,
             marginLeft:16,
-            alignContent:'flex-start'
+            marginTop:5,
              }}>
           {iconLeft}
         </Svg>
@@ -29,12 +52,14 @@ const CustomTextInput = ({ iconLeft, iconRight, ...rest }) => {
         fontSize:15 
         }} {...rest} />
       {iconRight && (
-        <Svg width={18} height={15} style={{ 
+        <Svg width={20} height={12} style={{ 
             marginRight: 16,
-            alignSelf:'center' }}>
+            alignSelf:'center' 
+            }}>
           {iconRight}
         </Svg>
       )}
+    </View>
     </View>
   );
 };

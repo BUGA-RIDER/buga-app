@@ -50,9 +50,9 @@ const DriverLogin = () => {
         marginTop:11
       }}>
       <CustomTextInput
-        iconLeft={<PasswordIcon width={16} height={12} />}
+        iconLeft={<PasswordIcon width={17} height={15} />}
         iconRight={<EyeClosed width={16} height={12} />}
-        placeholder="Password"
+        placeholder ="Password"
         // onChangeText={setText}
         // value={text}
       />
