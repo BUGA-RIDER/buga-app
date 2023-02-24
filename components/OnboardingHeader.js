@@ -13,6 +13,9 @@ const OnboardingHeader = () => {
     const handleRiderPress = () => {
         setSelectedOption('Rider');
         navigation.navigate('Home');
+        if(selectedOption==='Rider'){
+         navigation.isFocused   
+        }
       };
     
       const handleDriverPress = () => {
@@ -60,7 +63,7 @@ const styles = StyleSheet.create({
         alignSelf:'center',
         justifyContent:'space-around',
         borderRadius:5,
-        paddingHorizontal:0,
+        paddingHorizontal:5,
         paddingVertical:5
     },
     buttonText:{
