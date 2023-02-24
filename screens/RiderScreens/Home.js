@@ -28,30 +28,32 @@ const Home = ({item}) => {
     const viewableItemsChanged = useRef(({ viewableItems }) =>{
         setCurrentIndex(viewableItems[0].items);
     }).current;
+
   return (
     <View style={styles.container}>
         <View  style={{
             flex:3
-        }}>
+         }}>
             <OnboardingHeader style ={{
                 position:"absolute",
                 top:200
               }}/>
-      <FlatList 
-      data={onboardingdata} renderItem={({item}) =>
-       <OnboardingSlide  item={item}/>} 
-       horizontal
-       pagingEnabled
-       bounces={false}
-       keyExtractor={(item) =>item.id}
-       onScroll={Animated.event([{nativeEvent: { contentOffset:{x:scrollX} }}],{
-        useNativeDriver:false,
-       })}
-       scrollEventThrottle={32}
-       onViewableItemsChanged={viewableItemsChanged}
-       viewabilityConfig={viewConfig}
-       ref={onboardingdataRef}
-       />
+        <FlatList 
+            data={onboardingdata} renderItem={({item}) =>
+            <OnboardingSlide  item={item}/>} 
+                horizontal
+                pagingEnabled
+                bounces={false}
+                keyExtractor={(item) =>item.id}
+                onScroll={Animated.event([{nativeEvent: { contentOffset:{x:scrollX} }}],{
+                    useNativeDriver:false,
+                })}
+                scrollEventThrottle={32}
+                onViewableItemsChanged={viewableItemsChanged}
+                viewabilityConfig={viewConfig}
+                ref={onboardingdataRef}
+                />
+                
         <View style={styles.button}>
         <Button text={"Log In"} handlePress={handleLogin}/>
         <Text style={styles.signUp} >
