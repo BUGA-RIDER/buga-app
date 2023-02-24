@@ -73,11 +73,10 @@ const DriverLogin = () => {
       </View>
       </View>
       <View style={styles.button}>
-
-        <Button text={"Log In"}
-            style={{
-              ...rest
-            }}
+    
+        <Button text={"Log In"} style={{
+          width:330
+        }}
         />
 
         <Text style={styles.signUp} >
