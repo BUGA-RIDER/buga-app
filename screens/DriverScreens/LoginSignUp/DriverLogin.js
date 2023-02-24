@@ -1,4 +1,4 @@
-import {  StyleSheet, Text, View } from 'react-native';
+import {  StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 import React from 'react';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { StatusBar } from 'expo-status-bar';
@@ -8,12 +8,20 @@ import PasswordIcon from '../../../assets/icons/Password_Icon.svg' ;
 import EyeClosed from '../../../assets/icons/password_closed.svg' ;
 import UnChecked from '../../../assets/icons/unchecked.svg' ;
 import Checked from '../../../assets/icons/checked.svg' ;
-import { HeadingText } from '../../../components/TextComponent';
+import { HeadingText } from '../../../components/CustomTextComponent';
 import CustomTextInput from '../../../components/CustomTextInput';
 import { Button } from '../../../components/Button';
+import { useNavigation } from '@react-navigation/core';
 
 
 const DriverLogin = () => {
+
+  const navigation = useNavigation()
+
+  const handleSignUp = () => {
+    navigation.navigate('DriverCreate');
+  };
+
   return (
     <SafeAreaView>
       <StatusBar backgroundColor='#FFCC2A'/>
@@ -74,14 +82,15 @@ const DriverLogin = () => {
       </View>
       <View style={styles.button}>
     
-        <Button text={"Log In"} style={{
+        <Button text={"Log In"} handlePress={handleSignUp} style={{
           width:330
         }}
         />
-
+      <TouchableOpacity onPress={handleSignUp}>
         <Text style={styles.signUp} >
             New To Buga? Sign Up!
         </Text>
+        </TouchableOpacity>
         </View>
       
     </SafeAreaView>

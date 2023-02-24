@@ -5,6 +5,7 @@ import { useFonts } from 'expo-font';
 import DriverHome from './screens/DriverScreens/DriverHome';
 import Login from './screens/RiderScreens/LoginSignUp/Login';
 import DriverLogin from './screens/DriverScreens/LoginSignUp/DriverLogin';
+import DriverCreate from './screens/DriverScreens/LoginSignUp/DriverCreate';
 
 
 
@@ -30,6 +31,7 @@ const App = () => {
           <Stack.Screen name = "DriverHome" component ={DriverHome}/>
           <Stack.Screen name = "RiderLogin" component ={Login}/>
           <Stack.Screen name = "DriverLogin" component ={DriverLogin}/>
+          <Stack.Screen name = "DriverCreate" component ={DriverCreate}/>
           </Stack.Navigator>
     </NavigationContainer>
   );
