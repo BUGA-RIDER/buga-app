@@ -2,7 +2,7 @@ import React from 'react';
 import { View, TextInput, Text } from 'react-native';
 import Svg, { Image as SvgImage } from 'react-native-svg';
 
-const CustomTextInput = ({ iconLeft, iconRight,label, required, width, height, ...rest }) => {
+const CustomTextInput = ({ iconLeft, iconRight,label, required, width, height, style, ...rest }) => {
   return (
     <View >
       <View style={{
@@ -36,6 +36,7 @@ const CustomTextInput = ({ iconLeft, iconRight,label, required, width, height, .
       paddingVertical:10,
       marginHorizontal:43,
       alignItems:'center',
+      ...style
     }}>
       {iconLeft && (
         <Svg width={20} height={20} style={{ 

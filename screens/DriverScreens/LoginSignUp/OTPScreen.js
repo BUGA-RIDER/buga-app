@@ -15,7 +15,7 @@ const OTPScreen = () => {
    const navigation = useNavigation()
 
    const handleProceed = () => {
-    navigation.navigate('DriverCreate');
+    navigation.navigate('Emergency');
   };
 
   return (
