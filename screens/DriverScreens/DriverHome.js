@@ -1,4 +1,4 @@
-import { StyleSheet, Text, View } from 'react-native'
+import { StyleSheet, Text, TouchableOpacity, View } from 'react-native'
 import React,{useState} from 'react'
 import OnboardingSlide from '../../components/OnboardingSlide'
 import driveronboarding from '../../constants/driveronboarding'
@@ -13,6 +13,9 @@ const DriverHome = () => {
     const handleLogin = () => {
         navigation.navigate('DriverLogin');
       };
+    const handleCreate = () => {
+        navigation.navigate('DriverCreate');
+      };
 
   return (
     <View style={styles.container}>
@@ -22,9 +25,11 @@ const DriverHome = () => {
                 ))}
             <View style={styles.button}>
         <Button text={"Log In"} handlePress={handleLogin}/>
+        <TouchableOpacity onPress={handleCreate}>
         <Text style={styles.signUp} >
             New To Buga? Sign Up!
         </Text>
+        </TouchableOpacity>
         </View>
         </View>
           );

@@ -11,6 +11,7 @@ import PasswordIcon from '../../../assets/icons/Password_Icon.svg' ;
 import EyeClosed from '../../../assets/icons/password_closed.svg' ;
 import Proceed from '../../../assets/icons/Proceed_Icon.svg' ;
 import {useNavigation} from '@react-navigation/core';
+import { StatusBar } from 'expo-status-bar'
 
 
 const DriverCreate = () => {
@@ -23,6 +24,7 @@ const DriverCreate = () => {
 
   return (
     <SafeAreaView>
+            <StatusBar backgroundColor='#FFCC2A'/>
         <ScrollView>
         <View style={styles.top}>
         <HeadingText text="Create a driver account" /> 
@@ -208,4 +210,4 @@ const styles = StyleSheet.create({
         fontSize:18,
         marginRight:8
     }
-})
+});

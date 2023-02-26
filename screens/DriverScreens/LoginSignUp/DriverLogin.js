@@ -29,13 +29,14 @@ const DriverLogin = () => {
           <Arrow/>
         </View>
       <View style={styles.heading}>
-      <HeadingText text="Welcome back!"/>
+      <HeadingText text="Welcome back!" style={{
+        fontSize:20
+      }}/>
       <Text style={styles.subheading}>
         Login to your <Text style={{
           fontFamily:"SatoshiBold"
         }}>driver</Text> account
       </Text>
-
       </View>
 
       <View style={styles.login}>
