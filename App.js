@@ -6,6 +6,7 @@ import DriverHome from './screens/DriverScreens/DriverHome';
 import Login from './screens/RiderScreens/LoginSignUp/Login';
 import DriverLogin from './screens/DriverScreens/LoginSignUp/DriverLogin';
 import DriverCreate from './screens/DriverScreens/LoginSignUp/DriverCreate';
+import OTPScreen from './screens/DriverScreens/LoginSignUp/OTPScreen';
 
 
 
@@ -32,6 +33,7 @@ const App = () => {
           <Stack.Screen name = "RiderLogin" component ={Login}/>
           <Stack.Screen name = "DriverLogin" component ={DriverLogin}/>
           <Stack.Screen name = "DriverCreate" component ={DriverCreate}/>
+          <Stack.Screen name = "OTPScreen" component ={OTPScreen}/>
           </Stack.Navigator>
     </NavigationContainer>
   );

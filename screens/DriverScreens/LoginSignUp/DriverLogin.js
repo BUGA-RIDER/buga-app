@@ -16,7 +16,7 @@ import { useNavigation } from '@react-navigation/core';
 
 const DriverLogin = () => {
 
-  const navigation = useNavigation()
+  const navigation = useNavigation();
 
   const handleSignUp = () => {
     navigation.navigate('DriverCreate');

@@ -10,9 +10,17 @@ import Phone_Icon from '../../../assets/icons/Phone_Icon.svg'
 import PasswordIcon from '../../../assets/icons/Password_Icon.svg' ;
 import EyeClosed from '../../../assets/icons/password_closed.svg' ;
 import Proceed from '../../../assets/icons/Proceed_Icon.svg' ;
-import { Button } from '../../../components/Button'
+import {useNavigation} from '@react-navigation/core';
+
 
 const DriverCreate = () => {
+
+    const navigation = useNavigation()
+
+    const handleProceed =()=>{
+        navigation.navigate('OTPScreen')
+    }
+
   return (
     <SafeAreaView>
         <ScrollView>
@@ -45,7 +53,7 @@ const DriverCreate = () => {
             <View style={styles.inputBox}>
             <CustomTextInput
             label="Your Phone Number (We’ll send a verification code)"
-            iconLeft={<Phone_Icon width={16} height={12} />}
+            iconLeft={<Phone_Icon width={20} height={20} />}
             required={<Asterisk/>}
             placeholder="+2340000004200"
             // onChangeText={setText}
@@ -56,7 +64,7 @@ const DriverCreate = () => {
             <View style={styles.inputBox}>
             <CustomTextInput
             label="An alternative phone number"
-            iconLeft={<Phone_Icon width={16} height={12} />}
+            iconLeft={<Phone_Icon width={20} height={20} />}
        
             placeholder="+2340000004200"
             // onChangeText={setText}
@@ -79,23 +87,39 @@ const DriverCreate = () => {
             marginHorizontal:43,
             }}>
             <View>
+            <View style={{
+                    flexDirection:'row',
+                    alignItems:'center'
+                }}>
             <Text style={{
                 marginBottom:8,
                 fontFamily:"SatoshiMedium",
                 }}>
                     City</Text>
+                    <View> 
+                    <Asterisk />
+                    </View>
+                    </View>
             <View style={styles.sideInput}>
-            <TextInput style={styles.sideInputText} placeholder='hshjfbhj' />
+            <TextInput style={styles.sideInputText} placeholder='E.g. Gbagada' />
             </View>
             </View>
             <View>
+                <View style={{
+                    flexDirection:'row',
+                    alignItems:'center'
+                }}>
             <Text style={{
                 marginBottom:7,
                 fontFamily:"SatoshiMedium",
                 }}>
                     State</Text>
+                    <View> 
+                    <Asterisk />
+                    </View>
+                    </View>
             <View style={styles.sideInput}>
-            <TextInput style={styles.sideInputText} placeholder='hshjfbhj' />
+            <TextInput style={styles.sideInputText} placeholder='E.g. Lagos' />
             </View>
             </View>
              </View>
@@ -120,31 +144,16 @@ const DriverCreate = () => {
                 // value={text}
                 />
              </View>
-             <View style={{
-                marginTop:32,
-                marginBottom:58,
-                alignSelf:'flex-end',
-                marginRight:43,
-                
-             }}>
-             <TouchableOpacity style={{
-            width:150,
-            backgroundColor:"#FFCC2A",
-            paddingVertical:15,
-            borderRadius: 5,
-            flexDirection:'row',
-            alignSelf:'center',
-            justifyContent:'center'       
-            }}    
-            >
-            <Text style={{
-            textAlign:'right',
-            fontFamily:"SatoshiBold",
-            fontSize:18,
-            marginRight:8
-      }}>Proceed</Text>
-      <Proceed/>
-    </TouchableOpacity>
+             
+            {/* proceed button */}
+
+             <View style={styles.buttonView}>
+             <TouchableOpacity style={styles.button}
+             onPress={handleProceed}
+             >
+                <Text style={styles.buttonText}>Proceed</Text>
+                    <Proceed/>
+            </TouchableOpacity>
              </View>
             </View>
             </ScrollView>
@@ -169,11 +178,34 @@ const styles = StyleSheet.create({
         borderWidth: 1, 
         borderColor: '#ccc', 
         borderRadius: 4,
-        paddingHorizontal:52,
+        paddingLeft:15,
+        paddingRight:15,
         paddingVertical:8,
+        width:150
     },
     sideInputText:{
         fontFamily:"SatoshiMedium",
         fontSize:15 
     },
+    buttonView:{
+        marginTop:32,
+        marginBottom:58,
+        alignSelf:'flex-end',
+        marginRight:43,  
+    },
+    button:{
+        width:150,
+        backgroundColor:"#FFCC2A",
+        paddingVertical:15,
+        borderRadius: 5,
+        flexDirection:'row',
+        alignSelf:'center',
+        justifyContent:'center'
+    },
+    buttonText:{
+        textAlign:'right',
+        fontFamily:"SatoshiBold",
+        fontSize:18,
+        marginRight:8
+    }
 })
