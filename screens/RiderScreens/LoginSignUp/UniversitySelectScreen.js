@@ -1,23 +1,40 @@
-import { StyleSheet, Text, TextInput, TouchableOpacity, View } from 'react-native';
+import { ScrollView, StyleSheet, Text, TextInput, TouchableOpacity, View } from 'react-native';
 import React from 'react';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { StatusBar } from 'expo-status-bar';
 import { HeadingText } from '../../../components/CustomTextComponent';
 import Arrow from '../../../assets/icons/arrow_back.svg' ;
 import Search_icon from '../../../assets/icons/search_icon.svg' ;
-import SelectDropdown from 'react-native-select-dropdown'
+import SelectDropdown from 'react-native-select-dropdown';
+import Proceed from '../../../assets/icons/Proceed_Icon.svg' ;
+import { useNavigation } from '@react-navigation/core';
+
+
 
 
 
 const UniversitySelectScreen = () => {
 
-    const countries = ["Egypt", "Canada", "Australia", "Ireland"]
-
+    const countries = [
+        "Egypt", "Canada", "Australia", "Ireland",
+        "Egypt", "Canada", "Australia", "Ireland",
+        "Egypt", "Canada", "Australia", "Ireland",
+        "Egypt", "Canada", "Australia", "Ireland",
+        "Egypt", "Canada", "Australia", "Ireland",
+    ]
+    const navigation = useNavigation();
+    
+    const handleProceed = () => {
+        navigation.navigate('RiderEmergency');
+      };
+    const handleBack = () => {
+        navigation.goBack();
+      };
 
   return (
     <SafeAreaView>
         <StatusBar backgroundColor='#FFCC2A'/>
-        <TouchableOpacity style={styles.arrow}>
+        <TouchableOpacity style={styles.arrow} onPress={handleBack}>
           <Arrow/>
         </TouchableOpacity>
         <View style={styles.heading}>
@@ -38,6 +55,7 @@ const UniversitySelectScreen = () => {
             marginTop:43
         }} >
         <Text style={[styles.searchTop]} >Select from the options below</Text>
+
     <View style={{
           width:326,
           borderRadius: 5,
@@ -45,12 +63,38 @@ const UniversitySelectScreen = () => {
           flexDirection:'row',
           alignItems: 'center',
           paddingHorizontal: 14,
-          paddingVertical: 10, 
+          paddingVertical: 0, 
+          borderWidth:0.5,
+          borderColor:'#9A9A9A'
         }}>
             <Search_icon/>
-          
+          <ScrollView >
             <SelectDropdown
-            searchPlaceHolder='Search'
+            defaultButtonText='Search'
+            dropdownStyle={{
+            borderRadius: 5,
+            backgroundColor:"white",
+            borderColor:'#9A9A9A',
+            height:"100%",
+            width:"70%"
+            }}
+            rowTextStyle={{
+                color:"#9A9A9A",
+                textAlign:'left',
+                fontFamily:"SatoshiMedium",
+                fontSize:14,
+                 
+            }}
+            buttonStyle={{
+                backgroundColor:"white",
+            }}
+            buttonTextStyle={{
+                color:"#9A9A9A",
+                textAlign:'left',
+                fontFamily:"SatoshiMedium",
+                fontSize:14,
+                 
+            }}
 	data={countries}
 	onSelect={(selectedItem, index) => {
 		console.log(selectedItem, index)
@@ -66,8 +110,17 @@ const UniversitySelectScreen = () => {
 		return item
 	}}
 />
+</ScrollView>
 
         </View>
+        <View style={styles.buttonView}>
+             <TouchableOpacity style={styles.button}
+                onPress={handleProceed}
+             >
+                <Text style={styles.buttonText}>Proceed</Text>
+                    <Proceed/>
+            </TouchableOpacity>
+             </View>
         </View>
         
     </SafeAreaView>
@@ -98,4 +151,32 @@ const styles = StyleSheet.create({
         fontSize:14,
         marginBottom:14
       },
+      scrollViewContainer: {
+        flexGrow: 1,
+        justifyContent: 'space-between',
+        alignItems: 'center',
+        paddingVertical: '10%',
+        paddingBottom: '20%',
+      },
+      buttonView:{
+        marginTop:45,
+        marginBottom:58,
+        alignSelf:'flex-end',
+        marginRight:43,  
+    },
+    button:{
+        width:150,
+        backgroundColor:"#FFCC2A",
+        paddingVertical:15,
+        borderRadius: 5,
+        flexDirection:'row',
+        alignSelf:'center',
+        justifyContent:'center'
+    },
+    buttonText:{
+        textAlign:'right',
+        fontFamily:"SatoshiBold",
+        fontSize:18,
+        marginRight:8
+    },
 })

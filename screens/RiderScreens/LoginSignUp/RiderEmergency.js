@@ -137,7 +137,7 @@ const RiderEmergency = () => {
             </View>
             <View style={styles.buttonView}>
              <TouchableOpacity style={styles.button}>
-                <Text style={styles.buttonText}>Proceed</Text>
+                <Text style={styles.buttonText}>Let's go!</Text>
                     <Proceed/>
             </TouchableOpacity>
              </View>

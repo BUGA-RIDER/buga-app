@@ -1,8 +1,8 @@
 import React from 'react';
-import { View, TextInput, Text } from 'react-native';
+import { View, TextInput, Text, Image } from 'react-native';
 import Svg, { Image as SvgImage } from 'react-native-svg';
 
-const CustomTextInput = ({ iconLeft, iconRight,label, required, width, height, style, ...rest }) => {
+ export const CustomTextInput = ({  iconLeft, iconRight,label, required, width, height, style, ...rest }) => {
   return (
     <View >
       <View style={{
@@ -65,4 +65,67 @@ const CustomTextInput = ({ iconLeft, iconRight,label, required, width, height, s
   );
 };
 
-export default CustomTextInput;
+export const CustomUploadInput = ({ iconRight,label, textRight, style, ...rest }) => {
+  return (
+    <View >
+      <View style={{
+        flexDirection:'row'
+      }}>
+      <Text style={{
+        marginLeft:43,
+        marginBottom:8,
+        fontFamily:"SatoshiMedium"
+      }}
+      >{label}</Text>
+
+
+      </View>
+    <View style={{ 
+      borderWidth: 1, 
+      borderColor: '#ccc', 
+      borderRadius: 4, 
+      flexDirection: 'row',
+      paddingHorizontal: 8,
+      paddingVertical:10,
+      marginHorizontal:43,
+      marginBottom:24,
+      alignItems:'center',
+      ...style
+    }}>
+      <TextInput style={{ 
+        flex: 1,
+        fontFamily:"SatoshiMedium",
+        fontSize:15 
+        }} {...rest} />
+
+        <View style={{
+          flexDirection:'row',
+          borderStyle:'dashed',
+          borderWidth:2,
+          padding:7,
+          borderRadius:5,
+          borderColor:"#FFCC2A"
+        }}>
+      {iconRight && (
+        <Image style={{ 
+            marginRight: 7,
+            alignSelf:'center'
+            }}
+            source= {iconRight}
+            />
+      )}
+      {textRight && (
+        <Text style={{ 
+            marginRight: 16,
+            alignSelf:'center',
+            fontFamily:"SatoshiMedium",
+            fontSize:13 
+            }}>
+          {textRight}
+        </Text>
+      )}
+      </View>
+    </View>
+    </View>
+  );
+};

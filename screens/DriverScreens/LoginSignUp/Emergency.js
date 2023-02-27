@@ -22,8 +22,15 @@ const Emergency = () => {
 
       navigation.goBack()
 
-    }
+    };
 
+    const handleProceed = ()=>{
+
+      navigation.navigate('StepOne')
+
+    };
+
+   
   return (
     <SafeAreaView>
     <StatusBar backgroundColor='#FFCC2A'/>
@@ -136,8 +143,8 @@ const Emergency = () => {
             </Text>
             </View>
             <View style={styles.buttonView}>
-             <TouchableOpacity style={styles.button}>
-                <Text style={styles.buttonText}>Proceed</Text>
+             <TouchableOpacity style={styles.button} onPress={handleProceed}>
+                <Text style={styles.buttonText}>Let's Go!</Text>
                     <Proceed/>
             </TouchableOpacity>
              </View>

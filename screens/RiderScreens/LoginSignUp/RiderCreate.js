@@ -25,7 +25,7 @@ const RiderCreate = () => {
             <StatusBar backgroundColor='#FFCC2A'/>
         <ScrollView>
         <View style={styles.top}>
-        <HeadingText text="Create a driver account" /> 
+        <HeadingText text="Create a rider account" /> 
         <SubText text="It’ll only take a minute"/> 
         </View>
         <View style={styles.formstart}>
@@ -71,58 +71,7 @@ const RiderCreate = () => {
             // value={text}
             />
             </View>
-            <View style={styles.inputBox}>
-            <CustomTextInput
-            label="Street Address"
-            required={<Asterisk/>}
-            placeholder="E.g. 2, harmony street, diamond estate."
-            // onChangeText={setText}
-            // value={text}
-            />
-            </View>
-
-            <View style={{
-            flexDirection:'row',
-            justifyContent:'space-between',
-            marginHorizontal:43,
-            }}>
-            <View>
-            <View style={{
-                    flexDirection:'row',
-                    alignItems:'center'
-                }}>
-            <Text style={{
-                marginBottom:8,
-                fontFamily:"SatoshiMedium",
-                }}>
-                    City</Text>
-                    <View> 
-                    <Asterisk />
-                    </View>
-                    </View>
-            <View style={styles.sideInput}>
-            <TextInput style={styles.sideInputText} placeholder='E.g. Gbagada' />
-            </View>
-            </View>
-            <View>
-                <View style={{
-                    flexDirection:'row',
-                    alignItems:'center'
-                }}>
-            <Text style={{
-                marginBottom:7,
-                fontFamily:"SatoshiMedium",
-                }}>
-                    State</Text>
-                    <View> 
-                    <Asterisk />
-                    </View>
-                    </View>
-            <View style={styles.sideInput}>
-            <TextInput style={styles.sideInputText} placeholder='E.g. Lagos' />
-            </View>
-            </View>
-             </View>
+    
 
              <View style={{
                 marginTop:20

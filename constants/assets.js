@@ -5,6 +5,7 @@ import bg4 from '../assets/images/4.png'
 import bg5 from '../assets/images/5.png'
 
 import arrowback from '../assets/icons/arrow_back.svg'
+import upload from '../assets/icons/upload_icon.png'
 
 export default{
     bg1,
@@ -13,5 +14,6 @@ export default{
     bg4,
     bg5,
 
-    arrowback
+    arrowback,
+    upload
 }
