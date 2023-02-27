@@ -1,25 +1,25 @@
-import {  StyleSheet, Text, TouchableOpacity, View } from 'react-native';
-import React from 'react';
-import { SafeAreaView } from 'react-native-safe-area-context';
-import { StatusBar } from 'expo-status-bar';
+import { Image, StyleSheet, Text, TouchableOpacity, View } from 'react-native'
+import React from 'react'
+import { SafeAreaView } from 'react-native-safe-area-context'
+import { StatusBar } from 'expo-status-bar'
 import Arrow from '../../../assets/icons/arrow_back.svg' ;
 import Mail from '../../../assets/icons/Mail_icon.svg' ;
 import PasswordIcon from '../../../assets/icons/Password_Icon.svg' ;
 import EyeClosed from '../../../assets/icons/password_closed.svg' ;
 import UnChecked from '../../../assets/icons/unchecked.svg' ;
 import Checked from '../../../assets/icons/checked.svg' ;
-import { HeadingText } from '../../../components/CustomTextComponent';
 import CustomTextInput from '../../../components/CustomTextInput';
-import { Button } from '../../../components/Button';
 import { useNavigation } from '@react-navigation/core';
+import { Button } from '../../../components/Button';
+import { HeadingText } from '../../../components/CustomTextComponent';
 
 
-const DriverLogin = () => {
+const RiderLogin = () => {
 
   const navigation = useNavigation();
 
   const handleSignUp = () => {
-    navigation.navigate('DriverCreate');
+    navigation.navigate('RiderCreate');
   };
 
   const handleBack = ()=>{
@@ -39,12 +39,15 @@ const DriverLogin = () => {
       <Text style={styles.subheading}>
         Login to your <Text style={{
           fontFamily:"SatoshiBold"
-        }}>driver</Text> account
+        }}>rider</Text> account
       </Text>
       </View>
 
       <View style={styles.login}>
       <CustomTextInput
+      style={{
+        marginBottom:0
+      }}
         iconLeft={<Mail width={16} height={12} />}
        
         placeholder="Email Address"
@@ -52,7 +55,7 @@ const DriverLogin = () => {
         // value={text}
       />
       <View style={{
-        marginTop:11
+        
       }}>
       <CustomTextInput
         iconLeft={<PasswordIcon width={17} height={15} />}
@@ -87,7 +90,7 @@ const DriverLogin = () => {
       </View>
       <View style={styles.button}>
     
-        <Button text={"Log In"} handlePress={handleSignUp} style={{
+        <Button text={"Log In"} style={{
           width:330
         }}
         />
@@ -99,10 +102,10 @@ const DriverLogin = () => {
         </View>
       
     </SafeAreaView>
-  );
-};
+  )
+}
 
-export default DriverLogin
+export default RiderLogin
 
 const styles = StyleSheet.create({
   container:{
