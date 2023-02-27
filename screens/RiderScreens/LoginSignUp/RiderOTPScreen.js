@@ -41,7 +41,7 @@ const RiderOTPScreen = () => {
 
 
    const handleProceed = () => {
-    navigation.navigate('RiderEmergency');
+    navigation.navigate('UniversitySelectScreen');
   };
 
   const handleBack = ()=>{

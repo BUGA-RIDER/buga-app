@@ -11,6 +11,7 @@ import RiderLogin from './screens/RiderScreens/LoginSignUp/RiderLogin';
 import RiderCreate from './screens/RiderScreens/LoginSignUp/RiderCreate';
 import RiderOTPScreen from './screens/RiderScreens/LoginSignUp/RiderOTPScreen';
 import RiderEmergency from './screens/RiderScreens/LoginSignUp/RiderEmergency';
+import UniversitySelectScreen from './screens/RiderScreens/LoginSignUp/UniversitySelectScreen';
 
 
 
@@ -44,6 +45,7 @@ const App = () => {
           <Stack.Screen name = "RiderCreate" component ={RiderCreate}/>
           <Stack.Screen name = "RiderOTPScreen" component ={RiderOTPScreen}/>
           <Stack.Screen name = "RiderEmergency" component ={RiderEmergency}/>
+          <Stack.Screen name = "UniversitySelectScreen" component ={UniversitySelectScreen}/>
           </Stack.Navigator>
     </NavigationContainer>
   );
