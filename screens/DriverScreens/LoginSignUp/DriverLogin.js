@@ -22,12 +22,16 @@ const DriverLogin = () => {
     navigation.navigate('DriverCreate');
   };
 
+  const handleBack = ()=>{
+   navigation.goBack()
+  };
+
   return (
     <SafeAreaView>
       <StatusBar backgroundColor='#FFCC2A'/>
-        <View style={styles.arrow}>
+        <TouchableOpacity style={styles.arrow} onPress={handleBack}>
           <Arrow/>
-        </View>
+        </TouchableOpacity>
       <View style={styles.heading}>
       <HeadingText text="Welcome back!" style={{
         fontSize:20

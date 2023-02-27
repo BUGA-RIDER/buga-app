@@ -18,7 +18,7 @@ export const HeadingText = ({text, style}) => {
   )
 }
 
-export const SubText = ({text}) => {
+export const SubText = ({text, style}) => {
   return (
     <View>
       <Text
@@ -27,7 +27,8 @@ export const SubText = ({text}) => {
         fontSize:18,
         lineHeight:18,
         color:"Black",
-        textAlign:'center'
+        textAlign:'center',
+        ...style
       }}
       >{text}</Text>
     </View>

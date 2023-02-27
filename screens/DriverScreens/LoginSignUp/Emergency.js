@@ -10,17 +10,27 @@ import Contacts_icon from '../../../assets/icons/contacts_icon.svg' ;
 import CustomTextInput from '../../../components/CustomTextInput';
 import Name_Icon from '../../../assets/icons/Name_Icon.svg';
 import Phone_Icon from '../../../assets/icons/Phone_Icon.svg';
+import {useNavigation} from "@react-navigation/core"
 
 
 
 const Emergency = () => {
+
+    const navigation = useNavigation()
+
+    const handleBack = ()=>{
+
+      navigation.goBack()
+
+    }
+
   return (
     <SafeAreaView>
     <StatusBar backgroundColor='#FFCC2A'/>
 
-        <View style={styles.arrow}>
+        <TouchableOpacity style={styles.arrow} onPress={handleBack}>
           <Arrow/>
-        </View>
+        </TouchableOpacity>
         <View style={styles.heading}>
       <HeadingText text="Who would you like us to reach
                           in case of an emergency?"
