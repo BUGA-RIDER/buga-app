@@ -14,6 +14,8 @@ import RiderEmergency from './screens/RiderScreens/LoginSignUp/RiderEmergency';
 import UniversitySelectScreen from './screens/RiderScreens/LoginSignUp/UniversitySelectScreen';
 import StepOne from './screens/DriverScreens/Registration/StepOne';
 import StepTwo from './screens/DriverScreens/Registration/StepTwo';
+import LoadingScreenOne from './screens/LoadingScreens/LoadingScreenOne';
+import Successful from './screens/LoadingScreens/Successful';
 
 
 
@@ -50,6 +52,9 @@ const App = () => {
           <Stack.Screen name = "RiderOTPScreen" component ={RiderOTPScreen}/>
           <Stack.Screen name = "RiderEmergency" component ={RiderEmergency}/>
           <Stack.Screen name = "UniversitySelectScreen" component ={UniversitySelectScreen}/>
+          {/* loading screens */}
+          <Stack.Screen name = "LoadingScreenOne" component ={LoadingScreenOne}/>
+          <Stack.Screen name = "Successful" component ={Successful}/>
           </Stack.Navigator>
     </NavigationContainer>
   );

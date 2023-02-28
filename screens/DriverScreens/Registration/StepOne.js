@@ -158,7 +158,7 @@ const StepOne = () => {
 
         <View style={styles.buttonView}>
              <TouchableOpacity style={styles.button} onPress={handleProceed}>
-                <Text style={styles.buttonText}>Let's Go!</Text>
+                <Text style={styles.buttonText}>Proceed</Text>
                     <Proceed/>
             </TouchableOpacity>
         </View>

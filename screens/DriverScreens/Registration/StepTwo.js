@@ -17,7 +17,7 @@ const StepTwo = () => {
         navigation.goBack();
     };
     const handleProceed = () => {
-        navigation.navigate('StepThree');
+        navigation.navigate('LoadingScreenOne');
     };
 
   return (
@@ -92,7 +92,7 @@ const StepTwo = () => {
 
         <View style={styles.buttonView}>
              <TouchableOpacity style={styles.button} onPress={handleProceed}>
-                <Text style={styles.buttonText}>Let's Go!</Text>
+                <Text style={styles.buttonText}>Proceed</Text>
                     <Proceed/>
             </TouchableOpacity>
         </View>
@@ -118,7 +118,8 @@ const styles = StyleSheet.create({
         color:"#9A9A9A",
         textAlign:'left',
         marginRight:74,
-        marginBottom:34
+        marginBottom:34,
+        fontFamily:"SatoshiMedium"
       },
       buttonView:{
         marginTop:50,
