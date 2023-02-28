@@ -23,7 +23,10 @@ const RiderCreate = () => {
   return (
     <SafeAreaView>
             <StatusBar backgroundColor='#FFCC2A'/>
-        <ScrollView>
+        <ScrollView style={{
+            backgroundColor:"white",
+            paddingBottom:50
+        }}>
         <View style={styles.top}>
         <HeadingText text="Create a rider account" /> 
         <SubText text="It’ll only take a minute"/> 
