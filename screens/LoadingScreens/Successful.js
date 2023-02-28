@@ -2,13 +2,16 @@ import { Image, StyleSheet, Text, TouchableOpacity, View } from 'react-native'
 import React from 'react'
 import { SafeAreaView } from 'react-native-safe-area-context'
 import { HeadingText, SubText } from '../../components/CustomTextComponent'
+import Submitted from '../../assets/icons/submitted.svg'
 
 
 
 const Successful = () => {
   return (
     <SafeAreaView style={styles.container}>
-      <Image />
+      <Submitted style={{
+        marginBottom:23
+      }}/>
       <HeadingText
         text="Your documents have been submitted and is under review "
         style={{

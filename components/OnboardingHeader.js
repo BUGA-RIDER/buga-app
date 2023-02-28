@@ -17,7 +17,7 @@ const OnboardingHeader = () => {
     
       const handleDriverPress = () => {
         setSelectedOption('Driver');
-        navigation.navigate('DriverHome');
+        navigation.navigate('DriverOnboarding');
       };
 
     return (

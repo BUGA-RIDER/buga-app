@@ -2,7 +2,7 @@ import { Image, StyleSheet, Text, Touchable, TouchableOpacity, View } from 'reac
 import React, { useEffect, useState } from 'react'
 import { SafeAreaView } from 'react-native-safe-area-context'
 import { HeadingText, SubText } from '../../components/CustomTextComponent'
-import assets from '../../constants/assets'
+import Spinner from '../../assets/icons/spinner.svg'
 import {useNavigation} from "@react-navigation/core"
 
 const LoadingScreenOne = () => {
@@ -23,10 +23,8 @@ const LoadingScreenOne = () => {
   }, []);
   return (
     <SafeAreaView style={styles.container} >
-    <Image
-        style={[styles.spinner, { transform: [{ rotate: `${rotation}deg` }] }]}
-        source={assets.loading}
-      />
+    <Spinner 
+    style={[styles.spinner, { transform: [{ rotate: `${rotation}deg` }] }]}/>
       <TouchableOpacity onPress={successful}>
       <HeadingText text="Just a sec" />
       <SubText text="Submitting your documents" 

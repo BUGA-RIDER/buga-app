@@ -2,7 +2,6 @@ import { createNativeStackNavigator  } from '@react-navigation/native-stack';
 import { NavigationContainer } from '@react-navigation/native';
 import Home from './screens/RiderScreens/Home';
 import { useFonts } from 'expo-font';
-import DriverHome from './screens/DriverScreens/DriverHome';
 import DriverLogin from './screens/DriverScreens/LoginSignUp/DriverLogin';
 import DriverCreate from './screens/DriverScreens/LoginSignUp/DriverCreate';
 import OTPScreen from './screens/DriverScreens/LoginSignUp/OTPScreen';
@@ -16,6 +15,7 @@ import StepOne from './screens/DriverScreens/Registration/StepOne';
 import StepTwo from './screens/DriverScreens/Registration/StepTwo';
 import LoadingScreenOne from './screens/LoadingScreens/LoadingScreenOne';
 import Successful from './screens/LoadingScreens/Successful';
+import DriverOnboarding from './screens/DriverScreens/DriverOnboarding';
 
 
 
@@ -39,7 +39,7 @@ const App = () => {
         initialRouteName = "Home">
           <Stack.Screen name = "Home" component ={Home}/>
           {/* driver screens */}
-          <Stack.Screen name = "DriverHome" component ={DriverHome}/>
+          <Stack.Screen name = "DriverOnboarding" component ={DriverOnboarding}/>
           <Stack.Screen name = "DriverLogin" component ={DriverLogin}/>
           <Stack.Screen name = "DriverCreate" component ={DriverCreate}/>
           <Stack.Screen name = "OTPScreen" component ={OTPScreen}/>

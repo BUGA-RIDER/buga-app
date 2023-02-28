@@ -7,7 +7,7 @@ import { useOnboardingStore } from '../../stores/useOnboardingStore';
 import { Button } from '../../components/Button';
 import { useNavigation } from '@react-navigation/core';
 
-const DriverHome = () => {
+const DriverOnboarding = () => {
     const navigation = useNavigation();
     const selectedOption = useOnboardingStore((state) => state.selectedOption);
     const handleLogin = () => {
@@ -35,7 +35,7 @@ const DriverHome = () => {
           );
 };
 
-export default DriverHome
+export default DriverOnboarding
 
 const styles = StyleSheet.create({
     container:{
