@@ -16,6 +16,7 @@ import StepTwo from './screens/DriverScreens/Registration/StepTwo';
 import LoadingScreenOne from './screens/LoadingScreens/LoadingScreenOne';
 import Successful from './screens/LoadingScreens/Successful';
 import DriverOnboarding from './screens/DriverScreens/DriverOnboarding';
+import DriverHome from './screens/DriverScreens/LoggedIn/DriverHome';
 
 
 
@@ -46,6 +47,7 @@ const App = () => {
           <Stack.Screen name = "Emergency" component ={Emergency}/>
           <Stack.Screen name = "StepOne" component ={StepOne}/>
           <Stack.Screen name = "StepTwo" component ={StepTwo}/>
+          <Stack.Screen name = "DriverHome" component ={DriverHome}/>
           {/* rider screens */}
           <Stack.Screen name = "RiderLogin" component ={RiderLogin}/>
           <Stack.Screen name = "RiderCreate" component ={RiderCreate}/>
