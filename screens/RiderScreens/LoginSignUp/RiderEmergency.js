@@ -7,7 +7,7 @@ import Arrow from '../../../assets/icons/arrow_back.svg' ;
 import Proceed from '../../../assets/icons/Proceed_Icon.svg' ;
 import Add_emergency from '../../../assets/icons/add_emergency.svg' ;
 import Contacts_icon from '../../../assets/icons/contacts_icon.svg' ;
-import CustomTextInput from '../../../components/CustomTextInput';
+import {CustomTextInput} from '../../../components/CustomTextInput';
 import Name_Icon from '../../../assets/icons/Name_Icon.svg';
 import Phone_Icon from '../../../assets/icons/Phone_Icon.svg';
 import {useNavigation} from "@react-navigation/core"

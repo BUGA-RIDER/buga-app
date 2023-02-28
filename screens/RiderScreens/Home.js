@@ -1,4 +1,4 @@
-import { FlatList, ImageBackground, StyleSheet, Animated, View, Text } from 'react-native';
+import { FlatList, ImageBackground, StyleSheet, Animated, View, Text, TouchableOpacity } from 'react-native';
 import React, {useState, useRef} from 'react';
 
 import OnboardingSlide from '../../components/OnboardingSlide';
@@ -14,6 +14,9 @@ const Home = ({item}) => {
 
     const handleLogin = () => {
         navigation.navigate('RiderLogin');
+      };
+    const handleSignUp = () => {
+        navigation.navigate('RiderCreate');
       };
 
     const selectedOption = useOnboardingStore((state) => state.selectedOption);
@@ -56,9 +59,11 @@ const Home = ({item}) => {
                 
         <View style={styles.button}>
         <Button text={"Log In"} handlePress={handleLogin}/>
+        <TouchableOpacity onPress={handleSignUp}>
         <Text style={styles.signUp} >
             New To Buga? Sign Up!
         </Text>
+        </TouchableOpacity>
         </View>
         <Paginator data={onboardingdata} scrollX={scrollX}/>
        </View>

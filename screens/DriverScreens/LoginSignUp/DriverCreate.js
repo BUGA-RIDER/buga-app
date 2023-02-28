@@ -2,7 +2,7 @@ import { ScrollView, StyleSheet, Text, TextInput, TouchableOpacity, View } from 
 import React from 'react'
 import { SafeAreaView } from 'react-native-safe-area-context'
 import { HeadingText, SubText } from '../../../components/CustomTextComponent'
-import CustomTextInput from '../../../components/CustomTextInput'
+import {CustomTextInput} from '../../../components/CustomTextInput'
 import Asterisk from '../../../assets/icons/asterisk.svg'
 import Mail from '../../../assets/icons/Mail_icon.svg' ;
 import Name_Icon from '../../../assets/icons/Name_Icon.svg'

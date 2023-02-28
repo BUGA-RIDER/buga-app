@@ -11,7 +11,7 @@ import Proceed from '../../../assets/icons/Proceed_Icon.svg' ;
 import {useNavigation} from '@react-navigation/core';
 import { StatusBar } from 'expo-status-bar';
 import { HeadingText, SubText } from '../../../components/CustomTextComponent';
-import CustomTextInput from '../../../components/CustomTextInput';
+import {CustomTextInput} from '../../../components/CustomTextInput';
 
 const RiderCreate = () => {
     const navigation = useNavigation()

@@ -9,7 +9,7 @@ import EyeClosed from '../../../assets/icons/password_closed.svg' ;
 import UnChecked from '../../../assets/icons/unchecked.svg' ;
 import Checked from '../../../assets/icons/checked.svg' ;
 import { HeadingText } from '../../../components/CustomTextComponent';
-import CustomTextInput from '../../../components/CustomTextInput';
+import {CustomTextInput} from '../../../components/CustomTextInput';
 import { Button } from '../../../components/Button';
 import { useNavigation } from '@react-navigation/core';
 
