@@ -32,7 +32,10 @@ const UniversitySelectScreen = () => {
       };
 
   return (
-    <SafeAreaView>
+    <SafeAreaView style={{
+      backgroundColor:"white",
+      flex:1
+    }}>
         <StatusBar backgroundColor='#FFCC2A'/>
         <TouchableOpacity style={styles.arrow} onPress={handleBack}>
           <Arrow/>

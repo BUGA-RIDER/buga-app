@@ -23,7 +23,10 @@ const DriverCreate = () => {
     }
 
   return (
-    <SafeAreaView>
+    <SafeAreaView  style={{
+        backgroundColor:"white",
+        flex:1
+    }}>
             <StatusBar backgroundColor='#FFCC2A'/>
         <ScrollView>
         <View style={styles.top}>
