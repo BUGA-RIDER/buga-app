@@ -3,10 +3,17 @@ import React from 'react'
 import { SafeAreaView } from 'react-native-safe-area-context'
 import { HeadingText, SubText } from '../../components/CustomTextComponent'
 import Submitted from '../../assets/icons/submitted.svg'
-
+import {useNavigation} from '@react-navigation/core'
 
 
 const Successful = () => {
+
+  const navigation = useNavigation()
+
+  const handleHome = ()=>{
+    navigation.navigate('DriverHome')
+  }
+
   return (
     <SafeAreaView style={styles.container}>
       <Submitted style={{
@@ -34,7 +41,7 @@ const Successful = () => {
       />
 
       <View style={styles.buttonView}>
-        <TouchableOpacity style={styles.buttonone}>
+        <TouchableOpacity style={styles.buttonone} onPress={handleHome} >
           <Text style={styles.buttonText}>Go to Homescreen</Text>
    
         </TouchableOpacity>

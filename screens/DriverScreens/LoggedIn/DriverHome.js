@@ -1,5 +1,7 @@
 import {
+  FlatList,
   ImageBackground,
+  ScrollView,
   StyleSheet,
   Text,
   TouchableOpacity,
@@ -12,12 +14,12 @@ import Menu from "../../../assets/icons/Icon.svg";
 import Notification from "../../../assets/icons/Notification.svg";
 import Wallet from "../../../assets/icons/wallet.svg";
 import RightIcon from "../../../assets/icons/arrowright.svg";
-import {
-  Congratulations,
-  Invalid,
-  Pending,
-  Review,
-} from "../../../components/SubmitDocuments";
+import { Congratulations, Pending } from "../../../components/SubmitDocuments";
+import ScheduledPickups from "../../../components/ScheduledPickups";
+import { DATA } from "../../../constants/scheduled";
+import { DATA2 } from "../../../constants/upcoming";
+import Operations from "../../../components/Operations";
+import BottomMenu from "../../../components/BottomMenu";
 
 const DriverHome = () => {
   return (
@@ -26,6 +28,8 @@ const DriverHome = () => {
         backgroundColor: "white",
       }}
     >
+      <StatusBar backgroundColor="#FFCC2A" />
+
       <View
         style={{
           flex: 1,
@@ -63,40 +67,115 @@ const DriverHome = () => {
           marginBottom: 18,
         }}
       >
-        <Congratulations />
+        <Pending />
       </View>
-      <View
+      <ScrollView
         style={{
-          flexDirection: "row",
-          justifyContent: "space-between",
-          marginHorizontal: 12,
+          marginBottom: 20,
         }}
       >
-        <Text
-          style={{
-            fontFamily: "SatoshiBold",
-            fontSize: 18,
-          }}
-        >
-          Scheduled Pickups
-        </Text>
         <View
           style={{
             flexDirection: "row",
-            alignItems: "center",
+            justifyContent: "space-between",
+            marginHorizontal: 12,
           }}
         >
           <Text
             style={{
-              fontFamily: "SatoshiMedium",
-              fontSize: 16,
-              textDecorationLine: "underline",
+              fontFamily: "SatoshiBold",
+              fontSize: 18,
             }}
           >
-            See all
+            Scheduled Pickups
           </Text>
-          <RightIcon />
+          <View
+            style={{
+              flexDirection: "row",
+              alignItems: "center",
+            }}
+          >
+            <Text
+              style={{
+                fontFamily: "SatoshiMedium",
+                fontSize: 16,
+                textDecorationLine: "underline",
+                marginRight: 6,
+              }}
+            >
+              See all
+            </Text>
+            <RightIcon />
+          </View>
         </View>
+        <View style={{ flex: 0 }}>
+          <FlatList
+            data={DATA}
+            horizontal={true}
+            renderItem={({ item }) => <ScheduledPickups data={item} />}
+            keyExtractor={(item) => item.id}
+            showsHorizontalScrollIndicator={false}
+            contentContainerStyle={{ paddingHorizontal: 0 }}
+          />
+        </View>
+        <View
+          style={{
+            flexDirection: "row",
+            justifyContent: "space-between",
+            marginHorizontal: 12,
+          }}
+        >
+          <Text
+            style={{
+              fontFamily: "SatoshiBold",
+              fontSize: 18,
+            }}
+          >
+            Upcoming Operation Periods
+          </Text>
+          <View
+            style={{
+              flexDirection: "row",
+              alignItems: "center",
+            }}
+          >
+            <Text
+              style={{
+                fontFamily: "SatoshiMedium",
+                fontSize: 16,
+                textDecorationLine: "underline",
+                marginRight: 6,
+              }}
+            >
+              See all
+            </Text>
+            <RightIcon />
+          </View>
+        </View>
+        <View
+          style={{
+            marginTop: 14,
+          }}
+        >
+          <FlatList
+            data={DATA}
+            horizontal={true}
+            renderItem={({ item }) => <Operations data={item} />}
+            keyExtractor={(item) => item.id}
+            showsHorizontalScrollIndicator={false}
+            contentContainerStyle={{ paddingHorizontal: 0 }}
+          />
+        </View>
+      </ScrollView>
+      <View
+        style={{
+          position: "absolute",
+          alignItems: "center",
+          bottom: 0,
+          marginTop: 20,
+        }}
+      >
+        <BottomMenu />
       </View>
     </SafeAreaView>
   );
