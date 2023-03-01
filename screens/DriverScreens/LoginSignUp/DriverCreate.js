@@ -1,5 +1,5 @@
-import { ScrollView, StyleSheet, Text, TextInput, TouchableOpacity, View } from 'react-native'
-import React from 'react'
+import { Easing, ScrollView, StyleSheet, Text, TextInput, TouchableOpacity, View } from 'react-native'
+import React, { useRef, useState } from 'react'
 import { SafeAreaView } from 'react-native-safe-area-context'
 import { HeadingText, SubText } from '../../../components/CustomTextComponent'
 import {CustomTextInput} from '../../../components/CustomTextInput'
@@ -16,11 +16,100 @@ import { StatusBar } from 'expo-status-bar'
 
 const DriverCreate = () => {
 
+    
+
     const navigation = useNavigation()
 
     const handleProceed =()=>{
         navigation.navigate('OTPScreen')
     }
+    const [isFocused, setIsFocused] = useState(false);
+    const inputRefs = useRef([]);
+
+    const [name, setName] = useState("");
+    const [email, setEmail] = useState("");
+    const [phoneNumber, setPhonenumber] = useState("");
+    const [altNumber, setAltNumber] = useState("");
+    const [street, setStreet] = useState("");
+    const [city, setCity] = useState("");
+    const [state, setState] = useState("");
+
+    const handleFocus = () => {
+        setIsFocused(true);
+      };
+    
+      const handleBlur = () => {
+        setIsFocused(false);
+      };
+
+    const handleName = (text) => {
+        setName(text);
+      };
+    const handleEmailChange = (text) => {
+        setEmail(text);
+      };
+    const handlePhoneNumber = (text) => {
+        setPhonenumber(text);
+      };
+    const handleAlt = (text) => {
+        setAltNumber(text);
+      };
+    const handleStreet = (text) => {
+        setStreet(text);
+      };
+    const handleCity = (text) => {
+        setCity(text);
+      };
+
+
+
+      const styles = StyleSheet.create({
+        top:{
+            marginTop:64,
+    
+        },
+        formstart:{
+            marginTop:34,
+        },
+        inputBox:{
+            marginBottom:20,
+        },   
+        sideInput:{
+            borderWidth: 1, 
+            borderColor: '#ccc', 
+            borderRadius: 4,
+            paddingLeft:15,
+            paddingRight:15,
+            paddingVertical:8,
+            width:150
+        },
+        sideInputText:{
+            fontFamily:"SatoshiMedium",
+            fontSize:15 
+        },
+        buttonView:{
+            marginTop:32,
+            marginBottom:58,
+            alignSelf:'flex-end',
+            marginRight:43,  
+        },
+        button:{
+            width:150,
+            backgroundColor:"#FFCC2A",
+            paddingVertical:15,
+            borderRadius: 5,
+            flexDirection:'row',
+            alignSelf:'center',
+            justifyContent:'center'
+        },
+        buttonText:{
+            textAlign:'right',
+            fontFamily:"SatoshiBold",
+            fontSize:18,
+            marginRight:8
+        }
+    });
+
 
   return (
     <SafeAreaView  style={{
@@ -37,21 +126,35 @@ const DriverCreate = () => {
             
             <View style={styles.inputBox}>
             <CustomTextInput 
+            ref={(ref) => (inputRefs.current[1] = ref)}
             label="What would you like us to call you?"
             required={<Asterisk/>}
             iconLeft={<Name_Icon width={15} height={15} />}
             placeholder="Name"
+            onChangeText={handleName}
+            value={name}
+            style={{
+            borderColor: isFocused ? '#FFCC2A' : '#ccc',
+            }}
+            onFocus={handleFocus}
+            onBlur={handleBlur}
             />
             </View>
 
             <View style={styles.inputBox}>
             <CustomTextInput
+             ref={(ref) => (inputRefs.current[0] = ref)}
             label="Your best Email?"
             iconLeft={<Mail width={16} height={12} />}
             required={<Asterisk/>}
             placeholder="E.g yourname@gmail.com"
-            // onChangeText={setText}
-            // value={text}
+            onChangeText={handleEmailChange}
+            value={email}
+            style={{
+                borderColor: isFocused ? '#FFCC2A' : '#ccc',
+                }}
+                onFocus={handleFocus}
+                onBlur={handleBlur}
             />
             </View>
 
@@ -61,8 +164,11 @@ const DriverCreate = () => {
             iconLeft={<Phone_Icon width={20} height={20} />}
             required={<Asterisk/>}
             placeholder="+2340000004200"
-            // onChangeText={setText}
-            // value={text}
+            onChangeText={handlePhoneNumber}
+            value={phoneNumber}
+            style={{
+            borderColor: phoneNumber ? '#FFCC2A' : '#ccc',
+            }}
             />
             </View>
 
@@ -72,8 +178,12 @@ const DriverCreate = () => {
             iconLeft={<Phone_Icon width={20} height={20} />}
        
             placeholder="+2340000004200"
-            // onChangeText={setText}
-            // value={text}
+            onChangeText={handleAlt}
+            value={altNumber}
+            style={{
+            borderColor: altNumber ? '#FFCC2A' : '#ccc',
+
+            }}
             />
             </View>
             <View style={styles.inputBox}>
@@ -81,8 +191,12 @@ const DriverCreate = () => {
             label="Street Address"
             required={<Asterisk/>}
             placeholder="E.g. 2, harmony street, diamond estate."
-            // onChangeText={setText}
-            // value={text}
+            onChangeText={handleStreet}
+            value={street}
+            style={{
+            borderColor: street ? '#FFCC2A' : '#ccc',
+
+            }}
             />
             </View>
 
@@ -168,49 +282,3 @@ const DriverCreate = () => {
 
 export default DriverCreate
 
-const styles = StyleSheet.create({
-    top:{
-        marginTop:64,
-
-    },
-    formstart:{
-        marginTop:34,
-    },
-    inputBox:{
-        marginBottom:20
-    },
-    sideInput:{
-        borderWidth: 1, 
-        borderColor: '#ccc', 
-        borderRadius: 4,
-        paddingLeft:15,
-        paddingRight:15,
-        paddingVertical:8,
-        width:150
-    },
-    sideInputText:{
-        fontFamily:"SatoshiMedium",
-        fontSize:15 
-    },
-    buttonView:{
-        marginTop:32,
-        marginBottom:58,
-        alignSelf:'flex-end',
-        marginRight:43,  
-    },
-    button:{
-        width:150,
-        backgroundColor:"#FFCC2A",
-        paddingVertical:15,
-        borderRadius: 5,
-        flexDirection:'row',
-        alignSelf:'center',
-        justifyContent:'center'
-    },
-    buttonText:{
-        textAlign:'right',
-        fontFamily:"SatoshiBold",
-        fontSize:18,
-        marginRight:8
-    }
-});
