@@ -89,7 +89,7 @@ export const Review = () => {
             fontSize: 15,
           }}
         >
-          Document Submission pending
+          Documents Under Review
         </Text>
       </View>
       <View
@@ -105,11 +105,11 @@ export const Review = () => {
           style={{
             fontFamily: "SatoshiMedium",
             fontSize: 14,
-            color: "#DEDEDE",
+            color: "#4F4F4F",
           }}
         >
-          Kindly Submit all required documents to get verified and start
-          earning.
+          Your verification status will be displayed once we are
+done reviewing your documents.
         </Text>
 
         <Right width={15} height={15} />

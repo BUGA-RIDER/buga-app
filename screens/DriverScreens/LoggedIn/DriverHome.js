@@ -14,12 +14,13 @@ import Menu from "../../../assets/icons/Icon.svg";
 import Notification from "../../../assets/icons/Notification.svg";
 import Wallet from "../../../assets/icons/wallet.svg";
 import RightIcon from "../../../assets/icons/arrowright.svg";
-import { Congratulations, Pending } from "../../../components/SubmitDocuments";
+import { Congratulations, Invalid, Pending, Review, } from "../../../components/SubmitDocuments";
 import ScheduledPickups from "../../../components/ScheduledPickups";
 import { DATA } from "../../../constants/scheduled";
 import { DATA2 } from "../../../constants/upcoming";
 import Operations from "../../../components/Operations";
 import BottomMenu from "../../../components/BottomMenu";
+import { StatusBar } from "expo-status-bar";
 
 const DriverHome = () => {
   return (
@@ -67,7 +68,7 @@ const DriverHome = () => {
           marginBottom: 18,
         }}
       >
-        <Pending />
+        <Congratulations />
       </View>
       <ScrollView
         style={{

@@ -6,7 +6,7 @@ const ScheduledPickups = ({ data }) => {
   return (
     <View
       style={{
-        marginHorizontal: 20,
+        marginHorizontal:12,
         marginTop:13,
         backgroundColor: "#fff", // add a background color for the shadow
         shadowColor: "#000", // add a color for the shadow
