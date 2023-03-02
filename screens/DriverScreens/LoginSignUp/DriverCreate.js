@@ -33,7 +33,7 @@ const DriverCreate = () => {
     const [password, setPassword] = useState('');
     const [confirmpassword, setConfirmpassword] = useState('');
     const [valid, setValid] = useState(true);
-    const [same, setSame] = useState(false);
+    const [same, setSame] = useState(true);
 
 
     
