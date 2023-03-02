@@ -38,13 +38,6 @@ const DriverCreate = () => {
 
     
 
-    const handleFocus = () => {
-        setIsFocused(true);
-    };
-
-    const handleBlur = () => {
-        setIsFocused(false);
-    };
 
     const handleName = (text) => {
         setName(text);
@@ -153,8 +146,7 @@ const DriverCreate = () => {
                             placeholder="Name"
                             onChangeText={handleName}
                             value={name}
-                            onBlur={handleBlur}
-                            onFocus={handleFocus}
+                            
                         />
                     </View>
 
@@ -167,8 +159,7 @@ const DriverCreate = () => {
                             placeholder="E.g yourname@gmail.com"
                             onChangeText={handleEmailChange}
                             value={email}
-                            onBlur={handleBlur}
-                            onFocus={handleFocus}
+                           
                         />
                     </View>
 
@@ -180,8 +171,6 @@ const DriverCreate = () => {
                             placeholder="+2340000004200"
                             onChangeText={handlePhoneNumber}
                             value={phoneNumber}
-                            onBlur={handleBlur}
-                            onFocus={handleFocus}
                             keyboardType ='numeric'
                         />
                     </View>
@@ -194,8 +183,6 @@ const DriverCreate = () => {
                             placeholder="+2340000004200"
                             onChangeText={handleAlt}
                             value={altNumber}
-                            onBlur={handleBlur}
-                            onFocus={handleFocus}
                         />
                     </View>
                     <View style={styles.inputBox}>
@@ -205,8 +192,6 @@ const DriverCreate = () => {
                             placeholder="E.g. 2, harmony street, diamond estate."
                             onChangeText={handleStreet}
                             value={street}
-                            onBlur={handleBlur}
-                            onFocus={handleFocus}
                         />
                     </View>
 
@@ -231,8 +216,8 @@ const DriverCreate = () => {
                             </View>
                             <View style={styles.sideInput}>
                                 <TextInput style={styles.sideInputText} placeholder='E.g. Gbagada'
-                                onBlur={handleBlur}
-                                onFocus={handleFocus} />
+                                
+                                 />
                             </View>
                         </View>
                         <View>
@@ -251,8 +236,7 @@ const DriverCreate = () => {
                             </View>
                             <View style={styles.sideInput}>
                                 <TextInput style={styles.sideInputText} placeholder='E.g. Lagos' 
-                                    onBlur={handleBlur}
-                                    onFocus={handleFocus}
+                                    
                                 />
                             </View>
                         </View>

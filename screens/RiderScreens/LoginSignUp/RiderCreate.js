@@ -1,5 +1,5 @@
 import { ScrollView, StyleSheet, Text, TextInput, TouchableOpacity, View } from 'react-native';
-import React from 'react';
+import React, { useState } from 'react';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import Asterisk from '../../../assets/icons/asterisk.svg';
 import Mail from '../../../assets/icons/Mail_icon.svg' ;
@@ -16,8 +16,25 @@ import {CustomTextInput} from '../../../components/CustomTextInput';
 const RiderCreate = () => {
     const navigation = useNavigation()
 
+    const [password, setPassword] = useState('');
+    const [confirmpassword, setConfirmpassword] = useState('');
+    const [valid, setValid] = useState(true);
+    const [same, setSame] = useState(true);
+
+
     const handleProceed =()=>{
         navigation.navigate('RiderOTPScreen')
+    }
+
+    const handlePassword = (value) =>{
+        const regex = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])[0-9a-zA-Z]{8,}$/;
+    setValid(regex.test(value));
+    setPassword(value);
+    }
+
+    const handleConfirm = (value) =>{
+    setSame(value === password);
+    setConfirmpassword(value);
     }
 
   return (
@@ -85,16 +102,33 @@ const RiderCreate = () => {
                     iconLeft={<PasswordIcon width={17} height={15} />}
                     iconRight={<EyeClosed width={16} height={12} />}
                     placeholder ="Create a Password"
-                // onChangeText={setText}
-                // value={text}
+                    value={password}
+                    onChangeText={handlePassword}
+                    style={{
+                        borderColor: valid ? "#ccc" : "red"
+                    }}
                 />
+                {!valid && password.length > 0 && (
+                    <Text style={styles.error}>
+                        Password must contain at least 8 characters, including one lowercase letter, one uppercase letter, and one number.
+                    </Text>
+                )}
+             
                 <CustomTextInput  
                     iconLeft={<PasswordIcon width={17} height={15} />}
                     iconRight={<EyeClosed width={16} height={12} />}
                     placeholder ="Confirm Password"
-                // onChangeText={setText}
-                // value={text}
+                    value={confirmpassword}
+                    onChangeText={handleConfirm}
+                    style={{
+                        borderColor: same ? "#ccc" : "red"
+                    }}
                 />
+                {!same && password.length > 0 && (
+                    <Text style={styles.error}>
+                        Passwords must match
+                    </Text>
+                )}
              </View>
              
             {/* proceed button */}
@@ -159,5 +193,12 @@ const styles = StyleSheet.create({
         fontFamily:"SatoshiBold",
         fontSize:18,
         marginRight:8
-    }
+    },
+    error:{
+        marginLeft:45,
+        fontFamily:"SatoshiMedium",
+        fontSize:12,
+        color:"red",
+        marginRight:40
+        }
 })
