@@ -9,24 +9,28 @@ const RiderBottomMenu = () => {
     <View>
       <View
         style={{
+          position:"absolute",
+          bottom:-120,
           flex: 1,
           flexDirection: "row",
           width: "100%",
-          paddingBottom: 15,
-          paddingTop: 10,
+          paddingVertical:20,
           justifyContent: "space-evenly",
           backgroundColor: "white",
           opacity: 1,
-          marginRight: 70,
         }}
       >
         <View style={styles.navMenu}>
           <Activity width={25} height={25} />
-          <Text style={styles.text}>Activity</Text>
+          <Text style={styles.text}>Home</Text>
         </View>
         <View style={styles.navMenu}>
           <Drive width={24} height={24} />
-          <Text style={styles.text}>Drive</Text>
+          <Text style={styles.text}>Trips</Text>
+        </View>
+        <View style={styles.navMenu}>
+          <Drive width={24} height={24} />
+          <Text style={styles.text}>Profile</Text>
         </View>
       </View>
     </View>

@@ -1,4 +1,4 @@
-import { StyleSheet, Text, View } from 'react-native'
+import { StyleSheet, Text, TouchableOpacity, View } from 'react-native'
 import React from 'react'
 import { HeadingText, SubText } from './CustomTextComponent'
 import Mail from "../assets/icons/Mail_icon.svg"
@@ -19,7 +19,7 @@ const RiderSelectNav = () => {
         flexDirection: 'row',
         marginTop: 16
       }}>
-        <View style={{
+        <TouchableOpacity style={{
           backgroundColor: "white",
         }}>
 
@@ -47,14 +47,14 @@ const RiderSelectNav = () => {
             color: "#A7A7A7",
             paddingBottom: 8
           }}>Shared Ride</Text>
-        </View>
+        </TouchableOpacity>
       </View>  
       <View style={{
         marginHorizontal: 16,
         flexDirection: 'row',
         marginTop: 16
       }}>
-        <View style={{
+        <TouchableOpacity style={{
           backgroundColor: "white",
         }}>
 
@@ -74,15 +74,15 @@ const RiderSelectNav = () => {
             fontSize: 18,
             marginLeft: 10,
             marginTop: 5
-          }}>Economy</Text>
+          }}>First Class</Text>
           <Text style={{
             fontFamily: "SatoshiMedium",
             fontSize: 12,
             marginLeft: 10,
             color: "#A7A7A7",
             paddingBottom: 8
-          }}>Shared Ride</Text>
-        </View>
+          }}>Single Passenger</Text>
+        </TouchableOpacity>
       </View>  
         
       </View>
@@ -101,7 +101,7 @@ const RiderSelectNav = () => {
         flexDirection: 'row',
         marginTop: 16
       }}>
-        <View style={{
+        <TouchableOpacity style={{
           backgroundColor: "white",
         }}>
 
@@ -121,22 +121,22 @@ const RiderSelectNav = () => {
             fontSize: 18,
             marginLeft: 10,
             marginTop: 5
-          }}>Economy</Text>
+          }}>Intra-School</Text>
           <Text style={{
             fontFamily: "SatoshiMedium",
             fontSize: 12,
             marginLeft: 10,
             color: "#A7A7A7",
             paddingBottom: 8
-          }}>Shared Ride</Text>
-        </View>
+          }}>Electric Tricycle</Text>
+        </TouchableOpacity>
       </View>  
       <View style={{
         marginHorizontal: 16,
         flexDirection: 'row',
         marginTop: 16
       }}>
-        <View style={{
+        <TouchableOpacity style={{
           backgroundColor: "white",
         }}>
 
@@ -156,15 +156,15 @@ const RiderSelectNav = () => {
             fontSize: 18,
             marginLeft: 10,
             marginTop: 5
-          }}>Economy</Text>
+          }}>Inter-State</Text>
           <Text style={{
             fontFamily: "SatoshiMedium",
             fontSize: 12,
             marginLeft: 10,
             color: "#A7A7A7",
             paddingBottom: 8
-          }}>Shared Ride</Text>
-        </View>
+          }}>Shared 7 Seater</Text>
+        </TouchableOpacity>
       </View>  
         
       </View>

@@ -5,6 +5,7 @@ import LoggedInHeader from '../../../components/LoggedInHeader'
 import { HeadingText, SubText } from '../../../components/CustomTextComponent'
 import Mail from '../../../assets/icons/Mail_icon.svg'
 import RiderSelectNav from '../../../components/RiderSelectNav'
+import RiderBottomMenu from '../../../components/RiderBottomMenu'
 
 const RiderHome = () => {
   return (
@@ -60,6 +61,7 @@ const RiderHome = () => {
         }} />
       </View>
       <RiderSelectNav/>
+      <RiderBottomMenu/>
     </SafeAreaView>
   )
 }
