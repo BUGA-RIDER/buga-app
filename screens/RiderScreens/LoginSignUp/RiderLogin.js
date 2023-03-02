@@ -12,37 +12,26 @@ import { CustomTextInput } from '../../../components/CustomTextInput';
 import { useNavigation } from '@react-navigation/core';
 import { Button } from '../../../components/Button';
 import { HeadingText } from '../../../components/CustomTextComponent';
+import { loginStore } from '../../../stores/loginStore';
 
 
 const RiderLogin = () => {
 
-  const [users, setUsers] = useState(null)
-
-
-  useEffect(() => {
-    const fetchUsers = async () => {
-      const response = await fetch('http://192.168.46.125:5000/api/user/get', {
-      })
-      const json = await response.json()
-  
-    if (response.ok) {
-      setUsers(json)
-    }
-    console.log(users)
-  }
-
-  //authware authorization
-    fetchUsers()
-  
-}, [])
 
   const navigation = useNavigation();
+
+  const {user, isLoading, error, login, logout} = loginStore();
+
+  const [email, setEmail] = useState('')
+  const [password, setPassword] = useState('')
+
 
   const handleSignUp = () => {
     navigation.navigate('RiderCreate');
   };
   const handleLogin = () => {
-    navigation.navigate('RiderHome');
+    console.log(email, password)
+   login(email, password)
   };
 
   const handleBack = () => {
@@ -68,7 +57,6 @@ const RiderLogin = () => {
           }}>rider</Text> account
         </Text>
       </View>
-
       <View style={styles.login}>
         <CustomTextInput
           style={{
@@ -77,8 +65,8 @@ const RiderLogin = () => {
           iconLeft={<Mail width={16} height={12} />}
 
           placeholder="Email Address"
-        // onChangeText={setText}
-        // value={text}
+          onChange = {(e) => setEmail(e.target.value)}
+          value={email}
         />
         <View style={{
 
@@ -87,9 +75,10 @@ const RiderLogin = () => {
             iconLeft={<PasswordIcon width={17} height={15} />}
             iconRight={<EyeClosed width={16} height={12} />}
             placeholder="Password"
-          // onChangeText={setText}
-          // value={text}
+            onChangeText = {setPassword(password)}
+            value={password}
           />
+          {error && <Text style={styles.error}>{error}</Text>}
         </View>
         <View style={styles.forgot}>
           <View style={{
@@ -104,7 +93,7 @@ const RiderLogin = () => {
               marginLeft: 8,
               color: "#202020"
             }} >
-              Remember Login {users[1].name}
+              Remember Login
             </Text>
 
           </View>
@@ -177,5 +166,12 @@ const styles = StyleSheet.create({
     color: "black",
     textDecorationLine: 'underline',
     marginTop: 16
-  }
+  },
+  error:{
+    marginLeft:45,
+    fontFamily:"SatoshiMedium",
+    fontSize:12,
+    color:"red",
+    marginRight:40
+    }
 });
