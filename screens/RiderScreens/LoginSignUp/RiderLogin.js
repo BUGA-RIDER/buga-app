@@ -21,6 +21,9 @@ const RiderLogin = () => {
   const handleSignUp = () => {
     navigation.navigate('RiderCreate');
   };
+  const handleLogin = () => {
+    navigation.navigate('RiderHome');
+  };
 
   const handleBack = ()=>{
    navigation.goBack()
@@ -96,6 +99,7 @@ const RiderLogin = () => {
         <Button text={"Log In"} style={{
           width:330
         }}
+        handlePress={handleLogin}
         />
       <TouchableOpacity onPress={handleSignUp}>
         <Text style={styles.signUp} >

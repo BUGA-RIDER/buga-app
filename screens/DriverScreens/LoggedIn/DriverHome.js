@@ -14,13 +14,19 @@ import Menu from "../../../assets/icons/Icon.svg";
 import Notification from "../../../assets/icons/Notification.svg";
 import Wallet from "../../../assets/icons/wallet.svg";
 import RightIcon from "../../../assets/icons/arrowright.svg";
-import { Congratulations, Invalid, Pending, Review, } from "../../../components/SubmitDocuments";
+import {
+  Congratulations,
+  Invalid,
+  Pending,
+  Review,
+} from "../../../components/SubmitDocuments";
 import ScheduledPickups from "../../../components/ScheduledPickups";
 import { DATA } from "../../../constants/scheduled";
 import { DATA2 } from "../../../constants/upcoming";
 import Operations from "../../../components/Operations";
 import BottomMenu from "../../../components/BottomMenu";
 import { StatusBar } from "expo-status-bar";
+import LoggedInHeader from "../../../components/LoggedInHeader";
 
 const DriverHome = () => {
   return (
@@ -31,36 +37,11 @@ const DriverHome = () => {
     >
       <StatusBar backgroundColor="#FFCC2A" />
 
-      <View
-        style={{
-          flex: 1,
-        }}
-      >
-        <ImageBackground source={Background} style={styles.background} />
-      </View>
+      <LoggedInHeader 
 
-      <View style={styles.top}>
-        <View style={styles.topIcons}>
-          <Menu />
-        </View>
-        <Text style={styles.topText}>Hi there, Oreoluwa</Text>
-        <View style={styles.topIcons}>
-          <Notification />
-        </View>
-      </View>
-      <View style={styles.walletInfo}>
-        <Wallet
-          style={{
-            alignSelf: "center",
-          }}
-        />
-        <Text style={styles.walletAmount}>₦15,235</Text>
-        <Text style={styles.walletBalance}>WALLET BALANCE</Text>
-
-        <TouchableOpacity style={styles.withdraw}>
-          <Text style={styles.withdrawText}>Withdraw</Text>
-        </TouchableOpacity>
-      </View>
+      walletBalance="₦15,235"
+      userName="Öreoluwa"
+      bottomText="Withdraw"/>
 
       <View
         style={{
