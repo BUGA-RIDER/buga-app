@@ -7,11 +7,9 @@ import Mail from "../assets/icons/Mail_icon.svg"
 const RiderSelectNav = () => {
   return (
     <View style={{
-        marginTop:5
     }}>
     <View style={{
         flexDirection:'row',
-        marginBottom:10,
         justifyContent: 'space-around',
         padding:10
     }}>

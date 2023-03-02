@@ -3,7 +3,8 @@ import React from "react";
 import Activity from "../assets/icons/activity.svg"
 import Drive from "../assets/icons/drive.svg"
 
-const BottomMenu = () => {
+
+const RiderBottomMenu = () => {
   return (
     <View>
       <View
@@ -29,18 +30,18 @@ const BottomMenu = () => {
         </View>
       </View>
     </View>
-  );
-};
+  )
+}
 
-export default BottomMenu;
+export default RiderBottomMenu
 
 const styles = StyleSheet.create({
-  navMenu:{
-    alignItems:'center'
-  },
-  text:{
-    fontFamily:'SatoshiBold',
-     fontSize:12,
-     color:"#8A8A8A",
-  }
-});
+    navMenu:{
+        alignItems:'center'
+      },
+      text:{
+        fontFamily:'SatoshiBold',
+         fontSize:12,
+         color:"#8A8A8A",
+      }
+})
