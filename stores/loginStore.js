@@ -2,9 +2,7 @@ import {create} from 'zustand';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { useNavigation } from '@react-navigation/core';
 
-
 export const loginStore = create((set) => ({
-    
     user: null,
     isLoading: false,
      error: null,

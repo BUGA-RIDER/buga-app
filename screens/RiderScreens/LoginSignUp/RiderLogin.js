@@ -31,7 +31,15 @@ const RiderLogin = () => {
   };
   const handleLogin = () => {
     console.log(email, password)
-   login(email, password)
+    login(email, password)
+    navigation.navigate('RiderHome');    
+  };
+
+  const handleEmailChange = (text) => {
+    setEmail(text);
+  };
+  const handlePasswordChange = (text) => {
+    setPassword(text);
   };
 
   const handleBack = () => {
@@ -65,7 +73,7 @@ const RiderLogin = () => {
           iconLeft={<Mail width={16} height={12} />}
 
           placeholder="Email Address"
-          onChange = {(e) => setEmail(e.target.value)}
+          onChangeText = {handleEmailChange}
           value={email}
         />
         <View style={{
@@ -75,8 +83,9 @@ const RiderLogin = () => {
             iconLeft={<PasswordIcon width={17} height={15} />}
             iconRight={<EyeClosed width={16} height={12} />}
             placeholder="Password"
-            onChangeText = {setPassword(password)}
             value={password}
+            onChangeText={handlePasswordChange}
+            secureTextEntry={true}
           />
           {error && <Text style={styles.error}>{error}</Text>}
         </View>

@@ -2,6 +2,10 @@ import { StyleSheet, Text, TouchableOpacity, View } from 'react-native'
 import React from 'react'
 import { HeadingText, SubText } from './CustomTextComponent'
 import Mail from "../assets/icons/Mail_icon.svg"
+import Economy_Car from "../assets/icons/Economy_Car.svg"
+import First_Class from "../assets/icons/First_Class_Car.svg"
+import Keke from "../assets/icons/KEKE.svg"
+import Inter_state_car from "../assets/icons/Inter_state_car.svg"
 
 
 const RiderSelectNav = () => {
@@ -11,7 +15,6 @@ const RiderSelectNav = () => {
     <View style={{
         flexDirection:'row',
         justifyContent: 'space-around',
-        padding:10
     }}>
 
       <View style={{
@@ -29,16 +32,14 @@ const RiderSelectNav = () => {
             marginRight: 8
           }} />
           <View style={{
-            marginHorizontal: 24
+            marginHorizontal: 12
           }}>
-            <Mail width={115} height={73} style={{
-            }} />
+            <Economy_Car />
           </View>
           <Text style={{
             fontFamily: "SatoshiMedium",
             fontSize: 18,
             marginLeft: 10,
-            marginTop: 5
           }}>Economy</Text>
           <Text style={{
             fontFamily: "SatoshiMedium",
@@ -66,8 +67,7 @@ const RiderSelectNav = () => {
           <View style={{
             marginHorizontal: 24
           }}>
-            <Mail width={115} height={73} style={{
-            }} />
+            <First_Class  />
           </View>
           <Text style={{
             fontFamily: "SatoshiMedium",
@@ -111,10 +111,9 @@ const RiderSelectNav = () => {
             marginRight: 8
           }} />
           <View style={{
-            marginHorizontal: 24
+            marginHorizontal: 12
           }}>
-            <Mail width={115} height={73} style={{
-            }} />
+            <Keke/>
           </View>
           <Text style={{
             fontFamily: "SatoshiMedium",
@@ -127,8 +126,7 @@ const RiderSelectNav = () => {
             fontSize: 12,
             marginLeft: 10,
             color: "#A7A7A7",
-            paddingBottom: 8
-          }}>Electric Tricycle</Text>
+          }}>Intra-School</Text>
         </TouchableOpacity>
       </View>  
       <View style={{
@@ -148,8 +146,7 @@ const RiderSelectNav = () => {
           <View style={{
             marginHorizontal: 24
           }}>
-            <Mail width={115} height={73} style={{
-            }} />
+            <Inter_state_car />
           </View>
           <Text style={{
             fontFamily: "SatoshiMedium",
