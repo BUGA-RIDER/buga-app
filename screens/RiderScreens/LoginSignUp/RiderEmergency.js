@@ -1,5 +1,5 @@
 import { StyleSheet, Text, TouchableOpacity, View } from 'react-native';
-import React from 'react';
+import React, { useState } from 'react';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { StatusBar } from 'expo-status-bar';
 import { HeadingText } from '../../../components/CustomTextComponent';
@@ -16,12 +16,18 @@ import {useNavigation} from "@react-navigation/core"
 
 const RiderEmergency = () => {
 
+  const [name, setName] = useState('')
+  const [relationship, setRelationship] = useState('')
+  const [phone_number, setPhone_number] = useState('')
+  const [alternate_phone_number, setAlternate_phone_number] = useState('')
+
     const navigation = useNavigation()
 
     const handleBack = ()=>{
-
       navigation.goBack()
-
+    }
+    const handleGo = ()=>{
+      console.log(name, relationship, phone_number, alternate_phone_number)
     }
 
   return (
@@ -52,31 +58,28 @@ const RiderEmergency = () => {
           marginTop:22
         }}>
           
-          <CustomTextInput 
-            style={{
-              marginBottom: 25
-            }}
+          <CustomTextInput style={{ marginBottom: 25}}
             label="Contact's Name"
             iconLeft={<Name_Icon width={15} height={15} />}
             placeholder="Name"
+            onChangeText = {setName}
+            value={name}
             />
           <CustomTextInput 
-          style={{
-            marginBottom: 24
-          }}
+          style={{marginBottom: 24}}
             label="Relationship with contact"
-    
             iconLeft={<Name_Icon width={15} height={15} />}
             placeholder="E.g Father, Mother"
+            onChangeText = {setRelationship}
+            value={relationship}
             />
           <CustomTextInput 
-          style={{
-            marginBottom: 4
-          }}
-            label="Contact's Phone Number"
-    
+          style={{marginBottom: 4}}
+           label="Contact's Phone Number"
             iconLeft={<Phone_Icon width={20} height={20} />}
             placeholder="+2340000004200"
+            onChangeText = {setPhone_number}
+            value={phone_number}
             />
             <View style={{
               marginLeft:43,
@@ -95,14 +98,12 @@ const RiderEmergency = () => {
             </Text>
             </View>
           <CustomTextInput 
-          style={{
-            marginBottom: 4
-          }}
-            label="An alternative phone number "
-            labeltwo="An alternative sds number "
-    
+          style={{ marginBottom: 4  }}
+            label="An alternative phone number "    
             iconLeft={<Phone_Icon width={20} height={20} />}
             placeholder="+2340000004200"
+            onChangeText = {setAlternate_phone_number}
+            value={alternate_phone_number}
             />
             <View style={{
               marginLeft:43,
@@ -139,7 +140,7 @@ const RiderEmergency = () => {
             </Text>
             </View>
             <View style={styles.buttonView}>
-             <TouchableOpacity style={styles.button}>
+             <TouchableOpacity style={styles.button} onPress={handleGo} >
                 <Text style={styles.buttonText}>Let's go!</Text>
                     <Proceed/>
             </TouchableOpacity>

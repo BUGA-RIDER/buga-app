@@ -7,7 +7,7 @@ export const loginStore = create((set) => ({
     isLoading: false,
      error: null,
 
-    login: async (email, password) => {
+    login: async (email, password, navigation) => {
     set({isLoading: true, error: null});
 
     const response = await fetch('http://192.168.46.125:5000/api/user/login', {
@@ -23,6 +23,7 @@ export const loginStore = create((set) => ({
     if (response.ok) {
       await AsyncStorage.setItem('user', JSON.stringify(json));
       set({user: json, isLoading: false});
+      navigation.navigate('RiderHome')
     }
   },
   logout: () => {

@@ -34,8 +34,8 @@ const RiderLogin = () => {
   };
   const handleLogin = () => {
     console.log(email, password)
-    login(email, password)
-    // navigation.navigate('RiderHome');  
+    login(email, password, navigation)
+     
     if(error==='Incorrect Email' || error==='All fields must be filled'){
       setEmailError(true)
     } else{
@@ -46,7 +46,6 @@ const RiderLogin = () => {
     } else{
       setPasswordError(false)
     }
-    console.log(emailError, passwordError)
   };
 
   const handleEmailChange = (text) => {

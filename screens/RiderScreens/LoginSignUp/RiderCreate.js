@@ -17,7 +17,7 @@ import {signUpStore } from '../../../stores/RiderStores/createStore';
 const RiderCreate = () => {
     const navigation = useNavigation();
 
-    const {user, isLoading, error, signup} = signUpStore();
+    const {user, logout, isLoading, error, signup} = signUpStore();
 
 
     const [password, setPassword] = useState('');
@@ -29,18 +29,15 @@ const RiderCreate = () => {
     const [phone_number, setPhone_number] = useState('')
     const [alternate_phone_number, setAlternate_phone_number] = useState('')
 
+    
 
     const handleProceed = () => {
         signup(name,
             password,
             email,
             phone_number,
-            alternate_phone_number)
-        console.log(name,
-            password,
-            email,
-            phone_number,
-            alternate_phone_number)
+            alternate_phone_number,
+            navigation)
     }
 
     const handlePassword = (value) => {
