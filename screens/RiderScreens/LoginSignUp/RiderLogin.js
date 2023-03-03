@@ -12,7 +12,7 @@ import { CustomTextInput } from '../../../components/CustomTextInput';
 import { useNavigation } from '@react-navigation/core';
 import { Button } from '../../../components/Button';
 import { HeadingText } from '../../../components/CustomTextComponent';
-import { loginStore } from '../../../stores/loginStore';
+import { loginStore } from '../../../stores/RiderStores/loginStore';
 
 
 const RiderLogin = () => {
@@ -46,7 +46,6 @@ const RiderLogin = () => {
     } else{
       setPasswordError(false)
     }
-    if(!user)
     console.log(emailError, passwordError)
   };
 
