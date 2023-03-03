@@ -28,6 +28,7 @@ const RiderEmergency = () => {
     }
     const handleGo = ()=>{
       console.log(name, relationship, phone_number, alternate_phone_number)
+      navigation.navigate('RiderHome')
     }
 
   return (

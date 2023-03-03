@@ -1,19 +1,39 @@
 import { ScrollView, StyleSheet, Text, Touchable, TouchableOpacity, View } from 'react-native'
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import { SafeAreaView } from 'react-native-safe-area-context'
 import LoggedInHeader from '../../../components/LoggedInHeader'
 import { HeadingText, SubText } from '../../../components/CustomTextComponent'
 import Mail from '../../../assets/icons/Mail_icon.svg'
 import RiderSelectNav from '../../../components/RiderSelectNav'
 import RiderBottomMenu from '../../../components/RiderBottomMenu'
+import AsyncStorage from '@react-native-async-storage/async-storage'
 
 const RiderHome = () => {
+
+  const [user, setUser] = useState(null)
+
+
+  useEffect(() => {
+    async function fetchUser() {
+      const userData = await AsyncStorage.getItem('user');
+      if (userData) {
+        setUser(JSON.parse(userData));
+        console.log({})
+      }
+    }
+    fetchUser();
+  }, []);
+
+
+
+
+  
   return (
     <SafeAreaView>
 
       <LoggedInHeader
-        walletBalance="₦15,235"
-        userName="Öreoluwa"
+        walletBalance= {`₦${user?.user?.wallet_balance}`}
+        userName={user?.user?.name}
         bottomText="Top Up" />
 
       <View style={{

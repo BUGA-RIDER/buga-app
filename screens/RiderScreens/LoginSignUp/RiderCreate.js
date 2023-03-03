@@ -28,15 +28,19 @@ const RiderCreate = () => {
     const [email, setEmail] = useState('')
     const [phone_number, setPhone_number] = useState('')
     const [alternate_phone_number, setAlternate_phone_number] = useState('')
+    const [wallet_balance, setWallet_balance] = useState(0)
 
     
 
     const handleProceed = () => {
+        console.log(wallet_balance)
+        console.log(phone_number)
         signup(name,
             password,
             email,
             phone_number,
             alternate_phone_number,
+            wallet_balance,
             navigation)
     }
 
@@ -101,6 +105,8 @@ const RiderCreate = () => {
                             placeholder="+2340000004200"
                             onChangeText={setPhone_number}
                             value={phone_number}
+                            keyboardType ='numeric'
+
                         />
                     </View>
 
@@ -108,7 +114,7 @@ const RiderCreate = () => {
                         <CustomTextInput
                             label="An alternative phone number"
                             iconLeft={<Phone_Icon width={20} height={20} />}
-
+                            keyboardType ='numeric'
                             placeholder="+2340000004200"
                             onChangeText={setAlternate_phone_number}
                             value={alternate_phone_number}

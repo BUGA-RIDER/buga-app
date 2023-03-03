@@ -1,5 +1,5 @@
 import { ScrollView, StyleSheet, Text, TextInput, TouchableOpacity, View } from 'react-native';
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { StatusBar } from 'expo-status-bar';
 import { HeadingText } from '../../../components/CustomTextComponent';
@@ -8,12 +8,27 @@ import Search_icon from '../../../assets/icons/search_icon.svg' ;
 import SelectDropdown from 'react-native-select-dropdown';
 import Proceed from '../../../assets/icons/Proceed_Icon.svg' ;
 import { useNavigation } from '@react-navigation/core';
-
-
-
+import AsyncStorage from '@react-native-async-storage/async-storage';
+import { addUniversity } from '../../../stores/RiderStores/addUniversity';
 
 
 const UniversitySelectScreen = () => {
+
+    const [user, setUser] = useState(null)
+    const [university, setUniversity] = useState('')
+
+    const { add } = addUniversity()
+
+    useEffect(() => {
+      async function fetchUser() {
+        const userData = await AsyncStorage.getItem('user');
+        if (userData) {
+          setUser(JSON.parse(userData));
+          console.log({})
+        }
+      }
+      fetchUser();
+    }, []);
 
     const countries = [
         "Egypt", "Canada", "Australia", "Ireland",
@@ -23,13 +38,25 @@ const UniversitySelectScreen = () => {
         "Egypt", "Canada", "Australia", "Ireland",
     ]
     const navigation = useNavigation();
+
     
     const handleProceed = () => {
+
+        // add(id,university)
         navigation.navigate('RiderEmergency');
+        console.log(university)
       };
     const handleBack = () => {
         navigation.goBack();
       };
+
+    const selectUniversity = (selectedItem, index) => { 
+        setUniversity(selectedItem)
+        console.log(selectedItem, university, index)
+    };
+
+        const id = user?.getId
+
 
   return (
     <SafeAreaView style={{
@@ -99,9 +126,8 @@ const UniversitySelectScreen = () => {
                  
             }}
 	data={countries}
-	onSelect={(selectedItem, index) => {
-		console.log(selectedItem, index)
-	}}
+	onSelect={selectUniversity}
+
 	buttonTextAfterSelection={(selectedItem, index) => {
 		// text represented after item is selected
 		// if data array is an array of objects then return selectedItem.property to render after item is selected

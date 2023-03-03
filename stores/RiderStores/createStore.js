@@ -11,7 +11,7 @@ export const signUpStore = create((set) => ({
         password,
         email,
         phone_number,
-        alternate_phone_number, navigation) => {
+        alternate_phone_number,wallet_balance, navigation, ) => {
     set({isLoading: true, error: null});
 
     const response = await fetch('http://192.168.46.125:5000/api/user/signup', {
@@ -21,7 +21,8 @@ export const signUpStore = create((set) => ({
         password,
         email,
         phone_number,
-        alternate_phone_number}),
+        alternate_phone_number,
+        wallet_balance}),
     });
     const json = await response.json();
     
@@ -31,7 +32,7 @@ export const signUpStore = create((set) => ({
     if (response.ok) {
       await AsyncStorage.setItem('user', JSON.stringify(json));
       set({user: json, isLoading: false});
-      navigation.navigate('RiderOTP'); 
+      navigation.navigate('RiderOTPScreen'); 
     }
   },
   logout: () => {

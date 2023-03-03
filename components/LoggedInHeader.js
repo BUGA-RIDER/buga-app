@@ -83,6 +83,7 @@ const styles = StyleSheet.create({
       walletAmount: {
         fontFamily: "SatoshiBold",
         fontSize: 35,
+        textAlign:'center'
       },
       walletBalance: {
         fontFamily: "SatoshiBold",
