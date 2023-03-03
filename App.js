@@ -38,7 +38,7 @@ const App = () => {
   return ( 
     <NavigationContainer>
       <Stack.Navigator screenOptions = {{ headerShown: false }} 
-        initialRouteName = "Home">
+        initialRouteName = "RiderLogin">
           <Stack.Screen name = "Home" component ={Home}/>
           {/* driver screens */}
           <Stack.Screen name = "DriverOnboarding" component ={DriverOnboarding}/>

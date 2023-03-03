@@ -23,16 +23,31 @@ const RiderLogin = () => {
   const {user, isLoading, error, login, logout} = loginStore();
 
   const [email, setEmail] = useState('')
+  const [emailError, setEmailError] = useState(false)
+  const [passwordError, setPasswordError] = useState(false)
   const [password, setPassword] = useState('')
 
 
+ 
   const handleSignUp = () => {
     navigation.navigate('RiderCreate');
   };
   const handleLogin = () => {
     console.log(email, password)
     login(email, password)
-    // navigation.navigate('RiderHome');    
+    // navigation.navigate('RiderHome');  
+    if(error==='Incorrect Email' || error==='All fields must be filled'){
+      setEmailError(true)
+    } else{
+      setEmailError(false)
+    }
+    if(error==='Incorrect password'){
+      setPasswordError(true)
+    } else{
+      setPasswordError(false)
+    }
+    if(!user)
+    console.log(emailError, passwordError)
   };
 
   const handleEmailChange = (text) => {
@@ -45,6 +60,13 @@ const RiderLogin = () => {
   const handleBack = () => {
     navigation.goBack()
   };
+
+  useEffect(() => {
+    
+    login()
+    
+  }, [emailError, passwordError])
+  
 
   return (
     <SafeAreaView style={{
@@ -76,9 +98,8 @@ const RiderLogin = () => {
           onChangeText = {handleEmailChange}
           value={email}
         />
-        <View style={{
-
-        }}>
+        {emailError ? <Text style={styles.error}>{error}</Text>: null}
+        <View>
           <CustomTextInput
             iconLeft={<PasswordIcon width={17} height={15} />}
             iconRight={<EyeClosed width={16} height={12} />}
@@ -87,7 +108,8 @@ const RiderLogin = () => {
             onChangeText={handlePasswordChange}
             secureTextEntry={true}
           />
-          {error && <Text style={styles.error}>{error}</Text>}
+      {passwordError ? <Text style={styles.error}>{error}</Text>: null}
+
         </View>
         <View style={styles.forgot}>
           <View style={{
