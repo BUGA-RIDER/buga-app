@@ -32,7 +32,7 @@ const RiderLogin = () => {
   const handleLogin = () => {
     console.log(email, password)
     login(email, password)
-    navigation.navigate('RiderHome');    
+    // navigation.navigate('RiderHome');    
   };
 
   const handleEmailChange = (text) => {

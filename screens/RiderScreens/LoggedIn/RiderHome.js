@@ -1,4 +1,4 @@
-import { StyleSheet, Text, Touchable, TouchableOpacity, View } from 'react-native'
+import { ScrollView, StyleSheet, Text, Touchable, TouchableOpacity, View } from 'react-native'
 import React from 'react'
 import { SafeAreaView } from 'react-native-safe-area-context'
 import LoggedInHeader from '../../../components/LoggedInHeader'
@@ -44,10 +44,11 @@ const RiderHome = () => {
           }}>Schedule Trip</Text>
         </TouchableOpacity>
       </View>
+      <ScrollView scrollEnabled={true}>
       <View style={{
         marginTop: 20,
         marginLeft: 16
-
+        
       }}>
         <HeadingText text="Ready To Move?" style={{
           textAlign: "left",
@@ -61,6 +62,7 @@ const RiderHome = () => {
         }} />
       </View>
       <RiderSelectNav/>
+      </ScrollView>
       <RiderBottomMenu/>
     </SafeAreaView>
   )
