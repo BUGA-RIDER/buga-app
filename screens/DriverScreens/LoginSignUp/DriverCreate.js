@@ -139,7 +139,6 @@ const DriverCreate = () => {
 
                     <View style={styles.inputBox}>
                         <CustomTextInput 
-                            ref={(ref) => (inputRefs.current[1] = ref)}
                             label="What would you like us to call you?"
                             required={<Asterisk />}
                             iconLeft={<Name_Icon width={15} height={15} />}
@@ -152,7 +151,6 @@ const DriverCreate = () => {
 
                     <View style={styles.inputBox}>
                         <CustomTextInput
-                            ref={(ref) => (inputRefs.current[0] = ref)}
                             label="Your best Email?"
                             iconLeft={<Mail width={16} height={12} />}
                             required={<Asterisk />}

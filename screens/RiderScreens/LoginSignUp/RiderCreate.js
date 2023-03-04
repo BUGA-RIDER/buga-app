@@ -73,7 +73,6 @@ const RiderCreate = () => {
                     <SubText text="It’ll only take a minute" />
                 </View>
                 <View style={styles.formstart}>
-                    { error &&<Text>{error}</Text> }
 
                     <View style={styles.inputBox}>
                         <CustomTextInput
