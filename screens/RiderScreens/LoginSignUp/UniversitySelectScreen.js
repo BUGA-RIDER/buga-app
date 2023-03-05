@@ -14,6 +14,9 @@ import { addUniversity } from '../../../stores/RiderStores/addUniversity';
 
 const UniversitySelectScreen = () => {
 
+  const navigation = useNavigation();
+
+
     const [user, setUser] = useState(null)
     const [university, setUniversity] = useState('')
 
@@ -37,13 +40,11 @@ const UniversitySelectScreen = () => {
         "Egypt", "Canada", "Australia", "Ireland",
         "Egypt", "Canada", "Australia", "Ireland",
     ]
-    const navigation = useNavigation();
 
     
     const handleProceed = () => {
 
-        // add(id,university)
-        navigation.navigate('RiderEmergency');
+        add(id,university, navigation)
         console.log(university)
       };
     const handleBack = () => {

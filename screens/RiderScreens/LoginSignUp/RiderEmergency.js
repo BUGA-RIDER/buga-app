@@ -1,5 +1,5 @@
 import { StyleSheet, Text, TouchableOpacity, View } from 'react-native';
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { StatusBar } from 'expo-status-bar';
 import { HeadingText } from '../../../components/CustomTextComponent';
@@ -11,25 +11,69 @@ import {CustomTextInput} from '../../../components/CustomTextInput';
 import Name_Icon from '../../../assets/icons/Name_Icon.svg';
 import Phone_Icon from '../../../assets/icons/Phone_Icon.svg';
 import {useNavigation} from "@react-navigation/core"
+import AsyncStorage from '@react-native-async-storage/async-storage';
+
 
 
 
 const RiderEmergency = () => {
 
+  const [user, setUser] = useState(null)
   const [name, setName] = useState('')
+  const [error, setError] = useState('')
   const [relationship, setRelationship] = useState('')
   const [phone_number, setPhone_number] = useState('')
-  const [alternate_phone_number, setAlternate_phone_number] = useState('')
+  const [emergency_alternate_phone_number, setEmergency_alternate_phone_number] = useState('')
+  
+  useEffect(() => {
+    async function fetchUser() {
+      const userData = await AsyncStorage.getItem('user');
+      if (userData) {
+        setUser(JSON.parse(userData));
+        console.log(user)
+      }
+    }
+    fetchUser();
+  }, []);
+  
+
+
+  const Nid = user?.user._id
+
 
     const navigation = useNavigation()
+
+
+    const  addEmergency = async(id, name, relationship, phone_number, emergency_alternate_phone_number)=>{
+      id=Nid
+
+    const response = await fetch('http://192.168.46.125:5000/api/user/addemergency', {
+      method: 'POST',
+      headers: {'Content-Type': 'application/json'},
+      body: JSON.stringify({id, name, relationship, phone_number, emergency_alternate_phone_number}),
+    });
+    const json = await response.json();
+    
+    if (!response.ok) {
+        setError(json.error)
+        console.log("matters")
+      }
+    if (response.ok) {
+      navigation.navigate('RiderHome')
+      console.log(id)
+    }
+  }
+
+
 
     const handleBack = ()=>{
       navigation.goBack()
     }
     const handleGo = ()=>{
-      console.log(name, relationship, phone_number, alternate_phone_number)
-      navigation.navigate('RiderHome')
+      console.log(name, phone_number, relationship,emergency_alternate_phone_number, Nid)
+      addEmergency(name, phone_number, relationship,emergency_alternate_phone_number, Nid)
     }
+    
 
   return (
     <SafeAreaView style={{
@@ -51,7 +95,8 @@ const RiderEmergency = () => {
       />
 
       <Text style={styles.subheading}>
-      Your emergency contact 
+      Your emergency contact
+      {error} 
       </Text>
       </View> 
 
@@ -96,15 +141,15 @@ const RiderEmergency = () => {
               marginLeft:7,
             }}>
               Select from contacts
-            </Text>
+                          </Text>
             </View>
           <CustomTextInput 
           style={{ marginBottom: 4  }}
             label="An alternative phone number "    
             iconLeft={<Phone_Icon width={20} height={20} />}
             placeholder="+2340000004200"
-            onChangeText = {setAlternate_phone_number}
-            value={alternate_phone_number}
+            onChangeText = {setEmergency_alternate_phone_number}
+            value={emergency_alternate_phone_number}
             />
             <View style={{
               marginLeft:43,
