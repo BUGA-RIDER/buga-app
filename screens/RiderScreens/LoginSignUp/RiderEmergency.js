@@ -30,7 +30,6 @@ const RiderEmergency = () => {
       const userData = await AsyncStorage.getItem('user');
       if (userData) {
         setUser(JSON.parse(userData));
-        console.log(user)
       }
     }
     fetchUser();
@@ -70,7 +69,6 @@ const RiderEmergency = () => {
       navigation.goBack()
     }
     const handleGo = ()=>{
-      console.log(name, phone_number, relationship,emergency_alternate_phone_number, Nid)
       addEmergency(name, phone_number, relationship,emergency_alternate_phone_number, Nid)
     }
     
