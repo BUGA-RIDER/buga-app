@@ -101,12 +101,16 @@ const RiderCreate = () => {
                             label="Your Phone Number (We’ll send a verification code)"
                             iconLeft={<Phone_Icon width={20} height={20} />}
                             required={<Asterisk />}
-                            placeholder="+2340000004200"
+                            placeholder="09000000042"
                             onChangeText={setPhone_number}
                             value={phone_number}
                             keyboardType ='numeric'
-
                         />
+                        {phone_number.length > 11 && (
+                            <Text style={styles.error}>
+                                Please enter a valid phone number
+                            </Text>
+                        )}
                     </View>
 
                     <View style={styles.inputBox}>
@@ -114,10 +118,15 @@ const RiderCreate = () => {
                             label="An alternative phone number"
                             iconLeft={<Phone_Icon width={20} height={20} />}
                             keyboardType ='numeric'
-                            placeholder="+2340000004200"
+                            placeholder="09000000042"
                             onChangeText={setAlternate_phone_number}
                             value={alternate_phone_number}
                         />
+                        {alternate_phone_number.length > 11 && (
+                            <Text style={styles.error}>
+                                Please enter a valid phone number
+                            </Text>
+                        )}
                     </View>
 
 
