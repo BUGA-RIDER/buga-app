@@ -5,7 +5,7 @@ import {
   TouchableOpacity,
   View,
 } from "react-native";
-import React, { useRef, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { SafeAreaView } from "react-native-safe-area-context";
 import { StatusBar } from "expo-status-bar";
 import Arrow from "../../../assets/icons/arrow_back.svg";
@@ -13,12 +13,16 @@ import { HeadingText, SubText } from "../../../components/CustomTextComponent";
 import Proceed from "../../../assets/icons/Proceed_Icon.svg";
 import Resend from "../../../assets/icons/resend_icon.svg";
 import { useNavigation } from "@react-navigation/core";
+import AsyncStorage from '@react-native-async-storage/async-storage';
+
 
 const RiderOTPScreen = () => {
   const navigation = useNavigation();
 
   const [code, setCode] = useState("");
   const inputRefs = useRef([]);
+  const [user, setUser] = useState(null)
+
 
   const handleChange = (index, value) => {
     setCode((prevCode) => {
@@ -43,6 +47,17 @@ const RiderOTPScreen = () => {
   const handleProceed = () => {
     navigation.navigate("UniversitySelectScreen");
   };
+
+  useEffect(() => {
+    async function fetchUser() {
+      const userData = await AsyncStorage.getItem('user');
+      if (userData) {
+        setUser(JSON.parse(userData));
+        console.log(user)
+      }
+    }
+    fetchUser();
+  }, []);
 
   const handleBack = () => {
     navigation.goBack();
@@ -76,9 +91,9 @@ const RiderOTPScreen = () => {
               fontFamily: "SatoshiBold",
               color: "black",
             }}
-          >
-            {" "}
-            +rider
+          >{" "}
+            0{user?.user.phone_number}
+            
           </Text>
         </Text>
 

@@ -27,6 +27,7 @@ export const addUniversity = create((set) => ({
     }
     if (response.ok) {
       console.log("good")
+      navigation.navigate('RiderEmergency')
     }
   },
 }));

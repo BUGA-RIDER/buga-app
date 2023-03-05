@@ -24,7 +24,7 @@ const UniversitySelectScreen = () => {
         const userData = await AsyncStorage.getItem('user');
         if (userData) {
           setUser(JSON.parse(userData));
-          console.log({})
+          console.log(user)
         }
       }
       fetchUser();
