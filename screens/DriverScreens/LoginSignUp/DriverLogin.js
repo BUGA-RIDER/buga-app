@@ -1,5 +1,5 @@
 import { StyleSheet, Text, TouchableOpacity, View } from "react-native";
-import React from "react";
+import React, { useState } from "react";
 import { SafeAreaView } from "react-native-safe-area-context";
 import { StatusBar } from "expo-status-bar";
 import Arrow from "../../../assets/icons/arrow_back.svg";
@@ -12,16 +12,44 @@ import { HeadingText } from "../../../components/CustomTextComponent";
 import { CustomTextInput } from "../../../components/CustomTextInput";
 import { Button } from "../../../components/Button";
 import { useNavigation } from "@react-navigation/core";
+import { DriverLoginStore } from "../../../stores/DriverStores/DriverLoginStore";
 
 const DriverLogin = () => {
   const navigation = useNavigation();
+
+  const {driver, isLoading, error, login, logout} = DriverLoginStore();
+
+  const [email, setEmail] = useState('')
+  const [emailError, setEmailError] = useState(false)
+  const [passwordError, setPasswordError] = useState(false)
+  const [password, setPassword] = useState('')
+
+
 
   const handleSignUp = () => {
     navigation.navigate("DriverCreate");
   };
 
   const handleLogin = () => {
-    navigation.navigate("DriverHome");
+    console.log(email, password)
+    login(email, password, navigation)
+     
+    if(error==='Incorrect Email' || error==='All fields must be filled'){
+      setEmailError(true)
+    } else{
+      setEmailError(false)
+    }
+    if(error==='Incorrect password'){
+      setPasswordError(true)
+    } else{
+      setPasswordError(false)
+    }
+  };
+  const handleEmailChange = (text) => {
+    setEmail(text);
+  };
+  const handlePasswordChange = (text) => {
+    setPassword(text);
   };
 
   const handleBack = () => {
@@ -63,9 +91,10 @@ const DriverLogin = () => {
         <CustomTextInput
           iconLeft={<Mail width={16} height={12} />}
           placeholder="Email Address"
-          // onChangeText={setText}
-          // value={text}
+          onChangeText = {handleEmailChange}
+          value={email}
         />
+          {emailError ? <Text style={styles.error}>{error}</Text>: null}
         <View
           style={{
             marginTop: 11,
@@ -75,9 +104,12 @@ const DriverLogin = () => {
             iconLeft={<PasswordIcon width={17} height={15} />}
             iconRight={<EyeClosed width={16} height={12} />}
             placeholder="Password"
-            // onChangeText={setText}
-            // value={text}
+            value={password}
+            onChangeText={handlePasswordChange}
+            secureTextEntry={true}
           />
+                {passwordError ? <Text style={styles.error}>{error}</Text>: null}
+
         </View>
         <View style={styles.forgot}>
           <View
@@ -169,4 +201,11 @@ const styles = StyleSheet.create({
     textDecorationLine: "underline",
     marginTop: 16,
   },
+  error:{
+    marginLeft:45,
+    fontFamily:"SatoshiMedium",
+    fontSize:12,
+    color:"red",
+    marginRight:40
+    }
 });
