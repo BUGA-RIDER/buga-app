@@ -1,4 +1,4 @@
-import { Easing, ScrollView, StyleSheet, Text, TextInput, TouchableOpacity, View } from 'react-native'
+import { ActivityIndicator, Easing, ScrollView, StyleSheet, Text, TextInput, TouchableOpacity, View } from 'react-native'
 import React, { useRef, useState } from 'react'
 import { SafeAreaView } from 'react-native-safe-area-context'
 import { HeadingText, SubText } from '../../../components/CustomTextComponent'
@@ -12,20 +12,19 @@ import EyeClosed from '../../../assets/icons/password_closed.svg';
 import Proceed from '../../../assets/icons/Proceed_Icon.svg';
 import { useNavigation } from '@react-navigation/core';
 import { StatusBar } from 'expo-status-bar'
+import { driverSignup } from '../../../stores/DriverStores/DriverCreateStore'
 
 
 const DriverCreate = () => {
 
-    const navigation = useNavigation()
+    const navigation = useNavigation();
 
-    const handleProceed = () => {
-        navigation.navigate('OTPScreen')
-    }
+    const {driver, logout, isLoading, error, signup} = driverSignup();
 
     const [name, setName] = useState("");
     const [email, setEmail] = useState("");
-    const [phoneNumber, setPhonenumber] = useState("");
-    const [altNumber, setAltNumber] = useState("");
+    const [phone_number, setPhone_number] = useState("");
+    const [alternate_phone_number, setAlternate_phone_number] = useState("");
     const [street, setStreet] = useState("");
     const [city, setCity] = useState("");
     const [state, setState] = useState("");
@@ -34,8 +33,24 @@ const DriverCreate = () => {
     const [confirmpassword, setConfirmpassword] = useState('');
     const [valid, setValid] = useState(true);
     const [same, setSame] = useState(true);
+    const [wallet_balance, setWallet_balance] = useState(0)
 
 
+    const handleProceed = () => {
+        console.log(name,
+            password,
+            email,
+            city,state,street,
+            wallet_balance,
+            phone_number,
+            alternate_phone_number) 
+        signup(name,
+            password,
+            email,
+            city,state,street,
+            wallet_balance,
+            phone_number,
+            alternate_phone_number,navigation)   }
     
 
 
@@ -45,11 +60,9 @@ const DriverCreate = () => {
     const handleEmailChange = (text) => {
         setEmail(text);
     };
-    const handlePhoneNumber = (text) => {
-        setPhonenumber(text);
-    };
+   
     const handleAlt = (text) => {
-        setAltNumber(text);
+        setAlternate_phone_number(text);
     };
     const handleStreet = (text) => {
         setStreet(text);
@@ -167,8 +180,8 @@ const DriverCreate = () => {
                             iconLeft={<Phone_Icon width={20} height={20} />}
                             required={<Asterisk />}
                             placeholder="+2340000004200"
-                            onChangeText={handlePhoneNumber}
-                            value={phoneNumber}
+                            onChangeText={setPhone_number}
+                            value={phone_number}
                             keyboardType ='numeric'
                         />
                     </View>
@@ -180,7 +193,7 @@ const DriverCreate = () => {
                             keyboardType ='numeric'
                             placeholder="+2340000004200"
                             onChangeText={handleAlt}
-                            value={altNumber}
+                            value={alternate_phone_number}
                         />
                     </View>
                     <View style={styles.inputBox}>
@@ -214,7 +227,8 @@ const DriverCreate = () => {
                             </View>
                             <View style={styles.sideInput}>
                                 <TextInput style={styles.sideInputText} placeholder='E.g. Gbagada'
-                                
+                                    onChangeText={setCity}  
+                                    value={city}
                                  />
                             </View>
                         </View>
@@ -234,7 +248,8 @@ const DriverCreate = () => {
                             </View>
                             <View style={styles.sideInput}>
                                 <TextInput style={styles.sideInputText} placeholder='E.g. Lagos' 
-                                    
+                                  onChangeText={setState}  
+                                  value={state}
                                 />
                             </View>
                         </View>
@@ -275,6 +290,7 @@ const DriverCreate = () => {
                                 Passwords must match
                             </Text>
                         )}
+                        {error && <Text style={styles.error}>{error}</Text>}
                     </View>
 
                     {/* proceed button */}
@@ -283,8 +299,13 @@ const DriverCreate = () => {
                         <TouchableOpacity style={styles.button}
                             onPress={handleProceed}
                         >
-                            <Text style={styles.buttonText}>Proceed</Text>
-                            <Proceed />
+                           {isLoading?<ActivityIndicator color="black"/>:
+                     <View style={{
+                        flexDirection:'row'
+                     }}>
+                     <Text style={styles.buttonText}>Proceed</Text> 
+                            
+                            <Proceed /></View>}
                         </TouchableOpacity>
                     </View>
                 </View>
