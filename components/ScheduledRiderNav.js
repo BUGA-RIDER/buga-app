@@ -52,7 +52,10 @@ const ScheduledRiderNav = () => {
 
                 {/* first collumn */}
 
-                <View style={{ marginHorizontal: 16, flexDirection: 'row', marginTop: 1 }}>
+                <View style={{
+                        marginHorizontal: 16,
+                        marginTop: 16
+                        }}>
                     <TouchableOpacity style={{ backgroundColor: "white", }} onPress={handleOpenBottomSheet}
                     >
                         <Mail style={{ marginTop: 6, alignSelf: 'flex-end', marginRight: 8 }} />
@@ -338,10 +341,11 @@ const styles = StyleSheet.create({
     },
     textBottom: {
         fontFamily: "SatoshiMedium",
-        fontSize: 12,
-        marginLeft: 10,
-        color: "#A7A7A7",
-        paddingBottom: 8
+                          fontSize: 12,
+                          marginLeft: 10,
+                          color: "#A7A7A7",
+                          paddingBottom: 20
+    
     },
     textTop: {
         fontFamily: "SatoshiMedium",

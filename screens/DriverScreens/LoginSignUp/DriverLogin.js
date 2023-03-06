@@ -142,7 +142,7 @@ const DriverLogin = () => {
         </View>
       </View>
       <View style={styles.button}>
-        <Button
+        <Button isLoading={isLoading}
           text={"Log In"}
           handlePress={handleLogin}
           style={{

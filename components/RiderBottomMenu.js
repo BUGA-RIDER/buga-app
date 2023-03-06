@@ -10,11 +10,11 @@ const RiderBottomMenu = () => {
       <View
         style={{
           position:"absolute",
-          bottom:-105,
+          bottom:-65,
           flex: 1,
           flexDirection: "row",
           width: "100%",
-          paddingVertical:20,
+          paddingVertical:15,
           justifyContent: "space-evenly",
           backgroundColor: "white",
           opacity: 1,

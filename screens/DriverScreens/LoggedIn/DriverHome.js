@@ -169,7 +169,7 @@ const DriverHome = () => {
         style={{
           position: "absolute",
           alignItems: "center",
-          bottom: 0,
+          bottom: -15,
           marginTop: 20,
         }}
       >

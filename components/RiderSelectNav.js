@@ -34,16 +34,142 @@ const handleCloseBottomSheet = () => {
 
         {/* first collumn */}
 
-        <View style={{ marginHorizontal: 16, flexDirection: 'row', marginTop: 1 }}>
-          <TouchableOpacity style={{ backgroundColor: "white", }}           onPress={handleOpenBottomSheet}
- >
-            <Mail style={{ marginTop: 6, alignSelf: 'flex-end', marginRight: 8 }} />
+        <View style={{
+          marginHorizontal: 16,
+          marginTop: 16
+        }}>
+          <TouchableOpacity style={{
+            backgroundColor: "white",
+          }}
+          onPress={handleOpenBottomSheet}
+          >
 
-            <View style={{ paddingHorizontal: 10, paddingVertical: 10 }}>
-
+            <Mail style={{
+              marginTop: 6,
+              alignSelf: 'flex-end',
+              marginRight: 8
+            }} />
+            <View style={{
+              paddingHorizontal: 10,
+              paddingVertical: 10,
+              paddingTop:20
+            }}>
               <Economy_Car />
+            </View>
+            <Text style={styles.textTop}>Economy</Text>
+            <Text style={{
+              fontFamily: "SatoshiMedium",
+              fontSize: 12,
+              marginLeft: 10,
+              color: "#A7A7A7",
+              paddingBottom: 20
+            }}>Shared Ride</Text>
+          </TouchableOpacity>
+        </View>
 
-<Modal
+        {/* //2nd nav  */}
+        <View style={{
+          marginHorizontal: 16,
+          marginTop: 16
+        }}>
+          <TouchableOpacity style={{
+            backgroundColor: "white",
+          }}>
+
+            <Mail style={{
+              marginTop: 6,
+              alignSelf: 'flex-end',
+              marginRight: 8
+            }} />
+            <View style={{
+              paddingHorizontal: 10,
+              paddingVertical: 10,
+              paddingTop:20
+            }}>
+              <First_Class />
+            </View>
+            <Text style={styles.textTop}>First Class</Text>
+            <Text style={{
+              fontFamily: "SatoshiMedium",
+              fontSize: 12,
+              marginLeft: 10,
+              color: "#A7A7A7",
+              paddingBottom: 20
+            }}>Single Passenger</Text>
+          </TouchableOpacity>
+        </View>
+      </View>
+      {/* first row */}
+      <View style={{
+        flexDirection: 'row',
+        justifyContent: 'space-around',
+        marginHorizontal: 15
+      }}>
+
+        {/* first collumn */}
+
+
+
+        <View style={styles.top}>
+
+          <TouchableOpacity style={{
+            backgroundColor: "white",
+          }}>
+
+            <Mail style={{
+              marginTop: 6,
+              alignSelf: 'flex-end',
+              marginRight: 8
+            }} />
+            <View style={{
+              paddingHorizontal: 26,
+              paddingVertical: 10,
+              paddingTop:20
+            }}>
+              <Keke />
+            </View>
+            <Text style={styles.textTop}>Intra-School</Text>
+            <Text style={{
+              fontFamily: "SatoshiMedium",
+              fontSize: 12,
+              marginLeft: 10,
+              color: "#A7A7A7",
+              paddingBottom: 20
+            }}>Electric Tricycle</Text>
+          </TouchableOpacity>
+        </View>
+        
+        {/* //2nd nav  */}
+        <View style={{
+          marginHorizontal: 16,
+          marginTop: 16
+        }}>
+          <TouchableOpacity style={{
+            backgroundColor: "white",
+          }}>
+
+            <Mail style={{
+              marginTop: 6,
+              alignSelf: 'flex-end',
+              marginRight: 8
+            }} />
+
+            <View style={{
+              paddingHorizontal: 21,
+              paddingVertical: 15
+            }}>
+              <Inter_state_car />
+            </View>
+            <Text style={styles.textTop}>Inter-State</Text>
+            <Text style={{fontFamily: "SatoshiMedium",
+                          fontSize: 12,
+                          marginLeft: 10,
+                          color: "#A7A7A7",
+                          paddingBottom: 20
+    }}>Shared 7 Seater</Text>
+          </TouchableOpacity>
+        </View>
+        <Modal
   animationType="slide"
   transparent={true}
 // We use the state here to toggle visibility of Bottom Sheet 
@@ -147,96 +273,7 @@ const handleCloseBottomSheet = () => {
         </TouchableOpacity>
     </View>
   </View>
-</Modal>
-            </View>
-            <Text style={styles.textTop}>Economy</Text>
-            <Text style={styles.textBottom}>Shared Ride</Text>
-          </TouchableOpacity>
-        </View>
-        {/* //2nd nav  */}
-        <View style={{
-          marginHorizontal: 16,
-          marginTop: 16
-        }}>
-          <TouchableOpacity style={{
-            backgroundColor: "white",
-          }}>
-
-            <Mail style={{
-              marginTop: 6,
-              alignSelf: 'flex-end',
-              marginRight: 8
-            }} />
-            <View style={{
-              paddingHorizontal: 10,
-              paddingVertical: 10
-            }}>
-              <First_Class />
-            </View>
-            <Text style={styles.textTop}>First Class</Text>
-            <Text style={styles.textBottom}>Single Passenger</Text>
-          </TouchableOpacity>
-        </View>
-      </View>
-      {/* first row */}
-      <View style={{
-        flexDirection: 'row',
-        justifyContent: 'space-around',
-        marginHorizontal: 15
-      }}>
-
-        {/* first collumn */}
-
-        <View style={{
-          marginHorizontal: 16,
-          flexDirection: 'row',
-          marginTop: 16
-        }}>
-          <TouchableOpacity style={{
-            backgroundColor: "white",
-          }}>
-
-            <Mail style={{
-              marginTop: 6,
-              alignSelf: 'flex-end',
-              marginRight: 8
-            }} />
-            <View style={{
-              paddingHorizontal: 25,
-              paddingVertical: 5
-            }}>
-              <Keke />
-            </View>
-            <Text style={styles.textTop}>Economy</Text>
-            <Text style={styles.textBottom}>Shared Ride</Text>
-          </TouchableOpacity>
-        </View>
-        {/* //2nd nav  */}
-        <View style={{
-          marginHorizontal: 16,
-          marginTop: 16
-        }}>
-          <TouchableOpacity style={{
-            backgroundColor: "white",
-          }}>
-
-            <Mail style={{
-              marginTop: 6,
-              alignSelf: 'flex-end',
-              marginRight: 8
-            }} />
-
-            <View style={{
-              paddingHorizontal: 20,
-              paddingVertical: 15
-            }}>
-              <Inter_state_car />
-            </View>
-            <Text style={styles.textTop}>First Class</Text>
-            <Text style={styles.textBottom}>Single Passenger</Text>
-          </TouchableOpacity>
-        </View>
-
+      </Modal>
       </View>
     </View>
   )
@@ -249,7 +286,8 @@ const styles = StyleSheet.create({
   top: {
     marginHorizontal: 16,
     flexDirection: 'row',
-    marginTop: 16
+    marginTop: 16,
+    alignSelf:'center'
   },
   textBottom: {
     fontFamily: "SatoshiMedium",

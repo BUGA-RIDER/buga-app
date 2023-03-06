@@ -211,7 +211,7 @@ const [plate_number, setPlate_number] = useState('')
       value={year}    />
     <CustomTextInput
      label = "Colour"
-      placeholder="E.g 2015"
+      placeholder="E.g Red, Blue"
       style={{
         marginBottom:12
       }}

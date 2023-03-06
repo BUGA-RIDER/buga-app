@@ -37,9 +37,8 @@ const DriverCreate = () => {
 
 
     const handleProceed = () => { 
-        // signup(name, password,  email, city,state,street, 
-        //      wallet_balance, phone_number, alternate_phone_number,navigation) 
-        navigation.navigate('OTPScreen')
+        signup(name, password,  email, city,state,street, 
+             wallet_balance, phone_number, alternate_phone_number,navigation) 
           }
     
 
@@ -174,6 +173,11 @@ const DriverCreate = () => {
                             value={phone_number}
                             keyboardType ='numeric'
                         />
+                        {phone_number.length > 11 && (
+                            <Text style={styles.error}>
+                                Please enter a valid phone number
+                            </Text>
+                        )}
                     </View>
 
                     <View style={styles.inputBox}>
@@ -185,6 +189,11 @@ const DriverCreate = () => {
                             onChangeText={handleAlt}
                             value={alternate_phone_number}
                         />
+                        {alternate_phone_number.length > 11 && (
+                            <Text style={styles.error}>
+                                Please enter a valid phone number
+                            </Text>
+                        )}
                     </View>
                     <View style={styles.inputBox}>
                         <CustomTextInput

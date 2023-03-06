@@ -57,7 +57,7 @@ const RiderHome = () => {
 
       <View style={{
         flexDirection: 'row',
-        marginTop: 50,
+        marginTop: 45,
         marginHorizontal: 49,
         justifyContent: 'space-around'
       }}>
@@ -91,7 +91,7 @@ const RiderHome = () => {
       </View>
       <ScrollView scrollEnabled={true}>
       <View style={{
-        marginTop: 20,
+        marginTop: 10,
         marginLeft: 16
         
       }}>
