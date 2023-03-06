@@ -7,10 +7,29 @@ import Mail from '../../../assets/icons/Mail_icon.svg'
 import RiderSelectNav from '../../../components/RiderSelectNav'
 import RiderBottomMenu from '../../../components/RiderBottomMenu'
 import AsyncStorage from '@react-native-async-storage/async-storage'
+import { useNavigation } from '@react-navigation/core';
+import ScheduledRiderNav from '../../../components/ScheduledRiderNav'
+
 
 const RiderHome = () => {
 
   const [user, setUser] = useState(null)
+
+  const navigation = useNavigation();
+
+  const handleSchedule=()=>{
+    setScheduled(true)
+    setOrdernow(false)
+  }
+  const handleOrder=()=>{
+    setScheduled(false)
+    setOrdernow(true)
+  }
+
+  const [ordernow, setOrdernow] = useState(true)
+  const [scheduled, setScheduled] = useState(false)
+
+
 
 
   useEffect(() => {
@@ -44,9 +63,11 @@ const RiderHome = () => {
       }}>
         <TouchableOpacity style={{
           borderBottomColor: "#FDD247",
-          borderBottomWidth: 2,
+          borderBottomWidth: ordernow ? 2: 0,
           paddingBottom: 8
-        }}>
+        }}
+        onPress={handleOrder}
+        >
           <Text style={{
             fontFamily: "SatoshiMedium",
             fontSize: 16,
@@ -55,8 +76,12 @@ const RiderHome = () => {
         </TouchableOpacity>
         <TouchableOpacity style={{
           borderBottomColor: "#FDD247",
-          paddingBottom: 8
-        }}>
+          paddingBottom: 8,
+          borderBottomWidth: scheduled ? 2: 0,
+
+        }}
+        onPress={handleSchedule}
+        >
           <Text style={{
             fontFamily: "SatoshiMedium",
             fontSize: 16,
@@ -81,7 +106,9 @@ const RiderHome = () => {
           fontSize: 14
         }} />
       </View>
-      <RiderSelectNav/>
+
+      { ordernow && <RiderSelectNav/>}
+      { scheduled && <ScheduledRiderNav/>}
       </ScrollView>
       <RiderBottomMenu/>
     </SafeAreaView>

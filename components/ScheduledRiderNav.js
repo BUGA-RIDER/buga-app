@@ -8,10 +8,8 @@ import Keke from "../assets/icons/E-trike.svg"
 import Inter_state_car from "../assets/icons/Inter-state.svg"
 import { Button } from './Button'
 
-
-const RiderSelectNav = () => {
-
-  // We need to get the height of the phone and use it relatively, 
+const ScheduledRiderNav = () => {
+   // We need to get the height of the phone and use it relatively, 
 // This is because height of phones vary
 const windowHeight = Dimensions.get('window').height;
 
@@ -42,112 +40,6 @@ const handleCloseBottomSheet = () => {
             <View style={{ paddingHorizontal: 10, paddingVertical: 10 }}>
 
               <Economy_Car />
-
-<Modal
-  animationType="slide"
-  transparent={true}
-// We use the state here to toggle visibility of Bottom Sheet 
-  visible={isBottomSheetOpen}
-// We pass our function as default function to close the Modal
-  onRequestClose={handleCloseBottomSheet} >
-
-    <View style={[styles.bottomSheet, { height: windowHeight * 0.44 }]}>
-
-      <View>
-        <TouchableOpacity onPress={handleCloseBottomSheet}>
-        <Mail style={{ marginTop: 10, alignSelf: 'flex-end' }} />
-        </TouchableOpacity>
-      </View>
-
-      <View style={{ paddingVertical: 15 }}>
-        <HeadingText text={'No of Riders'} style={{
-          fontSize:20,
-          marginBottom:21
-        }}/>
-        
-        <View style={{
-          flexDirection:'row',
-          alignSelf:'center',
-          justifyContent:'space-between',
-          width:"35%",
-          marginBottom:38
-        }}>
-          <TouchableOpacity style={{
-            paddingHorizontal:17,
-            paddingVertical:10,
-            backgroundColor:"#FFD96066"
-          }}>
-            <Text style={{
-            fontFamily:"SatoshiBold",
-            fontSize:20
-          }}>-</Text>
-            </TouchableOpacity>
-
-          <Text style={{
-            fontFamily:"SatoshiBold",
-            fontSize:20,
-            alignSelf:'center'
-          }} >5</Text>
-          <TouchableOpacity style={{
-            paddingHorizontal:17,
-            paddingVertical:10,
-            backgroundColor:"#FFD96066"
-          }} >
-            
-            <Text style={{
-            fontFamily:"SatoshiBold",
-            fontSize:20
-          }} >+</Text></TouchableOpacity>
-        </View>
-
-        <HeadingText text={'Total Luggage Number'} style={{
-          fontSize:20,
-          marginBottom:21
-        }}/>
-        <View style={{
-          flexDirection:'row',
-          alignSelf:'center',
-          justifyContent:'space-between',
-          width:"35%",
-          marginBottom:38
-        }}>
-          <TouchableOpacity style={{
-            paddingHorizontal:17,
-            paddingVertical:10,
-            backgroundColor:"#FFD96066"
-          }}>
-            <Text style={{
-            fontFamily:"SatoshiBold",
-            fontSize:20
-          }}>-</Text>
-            </TouchableOpacity>
-
-          <Text style={{
-            fontFamily:"SatoshiBold",
-            fontSize:20,
-            alignSelf:'center'
-          }} >5</Text>
-          <TouchableOpacity style={{
-            paddingHorizontal:17,
-            paddingVertical:10,
-            backgroundColor:"#FFD96066"
-          }} >
-            
-            <Text style={{
-            fontFamily:"SatoshiBold",
-            fontSize:20
-          }} >+</Text></TouchableOpacity>
-        </View>
-  
-        <TouchableOpacity style={{ flex: 0, flexDirection: 'row' }} onPress={handleCloseBottomSheet}>
-          <View />
-          <Button style={{
-
-          }}text={"Proceed"} />
-        </TouchableOpacity>
-    </View>
-  </View>
-</Modal>
             </View>
             <Text style={styles.textTop}>Economy</Text>
             <Text style={styles.textBottom}>Shared Ride</Text>
@@ -193,7 +85,7 @@ const handleCloseBottomSheet = () => {
           marginTop: 16
         }}>
           <TouchableOpacity style={{
-            backgroundColor: "white",
+            backgroundColor: "#CACACA",
           }}>
 
             <Mail style={{
@@ -207,9 +99,27 @@ const handleCloseBottomSheet = () => {
             }}>
               <Keke />
             </View>
+            <View style={{
+                flexDirection:'row'
+            }}>
+            <View>
             <Text style={styles.textTop}>Economy</Text>
-            <Text style={styles.textBottom}>Shared Ride</Text>
+            <Text style={styles.textBottom}>Shared Ride</Text></View>
+            <View style={{
+                alignSelf:'center',
+                marginTop:5,
+                marginLeft:40,
+                backgroundColor:"#FFD1D1",
+                paddingHorizontal:8,
+                paddingVertical:4
+            }}>
+            <SubText text={"N/A"} style={{
+                fontSize:13
+            }}/></View>
+            </View>
           </TouchableOpacity>
+
+
         </View>
         {/* //2nd nav  */}
         <View style={{
@@ -242,43 +152,41 @@ const handleCloseBottomSheet = () => {
   )
 }
 
-export default RiderSelectNav
+export default ScheduledRiderNav
 
 const styles = StyleSheet.create({
-
-  top: {
-    marginHorizontal: 16,
-    flexDirection: 'row',
-    marginTop: 16
-  },
-  textBottom: {
-    fontFamily: "SatoshiMedium",
-    fontSize: 12,
-    marginLeft: 10,
-    color: "#A7A7A7",
-    paddingBottom: 8
-  },
-  textTop: {
-    fontFamily: "SatoshiMedium",
-    fontSize: 18,
-    marginLeft: 10,
-  },
-  container: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-},
-bottomSheet: {
-    position: 'absolute',
-    left: 0,
-    right: 0,
-    justifyContent: 'flex-start',
-    backgroundColor: 'white',
-    borderTopLeftRadius: 20,
-    borderTopRightRadius: 20,
-    paddingVertical: 0,
-    paddingHorizontal: 25,
-    bottom: 0,
-},
-
+    top: {
+        marginHorizontal: 16,
+        flexDirection: 'row',
+        marginTop: 16
+      },
+      textBottom: {
+        fontFamily: "SatoshiMedium",
+        fontSize: 12,
+        marginLeft: 10,
+        color: "#A7A7A7",
+        paddingBottom: 8
+      },
+      textTop: {
+        fontFamily: "SatoshiMedium",
+        fontSize: 18,
+        marginLeft: 10,
+      },
+      container: {
+        flex: 1,
+        justifyContent: 'center',
+        alignItems: 'center',
+    },
+    bottomSheet: {
+        position: 'absolute',
+        left: 0,
+        right: 0,
+        justifyContent: 'flex-start',
+        backgroundColor: 'white',
+        borderTopLeftRadius: 20,
+        borderTopRightRadius: 20,
+        paddingVertical: 0,
+        paddingHorizontal: 25,
+        bottom: 0,
+    },
 })
