@@ -1,5 +1,5 @@
-import { StyleSheet, Text, TouchableOpacity, View } from "react-native";
-import React from "react";
+import { ActivityIndicator, StyleSheet, Text, TouchableOpacity, View } from "react-native";
+import React, { useEffect, useState } from "react";
 import { SafeAreaView } from "react-native-safe-area-context";
 import { StatusBar } from "expo-status-bar";
 import { HeadingText } from "../../../components/CustomTextComponent";
@@ -11,17 +11,64 @@ import { CustomTextInput } from "../../../components/CustomTextInput";
 import Name_Icon from "../../../assets/icons/Name_Icon.svg";
 import Phone_Icon from "../../../assets/icons/Phone_Icon.svg";
 import { useNavigation } from "@react-navigation/core";
+import AsyncStorage from "@react-native-async-storage/async-storage";
 
 const Emergency = () => {
+
+  const [user, setUser] = useState(null)
+  const [name, setName] = useState('')
+  const [error, setError] = useState('')
+  const [isLoading, setIsLoading] = useState(false)
+  const [relationship, setRelationship] = useState('')
+  const [phone_number, setPhone_number] = useState('')
+  const [emergency_alternate_phone_number, setEmergency_alternate_phone_number] = useState('')
+
+  useEffect(() => {
+    async function fetchUser() {
+      const userData = await AsyncStorage.getItem('driver');
+      if (userData) {
+        setUser(JSON.parse(userData));
+        console.log()
+      }
+    }
+    fetchUser();
+  }, []);
+
+  const Nid = user?.driver._id
+
+
   const navigation = useNavigation();
+
+
+  const addEmergency = async (id, name, relationship, phone_number, emergency_alternate_phone_number) => {
+    id = Nid
+    setIsLoading(true)
+    const response = await fetch('http://192.168.46.125:5000/api/driver/addemergency', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ id, name, relationship, phone_number, emergency_alternate_phone_number }),
+    });
+    const json = await response.json();
+
+    if (!response.ok) {
+      setError(json.error)
+      setIsLoading(false)
+      console.log("matters")
+    }
+    if (response.ok) {
+      setIsLoading(false)
+      navigation.navigate('StepOne')
+      console.log(id)
+    }
+  }
 
   const handleBack = () => {
     navigation.goBack();
   };
-
   const handleProceed = () => {
-    navigation.navigate("StepOne");
+    addEmergency(Nid, name, relationship, phone_number, emergency_alternate_phone_number)
   };
+
 
   return (
     <SafeAreaView
@@ -53,6 +100,7 @@ const Emergency = () => {
           marginTop: 22,
         }}
       >
+                 {error && <Text style={styles.error}>{error}</Text>}
         <CustomTextInput
           style={{
             marginBottom: 25,
@@ -60,6 +108,8 @@ const Emergency = () => {
           label="Contact's Name"
           iconLeft={<Name_Icon width={15} height={15} />}
           placeholder="Name"
+          onChangeText={setName}
+          value={name}
         />
         <CustomTextInput
           style={{
@@ -68,6 +118,8 @@ const Emergency = () => {
           label="Relationship with contact"
           iconLeft={<Name_Icon width={15} height={15} />}
           placeholder="E.g Father, Mother"
+          onChangeText={setRelationship}
+          value={relationship}
         />
         <CustomTextInput
           style={{
@@ -75,7 +127,10 @@ const Emergency = () => {
           }}
           label="Contact's Phone Number"
           iconLeft={<Phone_Icon width={20} height={20} />}
-          placeholder="+2340000004200"
+          placeholder="09000000420"
+          onChangeText={setPhone_number}
+          value={phone_number}
+          keyboardType="numeric"
         />
         <View
           style={{
@@ -104,7 +159,10 @@ const Emergency = () => {
           label="An alternative phone number "
           labeltwo="An alternative phone number "
           iconLeft={<Phone_Icon width={20} height={20} />}
-          placeholder="+2340000004200"
+          placeholder="09000000420"
+          onChangeText={setEmergency_alternate_phone_number}
+          value={emergency_alternate_phone_number}
+          keyboardType="numeric"
         />
         <View
           style={{
@@ -151,8 +209,13 @@ const Emergency = () => {
         </View>
         <View style={styles.buttonView}>
           <TouchableOpacity style={styles.button} onPress={handleProceed}>
-            <Text style={styles.buttonText}>Let's Go!</Text>
-            <Proceed />
+          {isLoading ? <ActivityIndicator color="black"/>:
+           <View style={{
+            flexDirection:'row'
+           }}>
+           <Text style={styles.buttonText}>Let's go!
+           </Text><Proceed />
+           </View> } 
           </TouchableOpacity>
         </View>
       </View>
@@ -196,4 +259,11 @@ const styles = StyleSheet.create({
     fontSize: 18,
     marginRight: 8,
   },
+  error: {
+    marginLeft: 45,
+    fontFamily: "SatoshiMedium",
+    fontSize: 12,
+    color: "red",
+    marginRight: 40
+}
 });

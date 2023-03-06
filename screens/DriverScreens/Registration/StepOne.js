@@ -1,5 +1,5 @@
 import { ScrollView, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
-import React from 'react';
+import React, { useState } from 'react';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { StatusBar } from 'expo-status-bar';
 import { HeadingText, SubText } from '../../../components/CustomTextComponent';
@@ -11,7 +11,19 @@ import {CustomTextInput} from '../../../components/CustomTextInput';
 import { Button } from '../../../components/Button';
 
 const StepOne = () => {
+
+const [type, setType] = useState('')    
+const [brand, setBrand] = useState('')    
+const [year, setYear] = useState('')    
+const [colour, setColour] = useState('')    
+const [plate_number, setPlate_number] = useState('')    
+
     const navigation = useNavigation();
+
+    const selectBrand = (selectedItem, index) => { 
+        setType(selectedItem)
+        console.log(selectedItem, type, index)
+    };
 
     const handleBack = () =>{
         navigation.goBack();
@@ -77,9 +89,7 @@ const StepOne = () => {
         <SelectDropdown
             defaultButtonText='Select Car Brand'
             dropdownIconPosition='right'
-            renderDropdownIcon={isOpened => {
-                return <Arrow />;
-              }}
+            
             dropdownStyle={{
             borderRadius: 5,
             backgroundColor:"white",
@@ -99,6 +109,7 @@ const StepOne = () => {
                 borderColor:"#9A9A9A",
                 alignItems:'center',
                 flexDirection:'row',
+                justifyContent:'space-around',
                 borderRadius:4,
                 width:325,
                 marginBottom:12
@@ -111,9 +122,7 @@ const StepOne = () => {
                  
             }}
 	data={countries}
-	onSelect={(selectedItem, index) => {
-		console.log(selectedItem, index)
-	}}
+	onSelect={selectBrand}
 	buttonTextAfterSelection={(selectedItem, index) => {
 		// text represented after item is selected
 		// if data array is an array of objects then return selectedItem.property to render after item is selected
@@ -133,6 +142,8 @@ const StepOne = () => {
       style={{
         marginBottom:12
       }}
+      onChangeText={setBrand}
+      value={brand}
     />
     <CustomTextInput
      label = "Year"
@@ -140,18 +151,23 @@ const StepOne = () => {
       style={{
         marginBottom:12
       }}
-    />
+      onChangeText={setYear}
+      value={year}    />
     <CustomTextInput
      label = "Colour"
       placeholder="E.g 2015"
       style={{
         marginBottom:12
       }}
+      onChangeText={setColour}
+      value={colour}
     />
     <CustomTextInput
      label = "License Plate Number"
       placeholder="e.g EPE34HG"
       style
+      onChangeText={setPlate_number}
+      value={plate_number}
     />
          
          {/* //proceed button */}

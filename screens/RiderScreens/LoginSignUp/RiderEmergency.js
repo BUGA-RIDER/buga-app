@@ -126,7 +126,7 @@ const RiderEmergency = () => {
           style={{ marginBottom: 4 }}
           label="Contact's Phone Number"
           iconLeft={<Phone_Icon width={20} height={20} />}
-          placeholder="+09000000420"
+          placeholder="09000000420"
           onChangeText={setPhone_number}
           value={phone_number}
           keyboardType="numeric"
@@ -151,7 +151,7 @@ const RiderEmergency = () => {
           style={{ marginBottom: 4 }}
           label="An alternative phone number "
           iconLeft={<Phone_Icon width={20} height={20} />}
-          placeholder="+09000000420"
+          placeholder="09000000420"
           onChangeText={setEmergency_alternate_phone_number}
           value={emergency_alternate_phone_number}
           keyboardType="numeric"
