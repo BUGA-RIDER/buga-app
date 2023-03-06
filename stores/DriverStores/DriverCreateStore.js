@@ -34,7 +34,7 @@ export const driverSignup = create((set) => ({
       set({error: json.error, isLoading: false});
     }
     if (response.ok) {
-      await AsyncStorage.setItem('user', JSON.stringify(json));
+      await AsyncStorage.setItem('driver', JSON.stringify(json));
       set({driver: json, isLoading: false});
       navigation.navigate('OTPScreen'); 
     }

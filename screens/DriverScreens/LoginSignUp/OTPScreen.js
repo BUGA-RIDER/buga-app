@@ -1,5 +1,5 @@
 import { StyleSheet, Text, TextInput, TouchableOpacity, View } from 'react-native';
-import React, { useRef, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { StatusBar } from 'expo-status-bar';
 import Arrow from '../../../assets/icons/arrow_back.svg' ;
@@ -7,6 +7,7 @@ import { HeadingText, SubText } from '../../../components/CustomTextComponent';
 import Proceed from '../../../assets/icons/Proceed_Icon.svg' ;
 import Resend from '../../../assets/icons/resend_icon.svg' ;
 import { useNavigation } from '@react-navigation/core';
+import AsyncStorage from '@react-native-async-storage/async-storage';
 
 
 
@@ -17,6 +18,7 @@ const OTPScreen = () => {
    const navigation = useNavigation();
 
    const [code, setCode] = useState('');
+   const [user, setUser] = useState(null);
    const inputRefs = useRef([]);
 
    const handleChange = (index, value) => {
@@ -38,6 +40,17 @@ const OTPScreen = () => {
       }
     }
   };
+
+  useEffect(() => {
+    async function fetchUser() {
+      const userData = await AsyncStorage.getItem('driver');
+      if (userData) {
+        setUser(JSON.parse(userData));
+        console.log()
+      }
+    }
+    fetchUser();
+  }, []);
 
    const handleProceed = () => {
     navigation.navigate('Emergency');
@@ -71,7 +84,7 @@ const OTPScreen = () => {
       <Text style={{
           fontFamily:"SatoshiBold",
           color: "black",
-        }}> +2349020065170</Text>
+        }}> 0{user?.driver.phone_number}</Text>
       </Text>
       <View style={styles.otpContainer}>
           {Array.from({ length: 6 }, (_, i) => (

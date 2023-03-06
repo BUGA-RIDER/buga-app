@@ -36,21 +36,11 @@ const DriverCreate = () => {
     const [wallet_balance, setWallet_balance] = useState(0)
 
 
-    const handleProceed = () => {
-        console.log(name,
-            password,
-            email,
-            city,state,street,
-            wallet_balance,
-            phone_number,
-            alternate_phone_number) 
-        signup(name,
-            password,
-            email,
-            city,state,street,
-            wallet_balance,
-            phone_number,
-            alternate_phone_number,navigation)   }
+    const handleProceed = () => { 
+        // signup(name, password,  email, city,state,street, 
+        //      wallet_balance, phone_number, alternate_phone_number,navigation) 
+        navigation.navigate('OTPScreen')
+          }
     
 
 
@@ -179,7 +169,7 @@ const DriverCreate = () => {
                             label="Your Phone Number (We’ll send a verification code)"
                             iconLeft={<Phone_Icon width={20} height={20} />}
                             required={<Asterisk />}
-                            placeholder="+2340000004200"
+                            placeholder="09000000420"
                             onChangeText={setPhone_number}
                             value={phone_number}
                             keyboardType ='numeric'
@@ -191,7 +181,7 @@ const DriverCreate = () => {
                             label="An alternative phone number"
                             iconLeft={<Phone_Icon width={20} height={20} />}
                             keyboardType ='numeric'
-                            placeholder="+2340000004200"
+                            placeholder="09000000420"
                             onChangeText={handleAlt}
                             value={alternate_phone_number}
                         />
