@@ -1,5 +1,5 @@
-import { ScrollView, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
-import React, { useState } from 'react';
+import { ActivityIndicator, ScrollView, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
+import React, { useEffect, useState } from 'react';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { StatusBar } from 'expo-status-bar';
 import { HeadingText, SubText } from '../../../components/CustomTextComponent';
@@ -9,10 +9,15 @@ import Proceed from '../../../assets/icons/Proceed_Icon.svg' ;
 import SelectDropdown from 'react-native-select-dropdown';
 import {CustomTextInput} from '../../../components/CustomTextInput';
 import { Button } from '../../../components/Button';
+import AsyncStorage from '@react-native-async-storage/async-storage';
 
 const StepOne = () => {
 
+
+const [user, setUser] = useState(null)
 const [type, setType] = useState('')    
+const [error, setError] = useState('')    
+const [isLoading, setIsLoading] = useState('')    
 const [brand, setBrand] = useState('')    
 const [year, setYear] = useState('')    
 const [colour, setColour] = useState('')    
@@ -25,13 +30,62 @@ const [plate_number, setPlate_number] = useState('')
         console.log(selectedItem, type, index)
     };
 
-    const handleBack = () =>{
+    useEffect(() => {
+        async function fetchUser() {
+          const userData = await AsyncStorage.getItem('driver');
+          if (userData) {
+            setUser(JSON.parse(userData));
+            console.log()
+          }
+        }
+        fetchUser();
+      }, []);
+    
+      const Nid = user?.driver._id    
+    
+      const addVehicle = async (id,
+        type,
+        brand,
+        year,
+        colour,
+        plate_number) => {
+        id = Nid
+        setIsLoading(true)
+        const response = await fetch('http://192.168.46.125:5000/api/driver/addvehicle', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ id,
+            type,
+            brand,
+            year,
+            colour,
+            plate_number }),
+        });
+        const json = await response.json();
+    
+        if (!response.ok) {
+          setError(json.error)
+          setIsLoading(false)
+          console.log("matters")
+        }
+        if (response.ok) {
+          setIsLoading(false)
+          navigation.navigate('StepTwo')
+          console.log(id)
+        }
+      }
+    
+      const handleBack = () => {
         navigation.goBack();
-    };
-
-    const handleProceed = () =>{
-        navigation.navigate('StepTwo')
-    };
+      };
+      const handleProceed = () => {
+        addVehicle(Nid,
+            type,
+            brand,
+            year,
+            colour,
+            plate_number)
+      };
 
     const countries = [
         "Egypt", "Canada", "Australia", "Ireland",
@@ -69,6 +123,8 @@ const [plate_number, setPlate_number] = useState('')
         Vehicle must be 2005 model or later, a 4 door vehicle 
         and must not be salvaged.
     </Text>
+    {error && <Text style={styles.error}>{error}</Text>}
+
     </View> 
 
             {/* //select car component */}
@@ -174,8 +230,13 @@ const [plate_number, setPlate_number] = useState('')
 
         <View style={styles.buttonView}>
              <TouchableOpacity style={styles.button} onPress={handleProceed}>
-                <Text style={styles.buttonText}>Proceed</Text>
-                    <Proceed/>
+             {isLoading ? <ActivityIndicator color="black"/>:
+           <View style={{
+            flexDirection:'row'
+           }}>
+           <Text style={styles.buttonText}>Proceed
+           </Text><Proceed />
+           </View> } 
             </TouchableOpacity>
         </View>
         
@@ -221,5 +282,11 @@ const styles = StyleSheet.create({
         fontFamily:"SatoshiBold",
         fontSize:18,
         marginRight:8
+    }, 
+    error: {
+        fontFamily: "SatoshiMedium",
+        fontSize: 12,
+        color: "red",
+        marginRight: 40
     }
 });

@@ -7,7 +7,7 @@ import {
   TouchableOpacity,
   View,
 } from "react-native";
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { SafeAreaView } from "react-native-safe-area-context";
 import Background from "../../../assets/icons/background.png";
 import Menu from "../../../assets/icons/Icon.svg";
@@ -27,8 +27,24 @@ import Operations from "../../../components/Operations";
 import BottomMenu from "../../../components/BottomMenu";
 import { StatusBar } from "expo-status-bar";
 import LoggedInHeader from "../../../components/LoggedInHeader";
+import AsyncStorage from "@react-native-async-storage/async-storage";
 
 const DriverHome = () => {
+
+  const [user, setUser] = useState(null)
+
+  useEffect(() => {
+    async function fetchUser() {
+      const userData = await AsyncStorage.getItem('driver');
+      if (userData) {
+        setUser(JSON.parse(userData));
+        console.log()
+      }
+    }
+    fetchUser();
+  }, []);
+
+
   return (
     <SafeAreaView
       style={{
@@ -39,8 +55,8 @@ const DriverHome = () => {
 
       <LoggedInHeader 
 
-      walletBalance="₦15,235"
-      userName="Öreoluwa"
+      walletBalance={`₦${user?.driver?.wallet_balance}`}
+      userName={user?.driver?.name}
       bottomText="Withdraw"/>
 
       <View
