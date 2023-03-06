@@ -1,4 +1,4 @@
-import { Image, StyleSheet, Text, TouchableOpacity, View  } from 'react-native'
+import { ActivityIndicator, StyleSheet, Text, TouchableOpacity, View  } from 'react-native'
 import React, { useEffect, useState } from 'react'
 import { SafeAreaView } from 'react-native-safe-area-context'
 import { StatusBar } from 'expo-status-bar'
@@ -86,6 +86,7 @@ const RiderLogin = () => {
         </Text>
       </View>
       <View style={styles.login}>
+
         <CustomTextInput
           style={{
             marginBottom: 0
@@ -136,7 +137,9 @@ const RiderLogin = () => {
       </View>
       <View style={styles.button}>
 
-        <Button text={"Log In"} style={{
+        <Button isLoading={isLoading}
+        text={"Log In"} 
+        style={{
           width: 330
         }}
           handlePress={handleLogin}

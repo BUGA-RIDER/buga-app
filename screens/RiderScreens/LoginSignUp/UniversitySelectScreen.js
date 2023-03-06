@@ -20,7 +20,7 @@ const UniversitySelectScreen = () => {
     const [user, setUser] = useState(null)
     const [university, setUniversity] = useState('')
 
-    const { add } = addUniversity()
+    const { add, isLoading } = addUniversity()
 
     useEffect(() => {
       async function fetchUser() {
@@ -43,10 +43,8 @@ const UniversitySelectScreen = () => {
 
     
     const handleProceed = () => {
-
         add(id,university, navigation)
-        console.log(university)
-      };
+            };
     const handleBack = () => {
         navigation.goBack();
       };
@@ -56,7 +54,7 @@ const UniversitySelectScreen = () => {
         console.log(selectedItem, university, index)
     };
 
-        const id = user?.getId
+        const id = user?.user._id
 
 
   return (

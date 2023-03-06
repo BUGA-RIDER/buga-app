@@ -1,4 +1,4 @@
-import { ScrollView, StyleSheet, Text, TextInput, TouchableOpacity, View } from 'react-native';
+import { ActivityIndicator, ScrollView, StyleSheet, Text, TextInput, TouchableOpacity, View } from 'react-native';
 import React, { useState } from 'react';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import Asterisk from '../../../assets/icons/asterisk.svg';
@@ -166,6 +166,8 @@ const RiderCreate = () => {
                                 Passwords must match
                             </Text>
                         )}
+                                                { error && <Text style={styles.error}>{error}</Text>}
+
                     </View>
 
                     {/* proceed button */}
@@ -174,8 +176,13 @@ const RiderCreate = () => {
                         <TouchableOpacity style={styles.button}
                             onPress={handleProceed}
                         >
-                            <Text style={styles.buttonText}>Proceed</Text>
-                            <Proceed />
+                     {isLoading?<ActivityIndicator color="black"/>:
+                     <View style={{
+                        flexDirection:'row'
+                     }}>
+                     <Text style={styles.buttonText}>Proceed</Text> 
+                            
+                            <Proceed /></View>}
                         </TouchableOpacity>
                     </View>
                 </View>

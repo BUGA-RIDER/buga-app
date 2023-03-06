@@ -1,7 +1,7 @@
-import { StyleSheet, Text, TouchableOpacity, View } from 'react-native'
+import { ActivityIndicator, StyleSheet, Text, TouchableOpacity, View } from 'react-native'
 import React from 'react'
 
-export const Button = ({text, handlePress, style, ...rest}) => {
+export const Button = ({text, handlePress, style, isLoading, ...rest}) => {
   return (
     <TouchableOpacity style={{
             width:358,
@@ -10,14 +10,14 @@ export const Button = ({text, handlePress, style, ...rest}) => {
             borderRadius: 5,
             ...style
     }}{...rest}
-    onPress={handlePress}
-    >
-      <Text style={{
+    onPress={handlePress}>
+
+     { isLoading ? <ActivityIndicator color="black" /> : <Text style={{
             textAlign:'center',
             fontFamily:"SatoshiBold",
-            fontSize:18,
-            
-      }}>{text}</Text>
+            fontSize:18,}}>{text}</Text>}
+
+
     </TouchableOpacity>
   );
 };

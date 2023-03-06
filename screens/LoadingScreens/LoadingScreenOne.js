@@ -1,4 +1,4 @@
-import { Image, StyleSheet, Text, Touchable, TouchableOpacity, View } from 'react-native'
+import { ActivityIndicator, StyleSheet, Text, Touchable, TouchableOpacity, View } from 'react-native'
 import React, { useEffect, useState } from 'react'
 import { SafeAreaView } from 'react-native-safe-area-context'
 import { HeadingText, SubText } from '../../components/CustomTextComponent'
