@@ -18,6 +18,7 @@ import Successful from './screens/LoadingScreens/Successful';
 import DriverOnboarding from './screens/DriverScreens/DriverOnboarding';
 import DriverHome from './screens/DriverScreens/LoggedIn/DriverHome';
 import RiderHome from './screens/RiderScreens/LoggedIn/RiderHome';
+import EconomyBooking from './screens/RiderScreens/LoggedIn/EconomyBooking';
 
 
 
@@ -38,7 +39,7 @@ const App = () => {
   return ( 
     <NavigationContainer>
       <Stack.Navigator screenOptions = {{ headerShown: false }} 
-        initialRouteName = "RiderHome">
+        initialRouteName = "Economy">
           <Stack.Screen name = "Home" component ={Home}/>
           {/* driver screens */}
           <Stack.Screen name = "DriverOnboarding" component ={DriverOnboarding}/>
@@ -56,6 +57,7 @@ const App = () => {
           <Stack.Screen name = "RiderOTPScreen" component ={RiderOTPScreen}/>
           <Stack.Screen name = "RiderEmergency" component ={RiderEmergency}/>
           <Stack.Screen name = "UniversitySelectScreen" component ={UniversitySelectScreen}/>
+          <Stack.Screen name = "Economy" component ={EconomyBooking}/>
           {/* loading screens */}
           <Stack.Screen name = "LoadingScreenOne" component ={LoadingScreenOne}/>
           <Stack.Screen name = "Successful" component ={Successful}/>
