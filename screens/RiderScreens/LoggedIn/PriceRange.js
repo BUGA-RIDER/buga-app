@@ -4,8 +4,15 @@ import { HeadingText, SubText } from '../../../components/CustomTextComponent'
 import Naira from '../../../assets/icons/naira.svg'
 import Comment from '../../../assets/icons/comment.svg'
 import { Button } from '../../../components/Button'
+import { useNavigation } from '@react-navigation/core';
+
 
 const PriceRange = () => {
+  const navigation = useNavigation();
+
+  const handleFindDriver = ()=>{
+    navigation.navigate("FindingDriver")
+  }
   return (
     <KeyboardAvoidingView       behavior={Platform.OS === 'ios' ? 'padding' : 'height'}
     style={{ flex:1, backgroundColor:"white", borderTopEndRadius:30, borderTopStartRadius:30 }} >
@@ -62,10 +69,7 @@ const PriceRange = () => {
           placeholder={"Any comments or wishes for the driver?"}
           /> 
         </View>
-          <Button text={"Find Driver"} style={{
-        marginLeft:29,
-        marginTop:35
-    }} />
+          <Button text={"Find Driver"} style={{marginLeft:29, marginTop:35}}handlePress={handleFindDriver} />
       </View>
     </KeyboardAvoidingView>
   )
