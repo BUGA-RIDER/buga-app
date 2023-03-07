@@ -33,6 +33,9 @@ const EconomyBooking = () => {
     const handleBack = () => {
         navigation.goBack();
       };
+    const handleChoose = () => {
+        navigation.navigate("ChoosePackage");
+      };
 
     
    
@@ -97,7 +100,7 @@ const EconomyBooking = () => {
         <To style={{
             marginRight: 16
         }}/>
-        <View style={{
+        <TouchableOpacity style={{
             borderWidth: 1,
             borderColor: '#ccc',
             borderRadius: 5,
@@ -106,9 +109,9 @@ const EconomyBooking = () => {
             paddingVertical:3,
             alignItems: 'center',
             backgroundColor:"white",
-            width:288,
-            
-        }}>
+            width:288, }}
+            onPress={handleChoose}
+            >
         <TextInput placeholder='46, Osapa London, Lekki, Lagos' style={{
             paddingLeft:10,
             fontSize:15,
@@ -117,7 +120,7 @@ const EconomyBooking = () => {
         <Plus style={{
             marginLeft:48
         }}/>
-        </View>
+        </TouchableOpacity>
       </View>
       <View style={{marginTop:13,}}>
 

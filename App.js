@@ -19,6 +19,7 @@ import DriverOnboarding from './screens/DriverScreens/DriverOnboarding';
 import DriverHome from './screens/DriverScreens/LoggedIn/DriverHome';
 import RiderHome from './screens/RiderScreens/LoggedIn/RiderHome';
 import EconomyBooking from './screens/RiderScreens/LoggedIn/EconomyBooking';
+import ChoosePackage from './screens/RiderScreens/LoggedIn/ChoosePackage';
 
 
 
@@ -58,6 +59,7 @@ const App = () => {
           <Stack.Screen name = "RiderEmergency" component ={RiderEmergency}/>
           <Stack.Screen name = "UniversitySelectScreen" component ={UniversitySelectScreen}/>
           <Stack.Screen name = "Economy" component ={EconomyBooking}/>
+          <Stack.Screen name = "ChoosePackage" component ={ChoosePackage}/>
           {/* loading screens */}
           <Stack.Screen name = "LoadingScreenOne" component ={LoadingScreenOne}/>
           <Stack.Screen name = "Successful" component ={Successful}/>
