@@ -10,11 +10,23 @@ import Passengers from '../../../assets/icons/Passengers.svg' ;
 import Luggage from '../../../assets/icons/luggage.svg' ;
 import Calendar from '../../../assets/icons/calendar-days.svg' ;
 import Clock from '../../../assets/icons/clock.svg' ;
+import Edit from '../../../assets/icons/edit.svg' ;
 import { useNavigation } from '@react-navigation/core';
 import BookingHeader from '../../../components/BookingHeader';
 
 
 const EconomyBooking = () => {
+    function handleRealtime (){
+        setRealtime(true)
+        setSchedule(false)
+    }
+    function handleSchedule (){
+        setSchedule(true)
+        setRealtime(false)
+    }
+
+      const [realtime, setRealtime] = useState(true)
+      const [schedule, setSchedule] = useState(false)
     
     const navigation = useNavigation()
 
@@ -22,6 +34,7 @@ const EconomyBooking = () => {
         navigation.goBack();
       };
 
+    
    
   return (
     <SafeAreaView >
@@ -34,7 +47,28 @@ const EconomyBooking = () => {
         </TouchableOpacity>
         <Text style={styles.economyTop}>Economy</Text>
         </View>
-      <BookingHeader/>
+      {/* <BookingHeader/> */}
+      <View style={styles.picker}>
+            
+            <TouchableOpacity onPress={handleRealtime} >
+            <Text style={[
+                styles.buttonText, 
+                realtime && 
+                styles.buttonPressed]}>
+                Book Realtime
+            </Text>
+            </TouchableOpacity>
+
+            <TouchableOpacity onPress={handleSchedule}
+             >
+            <Text style={[
+                styles.buttonText, 
+                schedule && 
+                styles.buttonPressedtwo]}>
+                Schedule Trip
+            </Text>
+            </TouchableOpacity>
+        </View>
       <View style={{
         flexDirection:'row',
         marginLeft:34,
@@ -90,7 +124,8 @@ const EconomyBooking = () => {
         <View style={{
             flexDirection:'row',
             alignSelf:'flex-end',
-            marginRight:60
+            marginRight:60,
+            alignItems:'center'
             }}>
 
             <Passengers /> 
@@ -98,21 +133,39 @@ const EconomyBooking = () => {
 
             <Luggage/> 
             <Text style={styles.smallText}>4 Luggage</Text>
+            <View style={{
+                padding:5,
+                backgroundColor:"#FFFFFF66",
+                borderRadius:50
+            }}>
+            <Edit height={8} width={8} />
+            </View>
             </View>
             
-            <View style={{
+           { schedule && <View style={{
                 borderWidth:0.3,
                 borderColor:"#000000",
                 marginTop:15,
                 marginHorizontal:60,
                 marginBottom:13
-            }}/>
+            }}/>}
         
-        <View style={{flexDirection:'row'}}>
+       {schedule && <View style={{
+            flexDirection:'row',
+            paddingLeft:12.5,
+            paddingRight:29,
+            paddingVertical:10,
+            borderWidth:1,
+            backgroundColor:"white",
+            alignSelf:'flex-start',
+            marginLeft:60,
+            borderRadius:5
+            }}>
+
+            <Calendar style={{marginRight:7.5}}/>
             <Clock/>
-            <Calendar/>
-        <Text>Date/Time</Text>
-        </View>
+        <Text style={{fontFamily:"SatoshiMedium", fontSize:15, color:"#767676", marginLeft:13}}>Date/Time</Text>
+        </View>}
 
       </View>
       </View>
@@ -126,12 +179,14 @@ export default EconomyBooking
 const styles = StyleSheet.create({
     arrow:{
         alignItems:'flex-start',
-        marginLeft:20
+        marginLeft:20,
+        alignSelf:'flex-start',
+        marginTop:8
       },
       yellowtop:{
         flex:0,
         backgroundColor:"#FFCD30",
-        paddingBottom:33,
+        paddingBottom:23,
         borderBottomEndRadius:20,
         borderBottomStartRadius:20
       },
@@ -151,12 +206,43 @@ const styles = StyleSheet.create({
         paddingVertical:5,
         backgroundColor:"black",
         borderRadius:50,
-        marginBottom:16
+        marginBottom:16,
       },
       smallText:{
         fontFamily:"SatoshiMedium",
         fontSize:12,
         color:"#696969",
         marginRight:9
-      }
+      },
+      picker:{
+        zIndex:1,
+        width:286,
+        backgroundColor:"white",
+        flexDirection:"row",
+        alignSelf:'center',
+        justifyContent:'space-around',
+        borderRadius:5,
+        paddingHorizontal:5,
+        paddingVertical:5
+    },
+    buttonText:{
+        fontSize:16,
+        paddingHorizontal:55,
+        paddingVertical:8,
+        borderRadius:7,
+        color:"black",
+        fontFamily:"SatoshiMedium"
+    },
+    buttonPressed: {
+        backgroundColor: 'black',
+        color:"white",
+        paddingHorizontal:20,
+        marginLeft:15
+      },
+    buttonPressedtwo: {
+        backgroundColor: 'black',
+        color:"white",
+        paddingHorizontal:28,
+        marginRight:20
+      },
 })
