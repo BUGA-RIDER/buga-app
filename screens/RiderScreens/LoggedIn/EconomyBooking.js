@@ -12,10 +12,28 @@ import Calendar from '../../../assets/icons/calendar-days.svg' ;
 import Clock from '../../../assets/icons/clock.svg' ;
 import Edit from '../../../assets/icons/edit.svg' ;
 import { useNavigation } from '@react-navigation/core';
-import BookingHeader from '../../../components/BookingHeader';
+import DateTimePicker, { DateTimePickerAndroid } from '@react-native-community/datetimepicker';
 
 
 const EconomyBooking = () => {
+  const showMode = (currentMode) => {
+    DateTimePickerAndroid.open({
+      value: date,
+      mode: currentMode,
+      is24Hour: true,
+    });
+  };
+
+const [date, setDate] = useState(new Date(1598051730000));
+const [mode, setMode] = useState('date');
+const [show, setShow] = useState(false);
+
+
+
+const showDatepicker = () => {
+showMode('date');
+showMode('time');
+};
     function handleRealtime (){
         setRealtime(true)
         setSchedule(false)
@@ -109,7 +127,7 @@ const EconomyBooking = () => {
             borderRadius: 5,
             flexDirection: 'row',
             paddingHorizontal: 8,
-            paddingVertical:3,
+            paddingVertical:5,
             alignItems: 'center',
             backgroundColor:"white",
             width:288, }}
@@ -156,7 +174,7 @@ const EconomyBooking = () => {
                 marginBottom:13
             }}/>}
         
-       {schedule && <View style={{
+       {schedule && <TouchableOpacity style={{
             flexDirection:'row',
             paddingLeft:12.5,
             paddingRight:29,
@@ -166,12 +184,14 @@ const EconomyBooking = () => {
             alignSelf:'flex-start',
             marginLeft:60,
             borderRadius:5
-            }}>
+            }}
+            onPress={showDatepicker}
+            >
 
             <Calendar style={{marginRight:7.5}}/>
             <Clock/>
         <Text style={{fontFamily:"SatoshiMedium", fontSize:15, color:"#767676", marginLeft:13}}>Date/Time</Text>
-        </View>}
+        </TouchableOpacity>}
 
       </View>
       </View>

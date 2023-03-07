@@ -10,8 +10,13 @@ import First_Class from "../assets/icons/First-Class.svg"
 import Keke from "../assets/icons/E-trike.svg"
 import Inter_state_car from "../assets/icons/Inter-state.svg"
 import { Button } from './Button'
+import { useNavigation } from '@react-navigation/core';
+
 
 const ScheduledRiderNav = () => {
+
+    const navigation = useNavigation();
+
 
     const windowHeight = Dimensions.get('window').height;
 
@@ -45,6 +50,9 @@ const ScheduledRiderNav = () => {
     const handleCloseBottomSheet = () => {
         setIsBottomSheetOpen(false);
     };
+    const handleProceed = () => {
+        navigation.navigate("Economy")
+      };
     return (
         <View>
             {/* first row */}
@@ -214,7 +222,7 @@ const ScheduledRiderNav = () => {
                                             <View />
                                             <Button style={{
 
-                                            }} text={"Proceed"} />
+                                            }} text={"Proceed"} handlePress={handleProceed} />
                                         </TouchableOpacity>
                                     </View>
                                 </View>
