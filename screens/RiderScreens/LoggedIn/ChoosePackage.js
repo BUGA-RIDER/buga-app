@@ -6,7 +6,7 @@ import { HeadingText, SubText } from '../../../components/CustomTextComponent'
 import { Button } from '../../../components/Button'
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import SelectPackage from '../../../components/SelectPackage'
-import PriceRange from './PriceRange'
+import ScheduledPriceRange from './ScheduledPriceRange'
 
 
 
@@ -29,8 +29,8 @@ const ChoosePackage = () => {
           >
           </Stack.Screen>
           <Stack.Screen
-          name="PriceRange"
-          component={PriceRange}
+          name="ScheduledPriceRange"
+          component={ScheduledPriceRange}
           options={{
             headerShown: false,
           }}

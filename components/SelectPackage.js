@@ -24,7 +24,7 @@ const SelectPackage = () => {
         setSelectedtwo(true)
     }
     const handleRange = ()=>{
-        navigation.navigate('PriceRange')
+        navigation.navigate('ScheduledPriceRange')
     }
 
   return (
@@ -95,7 +95,7 @@ const SelectPackage = () => {
 </TouchableOpacity>
     <Button text={"Proceed"} style={{
         marginLeft:29,
-        marginTop:35
+        marginTop:55
     }}
     handlePress={handleRange}
     />

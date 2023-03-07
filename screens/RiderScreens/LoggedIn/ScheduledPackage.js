@@ -7,7 +7,7 @@ import { Button } from '../../../components/Button'
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import SelectPackage from '../../../components/SelectPackage'
 import DateTimePicker, { DateTimePickerAndroid } from '@react-native-community/datetimepicker';
-import PriceRange from './PriceRange';
+import ScheduledPriceRange from './ScheduledPriceRange';
 
 const ScheduledPackage = () => {
     const Stack = createNativeStackNavigator();
@@ -34,7 +34,7 @@ const ScheduledPackage = () => {
  
   return (
     <View  >
-        <View style={{ height:"65%", }}>
+        <View style={{ height:"60%", }}>
             <Map/>
             <TouchableOpacity style={{
                 flexDirection:'row',
@@ -52,7 +52,7 @@ const ScheduledPackage = () => {
                 <HeadingText text={"Scheduled"} style={{fontSize:15,marginBottom:0}}/>
              </TouchableOpacity>
         </View>
-        <View style={{ height:"35%", backgroundColor:"white", borderTopEndRadius:30, borderTopStartRadius:30 }}>
+        <View style={{ height:"40%", backgroundColor:"white", borderTopEndRadius:30, borderTopStartRadius:30 }}>
         <Stack.Navigator>
           <Stack.Screen
           name="NavigateCard"
@@ -63,8 +63,8 @@ const ScheduledPackage = () => {
           >
           </Stack.Screen>
           <Stack.Screen
-          name="PriceRange"
-          component={PriceRange}
+          name="ScheduledPriceRange"
+          component={ScheduledPriceRange}
           options={{
             headerShown: false,
           }}
