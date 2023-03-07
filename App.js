@@ -21,6 +21,7 @@ import RiderHome from './screens/RiderScreens/LoggedIn/RiderHome';
 import EconomyBooking from './screens/RiderScreens/LoggedIn/EconomyBooking';
 import ChoosePackage from './screens/RiderScreens/LoggedIn/ChoosePackage';
 import ScheduledPackage from './screens/RiderScreens/LoggedIn/ScheduledPackage';
+import PriceRange from './screens/RiderScreens/LoggedIn/PriceRange';
 
 
 

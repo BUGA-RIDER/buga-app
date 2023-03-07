@@ -1,20 +1,44 @@
 import { StyleSheet, Text, TouchableOpacity, View } from 'react-native'
-import React from 'react'
+import React, { useState } from 'react'
 import Economy from "../assets/icons/Economy.svg";
 import { HeadingText, SubText } from './CustomTextComponent';
 import { Button } from './Button';
+import Recommended from './Recommended';
+import { useNavigation } from '@react-navigation/core';
+
 
 const SelectPackage = () => {
+
+    const navigation = useNavigation();
+
+
+    const [selectedone, setSelectedone] = useState(true)
+    const [selectedtwo, setSelectedtwo] = useState(false)
+
+    const selectone = ()=>{
+        setSelectedone(true)
+        setSelectedtwo(false)
+    }
+    const selecttwo = ()=>{
+        setSelectedone(false)
+        setSelectedtwo(true)
+    }
+    const handleRange = ()=>{
+        navigation.navigate('PriceRange')
+    }
+
   return (
     <View style={{ backgroundColor:"white", borderTopEndRadius:30, borderTopStartRadius:30 }}>
     <TouchableOpacity style={{
         flexDirection:'row',
         alignItems:'center',
         marginTop:45,
-        backgroundColor:"#E0E0E0",
+        backgroundColor: selectedone ? "#E0E0E0": "white",
         paddingVertical:12,
         paddingLeft:10
-    }} >
+    }} 
+    onPress={selectone}
+    >
     <Economy width={85} height={54} />
     <View style={{
         marginLeft:20
@@ -43,8 +67,12 @@ const SelectPackage = () => {
         flexDirection:'row',
         alignItems:'center',
         paddingVertical:12,
-        paddingLeft:10
-    }} >
+        paddingLeft:10,
+        backgroundColor: selectedtwo ? "#E0E0E0": "white"
+    }}
+    onPress={selecttwo}
+
+    >
     <Economy width={85} height={54} />
     <View style={{
         marginLeft:20
@@ -60,11 +88,17 @@ const SelectPackage = () => {
         color:"#696969"
     }}/>
     </View>
+
+
+    {/* <Recommended/> */}
+
 </TouchableOpacity>
     <Button text={"Proceed"} style={{
         marginLeft:29,
         marginTop:35
-    }}/>
+    }}
+    handlePress={handleRange}
+    />
     </View>
   )
 }

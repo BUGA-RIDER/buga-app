@@ -25,6 +25,8 @@ const Map = () => {
       identifier="origin"
   />
 </MapView>
+
+
   );
 };
 

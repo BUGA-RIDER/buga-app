@@ -6,6 +6,7 @@ import { HeadingText, SubText } from '../../../components/CustomTextComponent'
 import { Button } from '../../../components/Button'
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import SelectPackage from '../../../components/SelectPackage'
+import PriceRange from './PriceRange'
 
 
 
@@ -15,7 +16,7 @@ const ChoosePackage = () => {
   return (
     <View>
         <View style={{ height:"65%", }}>
-            <Map/>
+        <Map/>
         </View>
         <View style={{ height:"35%", backgroundColor:"white", borderTopEndRadius:30, borderTopStartRadius:30 }}>
         <Stack.Navigator>
@@ -28,8 +29,8 @@ const ChoosePackage = () => {
           >
           </Stack.Screen>
           <Stack.Screen
-          name="NavigateCard2"
-          component={SelectPackage}
+          name="PriceRange"
+          component={PriceRange}
           options={{
             headerShown: false,
           }}
