@@ -35,14 +35,17 @@ const RiderSelectNav = () => {
   const navigation = useNavigation();
 
   return (
-    <View>
+    <View style={{
+      opacity: isBottomSheetOpen ? 0.4: 1,
+      marginLeft:15
+    }} > 
       {/* first row */}
       <View style={styles.top}>
 
         {/* first collumn */}
 
         <View style={{
-          marginHorizontal: 16,
+          marginHorizontal: 0,
           marginTop: 16
         }}>
           <TouchableOpacity style={{
@@ -117,10 +120,15 @@ const RiderSelectNav = () => {
 
 
 
-        <View style={styles.top}>
+        <View style={{
+          flexDirection: 'row',
+          marginTop: 16,
+          alignSelf: 'center'
+        }}>
 
           <TouchableOpacity style={{
             backgroundColor: "white",
+            marginLeft:0
           }}>
 
             <Mail style={{
@@ -129,9 +137,9 @@ const RiderSelectNav = () => {
               marginRight: 8
             }} />
             <View style={{
-              paddingHorizontal: 26,
+              paddingHorizontal: 28,
               paddingVertical: 10,
-              paddingTop: 20
+              paddingTop: 20,
             }}>
               <Keke />
             </View>
@@ -148,11 +156,12 @@ const RiderSelectNav = () => {
 
         {/* //2nd nav  */}
         <View style={{
-          marginHorizontal: 16,
+          marginHorizontal: 6,
           marginTop: 16
         }}>
           <TouchableOpacity style={{
             backgroundColor: "white",
+            marginRight:12
           }}>
 
             <Mail style={{
@@ -292,7 +301,6 @@ export default RiderSelectNav
 const styles = StyleSheet.create({
 
   top: {
-    marginHorizontal: 16,
     flexDirection: 'row',
     marginTop: 16,
     alignSelf: 'center'
