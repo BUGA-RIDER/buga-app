@@ -33,8 +33,11 @@ const EconomyBooking = () => {
     const handleBack = () => {
         navigation.goBack();
       };
-    const handleChoose = () => {
+    const handleRealTime = () => {
         navigation.navigate("ChoosePackage");
+      };
+    const handleScheduled = () => {
+        navigation.navigate("ScheduledPackage");
       };
 
     
@@ -110,7 +113,7 @@ const EconomyBooking = () => {
             alignItems: 'center',
             backgroundColor:"white",
             width:288, }}
-            onPress={handleChoose}
+            onPress={ realtime ? handleRealTime : handleScheduled }
             >
         <TextInput placeholder='46, Osapa London, Lekki, Lagos' style={{
             paddingLeft:10,
@@ -204,7 +207,7 @@ const styles = StyleSheet.create({
         fontFamily:"SatoshiMedium",
         fontSize:14,
         textAlign:'center',
-        marginLeft:140,
+        marginLeft:135,
         paddingHorizontal:10,
         paddingVertical:5,
         backgroundColor:"black",
@@ -240,7 +243,8 @@ const styles = StyleSheet.create({
         backgroundColor: 'black',
         color:"white",
         paddingHorizontal:20,
-        marginLeft:15
+        marginLeft:15,
+        marginVertical:0
       },
     buttonPressedtwo: {
         backgroundColor: 'black',

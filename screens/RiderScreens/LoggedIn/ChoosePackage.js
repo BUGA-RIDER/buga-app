@@ -7,6 +7,8 @@ import { Button } from '../../../components/Button'
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import SelectPackage from '../../../components/SelectPackage'
 import ScheduledPriceRange from './ScheduledPriceRange'
+import PriceRange from './PriceRange'
+import FindingDriver from './FindingDriver'
 
 
 
@@ -15,10 +17,10 @@ const ChoosePackage = () => {
 
   return (
     <View>
-        <View style={{ height:"65%", }}>
+        <View style={{ height:"60%", }}>
         <Map/>
         </View>
-        <View style={{ height:"35%", backgroundColor:"white", borderTopEndRadius:30, borderTopStartRadius:30 }}>
+        <View style={{ height:"40%", backgroundColor:"white", borderTopEndRadius:30, borderTopStartRadius:30 }}>
         <Stack.Navigator>
           <Stack.Screen
           name="NavigateCard"
@@ -29,8 +31,16 @@ const ChoosePackage = () => {
           >
           </Stack.Screen>
           <Stack.Screen
-          name="ScheduledPriceRange"
-          component={ScheduledPriceRange}
+          name="PriceRange"
+          component={PriceRange}
+          options={{
+            headerShown: false,
+          }}
+          >
+          </Stack.Screen>
+          <Stack.Screen
+          name="FindingDriver"
+          component={FindingDriver}
           options={{
             headerShown: false,
           }}

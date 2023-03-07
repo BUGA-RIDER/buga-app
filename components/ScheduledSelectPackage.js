@@ -6,9 +6,7 @@ import { Button } from './Button';
 import Recommended from './Recommended';
 import { useNavigation } from '@react-navigation/core';
 
-
-const SelectPackage = () => {
-
+const ScheduledSelectPackage = () => {
     const navigation = useNavigation();
 
 
@@ -24,9 +22,8 @@ const SelectPackage = () => {
         setSelectedtwo(true)
     }
     const handleRange = ()=>{
-        navigation.navigate('PriceRange')
+        navigation.navigate('ScheduledPriceRange')
     }
-
   return (
     <View style={{flex:1, backgroundColor:"white", borderTopEndRadius:30, borderTopStartRadius:30 }}>
     <TouchableOpacity style={{
@@ -103,6 +100,6 @@ const SelectPackage = () => {
   )
 }
 
-export default SelectPackage
+export default ScheduledSelectPackage
 
 const styles = StyleSheet.create({})

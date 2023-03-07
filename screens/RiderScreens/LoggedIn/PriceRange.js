@@ -4,17 +4,8 @@ import { HeadingText, SubText } from '../../../components/CustomTextComponent'
 import Naira from '../../../assets/icons/naira.svg'
 import Comment from '../../../assets/icons/comment.svg'
 import { Button } from '../../../components/Button'
-import { useNavigation } from '@react-navigation/core';
 
-
-const ScheduledPriceRange = () => {
-
-  const navigation = useNavigation();
-
-  const handleFindDriver = ()=>{
-    navigation.navigate("FindingDriver")
-  }
-
+const PriceRange = () => {
   return (
     <KeyboardAvoidingView       behavior={Platform.OS === 'ios' ? 'padding' : 'height'}
     style={{ flex:1, backgroundColor:"white", borderTopEndRadius:30, borderTopStartRadius:30 }} >
@@ -32,13 +23,7 @@ const ScheduledPriceRange = () => {
         <SubText text={"Economy Basic"} style={{fontSize:14 , marginBottom:5}}/>
       </View>
       <Text style={styles.travelTime}>Est. Travel Time: <Text style={{fontFamily:"SatoshiMedium", color:"black"}}>1 hour 10mins</Text></Text>
-      <Text style={{
-        fontFamily:"SatoshiMedium",
-        textAlign:'center',
-        fontSize:16,
-        marginTop:2,
-        color:"#777777"
-      }}>Mon 22 Feb, 3:00 PM</Text>
+      
       <View style={{
         marginTop:25
       }}>
@@ -80,22 +65,20 @@ const ScheduledPriceRange = () => {
           <Button text={"Find Driver"} style={{
         marginLeft:29,
         marginTop:35
-    }}
-    handlePress={handleFindDriver}
-    />
+    }} />
       </View>
     </KeyboardAvoidingView>
   )
 }
 
-export default ScheduledPriceRange
+export default PriceRange
 
 const styles = StyleSheet.create({
-  travelTime:{
-    fontFamily:"SatoshiMedium",
-    textAlign:'center',
-    fontSize:14,
-    marginTop:7,
-    color:"#777777"
-  }
+    travelTime:{
+        fontFamily:"SatoshiMedium",
+        textAlign:'center',
+        fontSize:14,
+        marginTop:7,
+        color:"#777777"
+      }
 })

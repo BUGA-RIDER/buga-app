@@ -8,6 +8,8 @@ import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import SelectPackage from '../../../components/SelectPackage'
 import DateTimePicker, { DateTimePickerAndroid } from '@react-native-community/datetimepicker';
 import ScheduledPriceRange from './ScheduledPriceRange';
+import ScheduledSelectPackage from '../../../components/ScheduledSelectPackage';
+import FindingDriver from './FindingDriver';
 
 const ScheduledPackage = () => {
     const Stack = createNativeStackNavigator();
@@ -55,8 +57,8 @@ const ScheduledPackage = () => {
         <View style={{ height:"40%", backgroundColor:"white", borderTopEndRadius:30, borderTopStartRadius:30 }}>
         <Stack.Navigator>
           <Stack.Screen
-          name="NavigateCard"
-          component={SelectPackage}
+          name="ScheduledSelectPackage"
+          component={ScheduledSelectPackage}
           options={{
             headerShown: false,
           }}
@@ -65,6 +67,14 @@ const ScheduledPackage = () => {
           <Stack.Screen
           name="ScheduledPriceRange"
           component={ScheduledPriceRange}
+          options={{
+            headerShown: false,
+          }}
+          >
+          </Stack.Screen>
+          <Stack.Screen
+          name="FindingDriver"
+          component={FindingDriver}
           options={{
             headerShown: false,
           }}
