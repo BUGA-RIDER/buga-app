@@ -23,6 +23,7 @@ import ChoosePackage from './screens/RiderScreens/LoggedIn/ChoosePackage';
 import ScheduledPackage from './screens/RiderScreens/LoggedIn/ScheduledPackage';
 import SelectDriver from './screens/RiderScreens/LoggedIn/SelectDriver';
 import ChoosePayment from './screens/RiderScreens/LoggedIn/ChoosePayment';
+import SplitFare from './screens/RiderScreens/LoggedIn/SplitFare';
 
 
 
@@ -43,7 +44,7 @@ const App = () => {
   return ( 
     <NavigationContainer>
       <Stack.Navigator screenOptions = {{ headerShown: false }} 
-        initialRouteName = "ChoosePayment">
+        initialRouteName = "SplitFare">
           <Stack.Screen name = "Home" component ={Home}/>
           {/* driver screens */}
           <Stack.Screen name = "DriverOnboarding" component ={DriverOnboarding}/>
@@ -66,6 +67,7 @@ const App = () => {
           <Stack.Screen name = "ScheduledPackage" component ={ScheduledPackage}/>
           <Stack.Screen name = "SelectDriver" component ={SelectDriver}/>
           <Stack.Screen name = "ChoosePayment" component ={ChoosePayment}/>
+          <Stack.Screen name = "SplitFare" component ={SplitFare}/>
           {/* loading screens */}
           <Stack.Screen name = "LoadingScreenOne" component ={LoadingScreenOne}/>
           <Stack.Screen name = "Successful" component ={Successful}/>
