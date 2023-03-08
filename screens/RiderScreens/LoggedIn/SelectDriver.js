@@ -1,7 +1,8 @@
-import { StyleSheet, Text, View } from 'react-native';
+import { FlatList, StyleSheet, Text, View } from 'react-native';
 import React from 'react';
 import Map from '../../../components/Map';
 import SelectDriverComponent from '../../../components/SelectDriverComponent';
+import { DATA } from '../../../constants/driversData';
 
 const SelectDriver = () => {
   return (
@@ -9,8 +10,13 @@ const SelectDriver = () => {
     <View style={{ height:"15%", }}>
     <Map/>
     </View>
-    <View style={{ height:"100%", backgroundColor:"white", borderTopEndRadius:30, borderTopStartRadius:30 }}>
-    <SelectDriverComponent/>    
+    <View style={{ height:"100%", backgroundColor:"white", borderTopEndRadius:30, borderTopStartRadius:30, marginBottom:-250 }}>
+        <FlatList 
+        data={DATA}
+        renderItem={({ item }) => <SelectDriverComponent data={item} />}
+        keyExtractor={(item) => item.id}
+        showsHorizontalScrollIndicator={false}
+        contentContainerStyle={{ paddingHorizontal: 0 }} />   
     </View>
      </View>
   )
