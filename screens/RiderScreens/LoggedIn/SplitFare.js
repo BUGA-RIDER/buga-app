@@ -27,6 +27,9 @@ const SplitFare = () => {
     const handleBack = () => {
         navigation.goBack();
     };
+    const handleProceed = () => {
+        navigation.navigate("SplitOptions");
+    };
     return (
         <SafeAreaView style={{
             flex: 1,
@@ -221,7 +224,7 @@ const SplitFare = () => {
                     marginLeft: 3,
                 }} >You need to pay before the driver gets to your location</Text>
             </View>
-            <Button text={"Proceed"}  style={{
+            <Button text={"Proceed"} handlePress={handleProceed} style={{
                 alignSelf:"center",
                 marginBottom:20
             }}/>

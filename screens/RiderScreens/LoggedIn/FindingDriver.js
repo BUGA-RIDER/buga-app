@@ -3,8 +3,16 @@ import React from 'react'
 import Searching from "../../../assets/icons/finding.svg"
 import {Button} from '../../../components/Button'
 import {SubText} from '../../../components/CustomTextComponent'
+import { useNavigation } from '@react-navigation/core';
+
 
 const FindingDriver = () => {
+  const navigation = useNavigation();
+  
+  const handleFindDriver = ()=>{
+    navigation.navigate("SelectDriver")
+  }
+
   return (
     <View style={{
         marginTop:20,
@@ -55,7 +63,7 @@ const FindingDriver = () => {
       </TouchableOpacity>
         </View>
 
-        <Button text={"Change Bid"} />
+        <Button text={"Change Bid"} handlePress={handleFindDriver} />
     </View>
   )
 }

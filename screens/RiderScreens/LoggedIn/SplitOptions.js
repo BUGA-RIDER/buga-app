@@ -4,11 +4,17 @@ import { SafeAreaView } from 'react-native-safe-area-context'
 import InputSplitPrice from '../../../components/InputSplitPrice'
 import { DATA } from '../../../constants/spitcontacts'
 import { Button } from '../../../components/Button'
-import Asterisk from '../../../assets/icons/asterisk.svg';
-import Close from '../../../assets/icons/close.svg';
+import { useNavigation } from '@react-navigation/core';
+
 
 
 const SplitOptions = () => {
+
+  const navigation = useNavigation();
+  
+  const handleSend = ()=>{
+    navigation.navigate("SplitFarePayment")
+  }
   return (
     <SafeAreaView style={{
       flex:1, 
@@ -101,7 +107,7 @@ const SplitOptions = () => {
                     marginBottom: 35,
                     textAlign:'center'
                 }} >₦12000 left to be split</Text>
-            <Button text={"Send Request"}  style={{
+            <Button text={"Send Request"}  handlePress={handleSend} style={{
                 alignSelf:"center",
                 marginBottom:40
             }}/>

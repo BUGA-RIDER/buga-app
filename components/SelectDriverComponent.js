@@ -2,9 +2,16 @@ import { Image, StyleSheet, Text, Touchable, TouchableOpacity, View } from 'reac
 import React from 'react';
 import Name from "../assets/icons/name.svg"
 import Star from "../assets/icons/star.svg"
+import { useNavigation } from '@react-navigation/core';
+
 
 
 const SelectDriverComponent = ({name, car, rating, numberRating, price,time, distance}) => {
+  const navigation = useNavigation();
+  
+  const handleFindDriver = ()=>{
+    navigation.navigate("SplitFare")
+  }
   return (
     <View style={{marginBottom:10}}>
     <View style={{
@@ -99,7 +106,9 @@ const SelectDriverComponent = ({name, car, rating, numberRating, price,time, dis
             paddingVertical:10,
             backgroundColor:"#FFCC2A",
             borderRadius:15
-        }} >
+        }} 
+        onPress={handleFindDriver}
+        >
             <Text style={{
                 fontFamily:"SatoshiBold",
                 fontSize:16,
