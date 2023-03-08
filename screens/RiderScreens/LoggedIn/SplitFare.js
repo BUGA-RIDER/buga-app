@@ -4,10 +4,14 @@ import { useNavigation } from '@react-navigation/core';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { StatusBar } from 'expo-status-bar';
 import Arrow from '../../../assets/icons/arrow_back.svg';
+import Close from '../../../assets/icons/close.svg';
 import Search_icon from '../../../assets/icons/search_icon.svg';
 import SelectDropdown from 'react-native-select-dropdown';
 import SelectContact from '../../../components/SelectContact';
 import { DATA } from '../../../constants/contacts';
+import Asterisk from '../../../assets/icons/asterisk.svg';
+import { Button } from '../../../components/Button';
+
 
 const countries = [
     "Egypt", "Canada", "Australia", "Ireland",
@@ -129,7 +133,6 @@ const SplitFare = () => {
                                 textAlign: 'left',
                                 fontFamily: "SatoshiMedium",
                                 fontSize: 14,
-
                             }}
                             data={countries}
 
@@ -155,7 +158,74 @@ const SplitFare = () => {
         keyExtractor={(item) => item.id}
         showsHorizontalScrollIndicator={false}
         contentContainerStyle={{ paddingHorizontal: 0 }} />
-
+    <View style={{
+            backgroundColor:"white",
+           
+            shadowOffset: {
+                height: 15,
+                width: 5,
+            },
+            shadshadowowOpacity: 1,
+            shadowRadius: 150.84,
+            elevation: 50,
+            backgroundColor: "#fff", // add a background color for the shadow
+            Color: "white",
+        }} >
+        <View >
+            <View style={{
+                flexDirection:'row',
+                justifyContent:'space-around',
+                marginHorizontal:48
+            }}>
+            <View style={{ marginTop:23, borderRadius:15, flexDirection:'row', alignItems:'center', backgroundColor:"#FFD96066", alignSelf:'center', padding:10}}>
+                <Text style={{
+                    color: "black",
+                    fontFamily: "SatoshiMedium",
+                    fontSize: 14,
+                    marginRight:5
+                }} >Alexander </Text>
+                <Close/>
+            </View>
+            <View style={{ marginTop:23, borderRadius:15, flexDirection:'row', alignItems:'center', backgroundColor:"#FFD96066", alignSelf:'center', padding:10}}>
+                <Text style={{
+                    color: "black",
+                    fontFamily: "SatoshiMedium",
+                    fontSize: 14,
+                    marginRight:5
+                }} >Daniella</Text>
+                <Close/>
+            </View>
+            <View style={{ marginTop:23, borderRadius:15, flexDirection:'row', alignItems:'center', backgroundColor:"#FFD96066", alignSelf:'center', padding:10}}>
+                <Text style={{
+                    color: "black",
+                    fontFamily: "SatoshiMedium",
+                    fontSize: 14,
+                    marginRight:5
+                }} >John</Text>
+                <Close/>
+            </View>
+        </View>
+        </View>
+        <View style={{
+                flexDirection: 'row',
+                marginLeft: 54,
+                alignItems: 'center',
+                marginTop:13,
+                marginBottom:27,
+                
+            }} >
+                <Asterisk />
+                <Text style={{
+                    fontFamily: "SatoshiMedium",
+                    fontSize: 12,
+                    marginLeft: 3,
+                }} >You need to pay before the driver gets to your location</Text>
+            </View>
+            <Button text={"Proceed"}  style={{
+                alignSelf:"center",
+                marginBottom:20
+            }}/>
+            </View>
         </SafeAreaView>
     )
 }
