@@ -1,4 +1,4 @@
-import { ScrollView, StyleSheet, Text, TouchableOpacity, View } from 'react-native'
+import { FlatList, ScrollView, StyleSheet, Text, TouchableOpacity, View } from 'react-native'
 import React from 'react'
 import { useNavigation } from '@react-navigation/core';
 import { SafeAreaView } from 'react-native-safe-area-context';
@@ -7,6 +7,7 @@ import Arrow from '../../../assets/icons/arrow_back.svg';
 import Search_icon from '../../../assets/icons/search_icon.svg';
 import SelectDropdown from 'react-native-select-dropdown';
 import SelectContact from '../../../components/SelectContact';
+import { DATA } from '../../../constants/contacts';
 
 const countries = [
     "Egypt", "Canada", "Australia", "Ireland",
@@ -148,7 +149,13 @@ const SplitFare = () => {
                 </View>
 
             </View>
-            <SelectContact/>
+            <FlatList 
+        data={DATA}
+        renderItem={({ item }) => <SelectContact data={item} />}
+        keyExtractor={(item) => item.id}
+        showsHorizontalScrollIndicator={false}
+        contentContainerStyle={{ paddingHorizontal: 0 }} />
+
         </SafeAreaView>
     )
 }
