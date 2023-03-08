@@ -40,7 +40,7 @@ const ScheduledPriceRange = () => {
         color:"#777777"
       }}>Mon 22 Feb, 3:00 PM</Text>
       <View style={{
-        marginTop:25
+        marginTop:20
       }}>
         <View style={{
           flexDirection:'row',

@@ -8,6 +8,7 @@ import Keke from "../assets/icons/E-trike.svg"
 import Inter_state_car from "../assets/icons/Inter-state.svg"
 import { Button } from './Button';
 import { useNavigation } from '@react-navigation/core';
+import { LinearGradient } from 'expo-linear-gradient'
 
 
 
@@ -36,7 +37,7 @@ const RiderSelectNav = () => {
 
   return (
     <View style={{
-      opacity: isBottomSheetOpen ? 0.4: 1,
+      // opacity: isBottomSheetOpen ? 0.4: 1,
       marginLeft:15
     }} > 
       {/* first row */}
@@ -65,128 +66,7 @@ const RiderSelectNav = () => {
               paddingTop: 20
             }}>
               <Economy_Car />
-            </View>
-            <Text style={styles.textTop}>Economy</Text>
-            <Text style={{
-              fontFamily: "SatoshiMedium",
-              fontSize: 12,
-              marginLeft: 10,
-              color: "#A7A7A7",
-              paddingBottom: 20
-            }}>Shared Ride</Text>
-          </TouchableOpacity>
-        </View>
-
-        {/* //2nd nav  */}
-        <View style={{
-          marginHorizontal: 16,
-          marginTop: 16
-        }}>
-          <TouchableOpacity style={{
-            backgroundColor: "white",
-          }}>
-
-            <Mail style={{
-              marginTop: 6,
-              alignSelf: 'flex-end',
-              marginRight: 8
-            }} />
-            <View style={{
-              paddingHorizontal: 10,
-              paddingVertical: 10,
-              paddingTop: 20
-            }}>
-              <First_Class />
-            </View>
-            <Text style={styles.textTop}>First Class</Text>
-            <Text style={{
-              fontFamily: "SatoshiMedium",
-              fontSize: 12,
-              marginLeft: 10,
-              color: "#A7A7A7",
-              paddingBottom: 20
-            }}>Single Passenger</Text>
-          </TouchableOpacity>
-        </View>
-      </View>
-      {/* first row */}
-      <View style={{
-        flexDirection: 'row',
-        justifyContent: 'space-around',
-        marginHorizontal: 15
-      }}>
-
-        {/* first collumn */}
-
-
-
-        <View style={{
-          flexDirection: 'row',
-          marginTop: 16,
-          alignSelf: 'center'
-        }}>
-
-          <TouchableOpacity style={{
-            backgroundColor: "white",
-            marginLeft:0
-          }}>
-
-            <Mail style={{
-              marginTop: 6,
-              alignSelf: 'flex-end',
-              marginRight: 8
-            }} />
-            <View style={{
-              paddingHorizontal: 28,
-              paddingVertical: 10,
-              paddingTop: 20,
-            }}>
-              <Keke />
-            </View>
-            <Text style={styles.textTop}>Intra-School</Text>
-            <Text style={{
-              fontFamily: "SatoshiMedium",
-              fontSize: 12,
-              marginLeft: 10,
-              color: "#A7A7A7",
-              paddingBottom: 20
-            }}>Electric Tricycle</Text>
-          </TouchableOpacity>
-        </View>
-
-        {/* //2nd nav  */}
-        <View style={{
-          marginHorizontal: 6,
-          marginTop: 16
-        }}>
-          <TouchableOpacity style={{
-            backgroundColor: "white",
-            marginRight:12
-          }}>
-
-            <Mail style={{
-              marginTop: 6,
-              alignSelf: 'flex-end',
-              marginRight: 8
-            }} />
-
-            <View style={{
-              paddingHorizontal: 21,
-              paddingVertical: 15
-            }}>
-              <Inter_state_car />
-            </View>
-            <Text style={styles.textTop}>Inter-State</Text>
-            <Text style={{
-              fontFamily: "SatoshiMedium",
-              fontSize: 12,
-              marginLeft: 10,
-              color: "#A7A7A7",
-              paddingBottom: 20
-            }}>Shared 7 Seater</Text>
-          </TouchableOpacity>
-        </View>
-        <Modal
+              <Modal
           animationType="slide"
           transparent={true}
           // We use the state here to toggle visibility of Bottom Sheet 
@@ -291,6 +171,127 @@ const RiderSelectNav = () => {
             </View>
           </View>
         </Modal>
+            </View>
+            <Text style={styles.textTop}>Economy</Text>
+            <Text style={{
+              fontFamily: "SatoshiMedium",
+              fontSize: 12,
+              marginLeft: 10,
+              color: "#A7A7A7",
+              paddingBottom: 20
+            }}>Shared Ride</Text>
+          </TouchableOpacity>
+        </View>
+
+        {/* //2nd nav  */}
+        <View style={{
+          marginHorizontal: 16,
+          marginTop: 16
+        }}>
+          <TouchableOpacity style={{
+            backgroundColor: "white",
+          }}>
+
+            <Mail style={{
+              marginTop: 6,
+              alignSelf: 'flex-end',
+              marginRight: 8
+            }} />
+            <View style={{
+              paddingHorizontal: 10,
+              paddingVertical: 10,
+              paddingTop: 20
+            }}>
+              <First_Class />
+            </View>
+            <Text style={styles.textTop}>First Class</Text>
+            <Text style={{
+              fontFamily: "SatoshiMedium",
+              fontSize: 12,
+              marginLeft: 10,
+              color: "#A7A7A7",
+              paddingBottom: 20
+            }}>Single Passenger</Text>
+          </TouchableOpacity>
+        </View>
+      </View>
+      {/* first row */}
+      <View style={{
+        flexDirection: 'row',
+        justifyContent: 'space-around',
+        marginHorizontal: 15
+      }}>
+
+        {/* first collumn */}
+
+
+
+        <View style={{
+          flexDirection: 'row',
+          marginTop: 16,
+          alignSelf: 'center'
+        }}>
+
+          <TouchableOpacity style={{
+            backgroundColor: "white",
+            marginLeft:0
+          }}>
+
+            <Mail style={{
+              marginTop: 6,
+              alignSelf: 'flex-end',
+              marginRight: 8
+            }} />
+            <View style={{
+              paddingHorizontal: 28,
+              paddingTop: 20,
+            }}>
+              <Keke />
+            </View>
+            <Text style={styles.textTop}>Intra-School</Text>
+            <Text style={{
+              fontFamily: "SatoshiMedium",
+              fontSize: 12,
+              marginLeft: 10,
+              color: "#A7A7A7",
+              paddingBottom: 10
+            }}>Electric Tricycle</Text>
+          </TouchableOpacity>
+        </View>
+
+        {/* //2nd nav  */}
+        <View style={{
+          marginHorizontal: 6,
+          marginTop: 16
+        }}>
+          <TouchableOpacity style={{
+            backgroundColor: "white",
+            marginRight:12
+          }}>
+
+            <Mail style={{
+              marginTop: 6,
+              alignSelf: 'flex-end',
+              marginRight: 8
+            }} />
+
+            <View style={{
+              paddingHorizontal: 21,
+              paddingVertical: 15
+            }}>
+              <Inter_state_car />
+            </View>
+            <Text style={styles.textTop}>Inter-State</Text>
+            <Text style={{
+              fontFamily: "SatoshiMedium",
+              fontSize: 12,
+              marginLeft: 10,
+              color: "#A7A7A7",
+              paddingBottom:5
+            }}>Shared 7 Seater</Text>
+          </TouchableOpacity>
+        </View>
+       
       </View>
     </View>
   )
@@ -334,5 +335,9 @@ const styles = StyleSheet.create({
     paddingHorizontal: 25,
     bottom: 0,
   },
+   overlay: {
+     ...StyleSheet.absoluteFillObject,
+     backgroundColor: 'rgba(0,0,0,0.5)'
+   }
 
 })
