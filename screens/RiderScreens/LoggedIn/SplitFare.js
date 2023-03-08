@@ -162,14 +162,14 @@ const SplitFare = () => {
             backgroundColor:"white",
            
             shadowOffset: {
-                height: 15,
-                width: 5,
+                height: 8,
+                width: 3,
             },
-            shadshadowowOpacity: 1,
-            shadowRadius: 150.84,
-            elevation: 50,
+            shadshadowowOpacity:0.5 ,
+            shadowRadius: 40,
+            elevation: 10,
             backgroundColor: "#fff", // add a background color for the shadow
-            Color: "white",
+            shadowColor: "black",
         }} >
         <View >
             <View style={{
