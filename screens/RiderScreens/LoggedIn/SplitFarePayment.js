@@ -6,6 +6,7 @@ import { DATA } from '../../../constants/spitcontacts'
 import { Button } from '../../../components/Button'
 import Chat from '../../../assets/icons/chat.svg';
 import Telephone from '../../../assets/icons/telephone.svg';
+import InputSplitPriceLoading from '../../../components/InputSplitPriceLoading'
 
 
 const SplitFarePayment = () => {
@@ -62,7 +63,7 @@ const SplitFarePayment = () => {
                     }}>Specify exactly how much each person owes</Text>
                      <FlatList 
             data={DATA}
-            renderItem={({ item }) => <InputSplitPrice data={item} />}
+            renderItem={({ item }) => <InputSplitPriceLoading data={item} />}
             keyExtractor={(item) => item.id}
             showsHorizontalScrollIndicator={false}
             contentContainerStyle={{ paddingHorizontal: 0, marginTop:25 }} />
