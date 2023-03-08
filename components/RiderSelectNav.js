@@ -26,6 +26,7 @@ const RiderSelectNav = () => {
     setIsBottomSheetOpen(true);
   };
   const handleProceed = () => {
+    setIsBottomSheetOpen(false);
     navigation.navigate("Economy")
   };
 

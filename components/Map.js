@@ -1,6 +1,8 @@
 import { StyleSheet, Text, View } from 'react-native'
 import React from 'react'
 import MapView, {Marker} from 'react-native-maps'
+import Drive from "../assets/icons/drive.svg"
+
 
 const Map = () => {
   return (
@@ -24,8 +26,9 @@ const Map = () => {
       title="Origin"
       identifier="origin"
   />
+  
 </MapView>
-
+  
 
   );
 };
