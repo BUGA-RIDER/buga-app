@@ -21,7 +21,7 @@ const DriverEnRoute = () => {
           <View style={{ height:"35%", }}>
           <Map/>
           </View>
-          <View style={{ height:"65%", backgroundColor:"white", borderTopEndRadius:30, borderTopStartRadius:30 }}>
+          <View style={{ height:"65%", backgroundColor:"white", borderTopLeftRadius:30, borderTopStartRadius:30 }}>
           <Stack.Navigator>
             <Stack.Screen
             name="EnRouteStack"
