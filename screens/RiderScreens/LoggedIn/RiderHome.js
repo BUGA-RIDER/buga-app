@@ -9,6 +9,7 @@ import RiderBottomMenu from '../../../components/RiderBottomMenu'
 import AsyncStorage from '@react-native-async-storage/async-storage'
 import { useNavigation } from '@react-navigation/core';
 import ScheduledRiderNav from '../../../components/ScheduledRiderNav'
+import FriendSplitFareModal from './FriendSplitFareModal'
 
 
 const RiderHome = () => {
@@ -28,7 +29,6 @@ const RiderHome = () => {
 
   const [ordernow, setOrdernow] = useState(true)
   const [scheduled, setScheduled] = useState(false)
-
 
 
 
@@ -99,12 +99,13 @@ const RiderHome = () => {
           marginBottom: 2,
           fontSize: 24
         }} />
-        <SubText text="Select Your ride" style={{
+        <SubText text="Select Your ridse" style={{
           color: "#A6A2A2",
           textAlign: "left",
           fontSize: 14
         }} />
       </View>
+      <FriendSplitFareModal/>
 
       { ordernow && <RiderSelectNav/>}
       { scheduled && <ScheduledRiderNav/>}
