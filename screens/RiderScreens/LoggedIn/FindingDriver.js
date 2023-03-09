@@ -16,7 +16,9 @@ const FindingDriver = () => {
   return (
     <View style={{
         marginTop:20,
-        alignItems:'center'
+        alignItems:'center',
+        backgroundColor:"white",
+  
     }}>
       <Text style={{
         fontFamily:"SatoshiMedium",

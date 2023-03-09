@@ -54,7 +54,7 @@ const ScheduledPackage = () => {
                 <HeadingText text={"Scheduled"} style={{fontSize:15,marginBottom:0}}/>
              </TouchableOpacity>
         </View>
-        <View style={{ height:"40%", backgroundColor:"white", borderTopEndRadius:30, borderTopStartRadius:30 }}>
+        <View style={{ height:"40%", backgroundColor:"white", borderTopEndRadius:30, borderTopStartRadius:30, }}>
         <Stack.Navigator>
           <Stack.Screen
           name="ScheduledSelectPackage"

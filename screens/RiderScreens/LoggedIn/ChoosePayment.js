@@ -15,6 +15,12 @@ const ChoosePayment = () => {
     const handleBack = () => {
         navigation.goBack();
     };
+    const handleFindDriver = ()=>{
+        navigation.navigate("SplitFare")
+      }
+
+    
+
     return (
         <SafeAreaView style={{
             flex: 1,
@@ -111,14 +117,14 @@ const ChoosePayment = () => {
 
 
 
-            <TouchableOpacity style={{ marginTop: 20, marginHorizontal: 25, borderRadius: 5, paddingVertical: 15, paddingHorizontal: 43, backgroundColor: "#FFCC2A", justifyContent: 'center' }} >
+            <TouchableOpacity style={{ marginTop: 20, marginHorizontal: 25, borderRadius: 5, paddingVertical: 15, paddingHorizontal: 43, backgroundColor: "#FFCC2A", justifyContent: 'center' }}  >
                 <Text style={{
                     fontFamily: "SatoshiBold",
                     fontSize: 17,
                     textAlign: 'center'
                 }} >Charge total amount from my wallet</Text>
             </TouchableOpacity>
-            <TouchableOpacity style={{ marginTop: 20, marginHorizontal: 25, borderRadius: 5, paddingVertical: 15, paddingHorizontal: 43, borderColor: "#FFCC2A", borderWidth: 1, justifyContent: 'center' }} >
+            <TouchableOpacity style={{ marginTop: 20, marginHorizontal: 25, borderRadius: 5, paddingVertical: 15, paddingHorizontal: 43, borderColor: "#FFCC2A", borderWidth: 1, justifyContent: 'center' }} onPress={handleFindDriver} >
                 <Text style={{
                     fontFamily: "SatoshiBold",
                     fontSize: 17,

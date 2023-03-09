@@ -10,7 +10,7 @@ const SelectDriverComponent = ({name, car, rating, numberRating, price,time, dis
   const navigation = useNavigation();
   
   const handleFindDriver = ()=>{
-    navigation.navigate("SplitFare")
+    navigation.navigate("ChoosePayment")
   }
   return (
     <View style={{marginBottom:10}}>
