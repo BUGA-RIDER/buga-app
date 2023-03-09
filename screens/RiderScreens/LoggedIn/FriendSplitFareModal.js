@@ -1,6 +1,6 @@
 import { Dimensions, Modal, StyleSheet, Text, TouchableOpacity, View } from 'react-native'
 import React, { useState } from 'react'
-import { HeadingText } from '../../../components/CustomTextComponent'
+import { HeadingText, SubText } from '../../../components/CustomTextComponent'
 import { Button } from '../../../components/Button';
 import From from '../../../assets/icons/from.svg'
 import To from '../../../assets/icons/to.svg'
@@ -115,12 +115,91 @@ const FriendSplitFareModal = ( ) => {
                 
             </View>
 
-            <View></View>
+            <HeadingText text={"Mon 22 Feb, 3:00 PM"} style={{
+                fontSize:16,
+                paddingHorizontal:10,
+                paddingVertical:12,
+                backgroundColor:"#FFCC2A",
+                alignSelf:"center",
+                borderRadius:5
+            }} />
 
-          <Button style={{
+            <Text  style={{
+                fontSize:20,
+                color:"#767272",
+                marginTop:24,
+                fontFamily:"SatoshiMedium",
+                textAlign:'center'
+            }}>Total ride fare</Text>
 
-          }} text={"Proceed"} />
+        <HeadingText text={"₦12000 "} style={{
+                fontSize:22,
+                marginTop:10
+            }} />
+
+            <Text  style={{
+                fontSize:20,
+                color:"#767272",
+                marginTop:24,
+                fontFamily:"SatoshiMedium",
+                textAlign:'center'
+            }}>You are to pay</Text>
+
+        <HeadingText text={"₦4000"} style={{
+                fontSize:22,
+                marginTop:10
+            }} />
+
+            
+      <View style={{
+        flexDirection:'row',
+        justifyContent:'space-between',
+        marginTop:18,
+        marginHorizontal:18
+      }}>
+          <TouchableOpacity style={{
+              paddingHorizontal:50,
+              paddingVertical:15,
+              backgroundColor:"#FFCC2A",
+              borderRadius:5
+          }}
+          onPress={handleCloseBottomSheet}
+          >
+              <Text style={{
+                  fontFamily:"SatoshiBold",
+                  fontSize:16,
+                  marginBottom:3,
+                  textAlign:'right'
+              }} >Accept</Text>
+              </TouchableOpacity>
+        <TouchableOpacity style={{
+            paddingHorizontal:50,
+            paddingVertical:15,
+            borderColor:"#FFCC2A",
+            borderWidth:1,
+            borderRadius:5
+        }}>
+            <Text style={{
+                fontFamily:"SatoshiBold",
+                fontSize:16,
+                marginBottom:3,
+                textAlign:'right'
+            }} >Decline</Text>
+            </TouchableOpacity>
+
+
       </View>
+      </View>
+      <Text style={{
+                fontFamily:"SatoshiBold",
+                fontSize:16,
+                marginBottom:3,
+                textAlign:'center'
+            }}  >3 mins <Text style={{
+                fontFamily:"SatoshiMedium",
+                fontSize:16,
+                marginBottom:3,
+            }} >left to accept or decline</Text></Text>
     </View>
   </Modal>
   )

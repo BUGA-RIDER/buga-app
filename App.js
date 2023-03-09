@@ -27,6 +27,7 @@ import SplitFare from './screens/RiderScreens/LoggedIn/SplitFare';
 import SplitOptions from './screens/RiderScreens/LoggedIn/SplitOptions';
 import SplitFarePayment from './screens/RiderScreens/LoggedIn/SplitFarePayment';
 import FindingDriver from './screens/RiderScreens/LoggedIn/FindingDriver';
+import PaymentSuccessful from './screens/LoadingScreens/PaymentSuccessful';
 
 
 
@@ -47,7 +48,7 @@ const App = () => {
   return ( 
     <NavigationContainer>
       <Stack.Navigator screenOptions = {{ headerShown: false }} 
-        initialRouteName = "RiderHome">
+        initialRouteName = "PaymentSuccessful">
           <Stack.Screen name = "Home" component ={Home}/>
           {/* driver screens */}
           <Stack.Screen name = "DriverOnboarding" component ={DriverOnboarding}/>
@@ -76,6 +77,7 @@ const App = () => {
           {/* loading screens */}
           <Stack.Screen name = "LoadingScreenOne" component ={LoadingScreenOne}/>
           <Stack.Screen name = "Successful" component ={Successful}/>
+          <Stack.Screen name = "PaymentSuccessful" component ={PaymentSuccessful}/>
           </Stack.Navigator>
     </NavigationContainer>
   );
