@@ -1,10 +1,12 @@
 import { Dimensions, Modal, StyleSheet, Text, TouchableOpacity, View } from 'react-native'
 import React, { useState } from 'react'
 import { HeadingText, SubText } from '../../../components/CustomTextComponent'
-import { Button } from '../../../components/Button';
+
 import Safety from '../../../assets/icons/safety.svg'
+import Security from '../../../assets/icons/security.svg'
 import To from '../../../assets/icons/to.svg'
 import Money from '../../../assets/icons/money.svg'
+import SafetyTipsComponent from '../../../components/SafetyTipsComponent'
 
 const SafetyTips = () => {
   // We need to get the height of the phone and use it relatively, 
@@ -12,7 +14,7 @@ const SafetyTips = () => {
   const windowHeight = Dimensions.get('window').height;
 
   // This state would determine if the drawer sheet is visible or not
-  const [isBottomSheetOpen, setIsBottomSheetOpen] = useState(false);
+  const [isBottomSheetOpen, setIsBottomSheetOpen] = useState(true);
 
   // Function to open the bottom sheet 
   const handleOpenBottomSheet = () => {
@@ -33,7 +35,7 @@ const SafetyTips = () => {
         // We pass our function as default function to close the Modal
         onRequestClose={handleCloseBottomSheet} >
 
-    <View style={[styles.bottomSheet, { height: windowHeight * 0.87 }]}>
+    <View style={[styles.bottomSheet, { height: windowHeight * 0.68 }]}>
 
       <View>
         <TouchableOpacity onPress={handleCloseBottomSheet}>
@@ -46,7 +48,13 @@ const SafetyTips = () => {
           marginBottom: 10,
           marginTop: 10,
         }} />
-              <Safety width={30} height={30} />
+            <View style={{
+                padding:12,
+                borderRadius:30,
+                backgroundColor:"#FFE79A"
+            }}>
+              <Security width={20} height={20} />
+              </View>
 
       </View>
         <View style={{
@@ -54,28 +62,15 @@ const SafetyTips = () => {
         height:1,
         backgroundColor:"#5C5C5C",
         opacity:0.3,
+        marginBottom:25
       }}/>
-      <View style={{
-        flexDirection:'row',
-        alignItems:'center',
-        marginTop: 23
-      }}>
-        <Safety/>
 
-      <View style={{
-        marginLeft:15
-      }}>
-        <Text style={{
-            fontFamily:"SatoshiBold",
-            fontSize:17
-        }} >Stay safe before the driver arrives</Text>
-        <Text  style={{
-            fontFamily:"SatoshiMedium",
-            fontSize:13,
-            color:"#A0A0A0"
-        }}  >Avoid dark allies and street corners especially at night.</Text>
-        </View>
-      </View>
+      <SafetyTipsComponent header={'Stay safe before the driver arrives'} icon={<Security/>} subText={"Avoid dark allies and street corners especially at night."} style={{ backgroundColor:"#C2D0FF" }} />
+      <SafetyTipsComponent header={'Double Check'} icon={<Security/>} subText={"Double car details and registration plate."} style={{ backgroundColor:"#FFC1C1" }}  />
+      <SafetyTipsComponent header={'Driver Identity'} icon={<Security/>} subText={"Ensure that the person behind the wheel is the same as on the profile."}  style={{ backgroundColor:"#DAFFB5" }} />
+      <SafetyTipsComponent header={'Buckle In'} icon={<Security/>} subText={"Ensure that your seatbelt is fastened throughout the ride."}  style={{ backgroundColor:"#FFE79A" }} />
+      <SafetyTipsComponent header={'Keep Loved Ones in the Loop'} icon={<Security/>} subText={"Share your trip details with loved ones so that they can keep track of your journey."}  style={{ backgroundColor:"#FFB89A" }} />
+      <SafetyTipsComponent header={'Our in-app Safety & Security Features'} icon={<Security/>} subText={"Ensure that your "}  style={{ backgroundColor:"#E59AFF" }} />
       </View>
   </Modal>
   )
