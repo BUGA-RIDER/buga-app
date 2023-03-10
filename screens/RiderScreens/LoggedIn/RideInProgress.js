@@ -5,16 +5,18 @@ import Name from '../../../assets/icons/name.svg'
 import Star from '../../../assets/icons/star.svg'
 import Money from '../../../assets/icons/money.svg'
 import From from '../../../assets/icons/from.svg'
-import Chat from '../../../assets/icons/chat.svg'
-import Phone from '../../../assets/icons/Phone_Icon.svg'
-import Safety from '../../../assets/icons/safety.svg'
-import Return from '../../../assets/icons/return.svg'
 import Cancel from '../../../assets/icons/cancel.svg'
 import Greencheck from '../../../assets/icons/greencheck.svg'
 import { useNavigation } from '@react-navigation/core';
-import SafetyTips from './SafetyTips'
+
 
 const RideInProgress = () => {
+
+    const navigation = useNavigation();
+  
+    const handleNext = ()=>{
+      navigation.navigate('RiderArrivedStack')
+  }
   return (
     <View style={{flex:1, backgroundColor:"white", borderTopLeftRadius:50, borderTopRightRadius:50}}>
       <View style={{
@@ -160,12 +162,12 @@ const RideInProgress = () => {
                           }} >₦4600</Text>
                 </View>  
             </View>
-            <TouchableOpacity style={{
+            <TouchableOpacity onPress={handleNext} style={{
                 flexDirection:'row',
                 justifyContent:'center',
                 alignSelf:'center',
                 alignItems:'center',
-                marginTop:30,
+                marginTop:10,
                 padding:15,
                 borderColor:"red",
                 borderWidth:2,

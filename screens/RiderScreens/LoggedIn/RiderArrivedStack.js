@@ -4,16 +4,10 @@ import Economy from "../../../assets/icons/Economy.svg";
 import Name from "../../../assets/icons/name.svg";
 import Star from "../../../assets/icons/star.svg";
 import Money from "../../../assets/icons/money.svg";
-import From from "../../../assets/icons/from.svg";
-import Chat from "../../../assets/icons/chat.svg";
-import Phone from "../../../assets/icons/Phone_Icon.svg";
-import Safety from "../../../assets/icons/safety.svg";
-import Return from "../../../assets/icons/return.svg";
-import Cancel from "../../../assets/icons/cancel.svg";
+import Greencheck from "../../../assets/icons/greencheck.svg";
 import { useNavigation } from "@react-navigation/core";
-import SafetyTips from "./SafetyTips";
 
-const DriverArrivedStack = () => {
+const RiderArrivedStack = () => {
   const navigation = useNavigation();
 
   const handleNext = () => {
@@ -30,43 +24,23 @@ const DriverArrivedStack = () => {
     >
       <View
         style={{
-          flexDirection: "row",
-          alignItems: "center",
-          justifyContent: "space-between",
           paddingHorizontal: 40,
           paddingVertical: 20,
-          borderTopLeftRadius: 50,
-          borderTopRightRadius: 50,
-          backgroundColor: "#FFF7DD",
+          borderTopLeftRadius: 25,
+          borderTopRightRadius: 25,
+          backgroundColor: "#0C973A",
         }}
       >
         <Text
           style={{
             fontFamily: "SatoshiBold",
-            fontSize: 22,
+            fontSize: 16,
+            textAlign: "center",
+            color: "#FFFFFF",
           }}
         >
-          Taiwo has arrived!
+          You’ve arrrived at your destination!
         </Text>
-        <View
-          style={{
-            alignSelf: "flex-end",
-            paddingVertical: 10,
-            paddingHorizontal: 15,
-
-            shadowOffset: {
-              height: 5,
-              width: 5,
-            },
-            shadshadowowOpacity: 0.2,
-            shadowRadius: 15.84,
-            elevation: 3,
-            backgroundColor: "#fff", // add a background color for the shadow
-            Color: "#000",
-          }}
-        >
-          <Safety width={30} height={30} />
-        </View>
       </View>
       <View
         style={{
@@ -175,7 +149,6 @@ const DriverArrivedStack = () => {
       <View
         style={{
           marginTop: 30,
-
           marginBottom: 12,
           borderRadius: 10,
           marginHorizontal: 18,
@@ -189,35 +162,79 @@ const DriverArrivedStack = () => {
             paddingVertical: 10,
           }}
         >
-          <From />
+          <Greencheck />
+
           <Text
             style={{
               fontFamily: "SatoshiMedium",
               fontSize: 15,
               paddingLeft: 13,
+              lineHeight:20
             }}
           >
-            Covenant University
+            {" "}
+            <Text style={{ color: "#9B9B9B" }}>Pickup from</Text> University
           </Text>
         </View>
         <View
           style={{
             flexDirection: "row",
-            alignItems: "flex-end",
+            alignItems: "center",
             paddingLeft: 21,
             paddingVertical: 10,
           }}
         >
-          <From />
-          <Text
+          <Greencheck />
+
+          <View
             style={{
-              fontFamily: "SatoshiMedium",
-              fontSize: 15,
-              paddingLeft: 13,
+              marginLeft: 13,
             }}
           >
-            46, Ogundiran street, Agege, Lagos
-          </Text>
+            <Text
+              style={{
+                fontFamily: "SatoshiMedium",
+                fontSize: 15,
+                marginRight: 25,
+                textAlign: "left",
+                lineHeight:20
+              }}
+            >
+              {" "}
+              <Text style={{ color: "#9B9B9B" }}>Stop at</Text> Plot 47 Ogombo
+              rd, Abraham Adesanya, Lagos
+            </Text>
+          </View>
+        </View>
+        <View
+          style={{
+            flexDirection: "row",
+            alignItems: "center",
+            paddingLeft: 21,
+            paddingVertical: 10,
+          }}
+        >
+          <Greencheck />
+
+          <View
+            style={{
+              marginLeft: 13,
+            }}
+          >
+            <Text
+              style={{
+                fontFamily: "SatoshiMedium",
+                fontSize: 15,
+                marginRight: 25,
+                textAlign: "left",
+                lineHeight:20
+              }}
+            >
+              {" "}
+              <Text style={{ color: "#9B9B9B" }}>Dropoff at</Text> Plot 47 Ogombo
+              rd, Abraham Adesanya, Lagos
+            </Text>
+          </View>
         </View>
 
         <View
@@ -232,7 +249,7 @@ const DriverArrivedStack = () => {
             flexDirection: "row",
             justifyContent: "space-between",
             marginHorizontal: 25,
-            marginTop: 15,
+            marginTop: 25,
             marginBottom: 22,
           }}
         >
@@ -258,156 +275,10 @@ const DriverArrivedStack = () => {
           </Text>
         </View>
       </View>
-
-      <View
-        style={{
-          flexDirection: "row",
-          marginHorizontal: 50,
-          justifyContent: "space-between",
-          marginTop: 25,
-        }}
-      >
-        <View style={{ alignItems: "center" }}>
-          <View
-            style={{
-              padding: 12,
-              backgroundColor: "#EFEDED",
-              borderRadius: 25,
-            }}
-          >
-            <Chat />
-          </View>
-          <Text
-            style={{
-              fontFamily: "SatoshiMedium",
-              fontSize: 12,
-              textAlign: "center",
-            }}
-          >
-            Message
-          </Text>
-          <Text
-            style={{
-              fontFamily: "SatoshiMedium",
-              fontSize: 12,
-              textAlign: "center",
-            }}
-          >
-            Driver
-          </Text>
-        </View>
-        <View style={{ alignItems: "center" }}>
-          <View
-            style={{
-              padding: 12,
-              backgroundColor: "#EFEDED",
-              borderRadius: 25,
-            }}
-          >
-            <Phone />
-          </View>
-          <Text
-            style={{
-              fontFamily: "SatoshiMedium",
-              fontSize: 12,
-              textAlign: "center",
-            }}
-          >
-            Contact
-          </Text>
-          <Text
-            style={{
-              fontFamily: "SatoshiMedium",
-              fontSize: 12,
-              textAlign: "center",
-            }}
-          >
-            Driver
-          </Text>
-        </View>
-        <TouchableOpacity style={{ alignItems: "center" }}>
-          <View
-            style={{
-              padding: 12,
-              backgroundColor: "#EFEDED",
-              borderRadius: 25,
-            }}
-          >
-            <Safety />
-          </View>
-          <Text
-            style={{
-              fontFamily: "SatoshiMedium",
-              fontSize: 12,
-              textAlign: "center",
-            }}
-          >
-            Safety
-          </Text>
-          <Text
-            style={{
-              fontFamily: "SatoshiMedium",
-              fontSize: 12,
-              textAlign: "center",
-            }}
-          >
-            Tips
-          </Text>
-        </TouchableOpacity>
-        <SafetyTips />
-        <View style={{ alignItems: "center" }}>
-          <View
-            style={{
-              padding: 12,
-              backgroundColor: "#EFEDED",
-              borderRadius: 25,
-            }}
-          >
-            <Return />
-          </View>
-          <Text
-            style={{
-              fontFamily: "SatoshiMedium",
-              fontSize: 12,
-              textAlign: "center",
-            }}
-          >
-            Share Ride
-          </Text>
-          <Text
-            style={{
-              fontFamily: "SatoshiMedium",
-              fontSize: 12,
-              textAlign: "center",
-            }}
-          >
-            Details
-          </Text>
-        </View>
-      </View>
-      <TouchableOpacity
-        style={{
-          flexDirection: "row",
-          justifyContent: "center",
-          alignItems: "center",
-          marginTop: 30,
-        }}
-      >
-        <Cancel />
-        <Text
-          style={{
-            fontFamily: "SatoshiMedium",
-            fontSize: 12,
-            textAlign: "center",
-          }}
-        >
-          Cancel Trip
-        </Text>
-      </TouchableOpacity>
     </View>
   );
 };
 
-export default DriverArrivedStack;
+export default RiderArrivedStack;
 
 const styles = StyleSheet.create({});
