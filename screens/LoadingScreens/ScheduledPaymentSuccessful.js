@@ -14,7 +14,7 @@ const ScheduledPaymentSuccessful = () => {
     const navigation = useNavigation()
 
     const handleHome = ()=>{
-      navigation.navigate('DriverHome')
+      navigation.navigate('DriverEnRoute')
     }
   
     return (
@@ -195,7 +195,7 @@ const ScheduledPaymentSuccessful = () => {
               backgroundColor:"#FFCC2A",
               borderRadius:5
           }}
-
+          onPress={handleHome}
           >
               <Text style={{
                   fontFamily:"SatoshiBold",

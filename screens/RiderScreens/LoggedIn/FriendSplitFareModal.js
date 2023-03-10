@@ -5,8 +5,12 @@ import { Button } from '../../../components/Button';
 import From from '../../../assets/icons/from.svg'
 import To from '../../../assets/icons/to.svg'
 import Money from '../../../assets/icons/money.svg'
+import { useNavigation } from '@react-navigation/core';
+
 
 const FriendSplitFareModal = ( ) => {
+    const navigation = useNavigation();
+
 
     // We need to get the height of the phone and use it relatively, 
   // This is because height of phones vary
@@ -18,6 +22,9 @@ const FriendSplitFareModal = ( ) => {
   // Function to open the bottom sheet 
   const handleOpenBottomSheet = () => {
     setIsBottomSheetOpen(true);
+  };
+  const handleAccept = () => {
+    navigation.navigate("PaymentSuccessful");
   };
 
     // Function to close the bottom sheet
@@ -163,7 +170,7 @@ const FriendSplitFareModal = ( ) => {
               backgroundColor:"#FFCC2A",
               borderRadius:5
           }}
-          onPress={handleCloseBottomSheet}
+         onPress={handleAccept}
           >
               <Text style={{
                   fontFamily:"SatoshiBold",
@@ -172,7 +179,7 @@ const FriendSplitFareModal = ( ) => {
                   textAlign:'right'
               }} >Accept</Text>
               </TouchableOpacity>
-        <TouchableOpacity style={{
+        <TouchableOpacity  onPress={handleCloseBottomSheet} style={{
             paddingHorizontal:50,
             paddingVertical:15,
             borderColor:"#FFCC2A",

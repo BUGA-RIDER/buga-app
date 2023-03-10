@@ -39,14 +39,6 @@ const DriverEnRoute = () => {
             }}
             >
             </Stack.Screen>
-            <Stack.Screen
-            name="FindingDriver"
-            component={FindingDriver}
-            options={{
-              headerShown: false,
-            }}
-            >
-            </Stack.Screen>
             </Stack.Navigator>
           </View>
       </View>

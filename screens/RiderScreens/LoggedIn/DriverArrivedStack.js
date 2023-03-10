@@ -11,6 +11,7 @@ import Safety from '../../../assets/icons/safety.svg'
 import Return from '../../../assets/icons/return.svg'
 import Cancel from '../../../assets/icons/cancel.svg'
 import { useNavigation } from '@react-navigation/core';
+import SafetyTips from './SafetyTips'
 
 const DriverArrivedStack = () => {
     const navigation = useNavigation();
@@ -203,7 +204,7 @@ return (
                         textAlign:'center',
                     }}>Driver</Text>
                 </View>
-                <View style={{alignItems:'center',}}>
+                <TouchableOpacity style={{alignItems:'center',}}>
                     <View style={{padding:12, backgroundColor:"#EFEDED", borderRadius:25}}>
                     <Safety/>
                     </View>
@@ -217,7 +218,8 @@ return (
                         fontSize:12,
                         textAlign:'center',
                     }}>Tips</Text>
-                </View>
+                </TouchableOpacity>
+                <SafetyTips/>
                 <View style={{alignItems:'center',}}>
                     <View style={{padding:12, backgroundColor:"#EFEDED", borderRadius:25}}>
                     <Return/>

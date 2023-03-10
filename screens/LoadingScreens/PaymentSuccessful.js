@@ -9,7 +9,7 @@ const PaymentSuccessful = () => {
     const navigation = useNavigation()
 
     const handleHome = ()=>{
-      navigation.navigate('DriverHome')
+      navigation.navigate('ScheduledPaymentSuccessful')
     }
   
     return (
