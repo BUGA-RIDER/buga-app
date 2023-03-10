@@ -11,7 +11,7 @@ const RiderArrivedStack = () => {
   const navigation = useNavigation();
 
   const handleNext = () => {
-    navigation.navigate("DriverArrivedStack");
+    navigation.navigate("CashDue");
   };
   return (
     <View
@@ -253,7 +253,7 @@ const RiderArrivedStack = () => {
             marginBottom: 22,
           }}
         >
-          <View style={{ flexDirection: "row", alignItems: "center" }}>
+          <TouchableOpacity onPress={handleNext} style={{ flexDirection: "row", alignItems: "center" }}>
             <Money />
             <Text
               style={{
@@ -264,7 +264,7 @@ const RiderArrivedStack = () => {
             >
               Cash
             </Text>
-          </View>
+          </TouchableOpacity>
           <Text
             style={{
               fontFamily: "SatoshiBold",
