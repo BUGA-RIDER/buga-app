@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { View, TouchableOpacity, StyleSheet } from 'react-native';
+import { View, TouchableOpacity, StyleSheet, Text } from 'react-native';
 import { Image, Svg } from 'react-native-svg';
 import Star from "../assets/icons/bigStar.svg"
 import StarOutline from "../assets/icons/bigStarOutline.svg"
@@ -17,7 +17,7 @@ const RatingStars = ( { rating, setRating } ) => {
       index + 1 <= filledStars ? <Star/> : <StarOutline/> ;
     return (
       <TouchableOpacity key={index} onPress={() => onStarPress(index)}>
-        <Svg style={styles.star}>{imageSource}</Svg>
+        <Svg>{imageSource}</Svg>
       </TouchableOpacity>
     );
   };
@@ -36,6 +36,5 @@ const styles = StyleSheet.create({
         flexDirection: 'row',
         justifyContent: 'space-between',
       },
-      star: {
-      },
+    
 })

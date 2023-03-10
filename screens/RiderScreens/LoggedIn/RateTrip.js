@@ -78,7 +78,12 @@ const RateTrip = () => {
             padding:20
           }}>
         <RatingStars rating={rating} setRating={setRating} />
-        </View>
+           </View>
+           <SubText text={"Rate your experience with the driver"}  style={{fontSize:14, color:"#B3B3B3"}} />
+          <Text>dsjjsbfsjh</Text>
+          <Text>dsjjsbfsjh</Text>
+          <Text>dsjjsbfsjh</Text>
+          <Text>dsjjsbfsjh</Text>
       </View>
     </Modal>
   );
