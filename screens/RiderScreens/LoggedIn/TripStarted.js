@@ -4,21 +4,21 @@ import Map from '../../../components/Map'
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import EnRouteStack from './EnRouteStack'
 import DriverArrivedStack from './DriverArrivedStack'
+import RideInProgress from './RideInProgress';
 
-
-const DriverEnRoute = () => {
+const TripStarted = () => {
     const Stack = createNativeStackNavigator();
 
     return (
       <View>
-          <View style={{ height:"35%", }}>
+          <View style={{ height:"45%", }}>
           <Map/>
           </View>
-          <View style={{ height:"65%", backgroundColor:"white", borderTopLeftRadius:30, borderTopStartRadius:30 }}>
+          <View style={{ height:"55%", backgroundColor:"white", borderTopLeftRadius:30, borderTopStartRadius:30 }}>
           <Stack.Navigator>
             <Stack.Screen
-            name="EnRouteStack"
-            component={EnRouteStack}
+            name="RideInProgress"
+            component={RideInProgress}
             options={{
               headerShown: false,
             }}
@@ -38,6 +38,6 @@ const DriverEnRoute = () => {
     )
 }
 
-export default DriverEnRoute
+export default TripStarted
 
 const styles = StyleSheet.create({})

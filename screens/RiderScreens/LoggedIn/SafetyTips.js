@@ -14,7 +14,7 @@ const SafetyTips = () => {
   const windowHeight = Dimensions.get('window').height;
 
   // This state would determine if the drawer sheet is visible or not
-  const [isBottomSheetOpen, setIsBottomSheetOpen] = useState(true);
+  const [isBottomSheetOpen, setIsBottomSheetOpen] = useState(false);
 
   // Function to open the bottom sheet 
   const handleOpenBottomSheet = () => {

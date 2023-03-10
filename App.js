@@ -31,6 +31,7 @@ import PaymentSuccessful from './screens/LoadingScreens/PaymentSuccessful';
 import ScheduledPaymentSuccessful from './screens/LoadingScreens/ScheduledPaymentSuccessful';
 import DraggableBottomSheet from './screens/RiderScreens/LoggedIn/DraggableBottomSheet';
 import DriverEnRoute from './screens/RiderScreens/LoggedIn/DriverEnRoute';
+import TripStarted from './screens/RiderScreens/LoggedIn/TripStarted';
 
 
 
@@ -51,7 +52,7 @@ const App = () => {
   return ( 
     <NavigationContainer>
       <Stack.Navigator screenOptions = {{ headerShown: false }} 
-        initialRouteName = "DriverEnRoute">
+        initialRouteName = "TripStarted">
           <Stack.Screen name = "Home" component ={Home}/>
           {/* driver screens */}
           <Stack.Screen name = "DriverOnboarding" component ={DriverOnboarding}/>
@@ -78,6 +79,7 @@ const App = () => {
           <Stack.Screen name = "SplitOptions" component ={SplitOptions}/>
           <Stack.Screen name = "SplitFarePayment" component ={SplitFarePayment}/>
           <Stack.Screen name = "DriverEnRoute" component ={DriverEnRoute}/>
+          <Stack.Screen name = "TripStarted" component ={TripStarted}/>
           {/* loading screens */}
           <Stack.Screen name = "LoadingScreenOne" component ={LoadingScreenOne}/>
           <Stack.Screen name = "Successful" component ={Successful}/>
