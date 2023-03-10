@@ -9,7 +9,7 @@ const CashDue = () => {
     const navigation = useNavigation();
 
     const handleNext = () => {
-      navigation.navigate("DriverArrivedStack");
+      navigation.navigate("RateTrip");
     };
     return (
       <View
@@ -48,7 +48,7 @@ const CashDue = () => {
             opacity: 0.3,
           }}
         />
-        <View style={{
+        <TouchableOpacity onPress={handleNext} style={{
             alignSelf:"center",
             alignItems:"center",
             marginTop:70
@@ -59,7 +59,7 @@ const CashDue = () => {
                 fontSize:32,
                 margin:0
             }} />
-        </View>
+        </TouchableOpacity>
       </View>
     );
 }
