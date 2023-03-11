@@ -2,7 +2,6 @@ import { Dimensions, Modal, StyleSheet, Text, TouchableOpacity, View } from 'rea
 import React, { useState } from 'react'
 import { HeadingText, SubText } from '../../../components/CustomTextComponent'
 
-import Safety from '../../../assets/icons/safety.svg'
 import Security from '../../../assets/icons/security.svg'
 import To from '../../../assets/icons/to.svg'
 import Money from '../../../assets/icons/money.svg'
@@ -14,7 +13,7 @@ const SafetyTips = () => {
   const windowHeight = Dimensions.get('window').height;
 
   // This state would determine if the drawer sheet is visible or not
-  const [isBottomSheetOpen, setIsBottomSheetOpen] = useState(false);
+  const [isBottomSheetOpen, setIsBottomSheetOpen] = useState(true);
 
   // Function to open the bottom sheet 
   const handleOpenBottomSheet = () => {
